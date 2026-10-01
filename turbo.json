@@ -4,6 +4,15 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "//#lint": {},
+    "//#lint:fix": {
+      "cache": false
+    },
+    "//#format": {},
+    "//#format:fix": {
+      "dependsOn": ["//#lint:fix"],
+      "cache": false
     }
   }
 }

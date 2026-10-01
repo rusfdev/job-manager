@@ -2,9 +2,15 @@
   "name": "job-manager",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt --check",
+    "format:fix": "oxfmt ."
   },
   "devDependencies": {
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
     "turbo": "^2.11.5",
     "typescript": "7.0.2"
   },

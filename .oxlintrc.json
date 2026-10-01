@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "promise", "node"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-var": "error",
+    "eqeqeq": "error",
+    "prefer-const": "error",
+    "import/no-cycle": ["error", { "maxDepth": 3 }],
+    "import/no-duplicates": "error",
+    "typescript/consistent-type-imports": "error"
+  },
+  "env": {
+    "builtin": true
+  }
+}
