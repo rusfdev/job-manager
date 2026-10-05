@@ -16,5 +16,14 @@
   },
   "env": {
     "builtin": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["apps/api/**"],
+      "rules": {
+        "typescript/consistent-type-imports": "off",
+        "typescript/no-extraneous-class": ["error", { "allowWithDecorator": true }]
+      }
+    }
+  ]
 }

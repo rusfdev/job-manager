@@ -5,6 +5,9 @@
       "cache": false,
       "persistent": true
     },
+    "check-types": {
+      "dependsOn": ["^build"]
+    },
     "//#lint": {},
     "//#lint:fix": {
       "cache": false
