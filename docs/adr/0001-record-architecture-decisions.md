@@ -1,11 +1,13 @@
 # 0001. Record architecture decisions
 
 ## Status
+
 accepted
 
 Date: 2026-10-10
 
 ## Context
+
 The project is a monorepo being built from scratch. Decisions about repository
 layout, stack, storage and testing are being made now and will be hard to
 reconstruct later. Both the author and AI agents working in this repository
@@ -13,6 +15,7 @@ need a single place to learn what was decided and why, and a rule for what
 happens when a decision no longer holds.
 
 ## Considered Options
+
 - No formal record, decisions live in commit messages and chat history —
   no overhead, but the rationale is lost and agents cannot discover it.
 - Architecture Decision Records (ADR), one file per decision — small, fixed
@@ -22,6 +25,7 @@ happens when a decision no longer holds.
   changes and the reasoning behind reversals is lost on every edit.
 
 ## Decision
+
 Keep ADRs in `docs/adr/`, one file per decision, 40–70 lines each.
 
 File name: a zero-padded sequence number and a present-tense imperative
@@ -40,6 +44,7 @@ data schema or API, and must propose a draft ADR before introducing a new
 architectural decision.
 
 ## Consequences
+
 - Easier: onboarding of agents and future self, reviewing why something is
   the way it is, spotting a task that contradicts an accepted decision.
 - Harder: every significant decision costs a short document; the list of

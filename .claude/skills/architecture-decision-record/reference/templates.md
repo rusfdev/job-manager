@@ -36,9 +36,9 @@ choice was between several concrete options and the pros/cons matter.
 ```md
 # [short title of solved problem and solution]
 
-* Status: [proposed | rejected | accepted | deprecated | superseded by ADR-xxxx] <!-- optional -->
-* Deciders: [list everyone involved in the decision] <!-- optional -->
-* Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
+- Status: [proposed | rejected | accepted | deprecated | superseded by ADR-xxxx] <!-- optional -->
+- Deciders: [list everyone involved in the decision] <!-- optional -->
+- Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
 
 Technical Story: [description | ticket/issue URL] <!-- optional -->
 
@@ -49,14 +49,14 @@ You may want to phrase the problem as a question.]
 
 ## Decision Drivers <!-- optional -->
 
-* [driver 1, e.g. a force, facing concern, …]
-* [driver 2]
+- [driver 1, e.g. a force, facing concern, …]
+- [driver 2]
 
 ## Considered Options
 
-* [option 1]
-* [option 2]
-* [option 3]
+- [option 1]
+- [option 2]
+- [option 3]
 
 ## Decision Outcome
 
@@ -65,27 +65,27 @@ meets a must-have criterion | comes out best in the comparison below].
 
 ### Positive Consequences <!-- optional -->
 
-* [e.g. improvement of a quality attribute, follow-up decisions required, …]
+- [e.g. improvement of a quality attribute, follow-up decisions required, …]
 
 ### Negative Consequences <!-- optional -->
 
-* [e.g. compromises a quality attribute, follow-up decisions required, …]
+- [e.g. compromises a quality attribute, follow-up decisions required, …]
 
 ## Pros and Cons of the Options <!-- optional -->
 
 ### [option 1]
 
-* Good, because [argument a]
-* Bad, because [argument c]
+- Good, because [argument a]
+- Bad, because [argument c]
 
 ### [option 2]
 
-* Good, because [argument a]
-* Bad, because [argument c]
+- Good, because [argument a]
+- Bad, because [argument c]
 
 ## Links <!-- optional -->
 
-* [Link type] [Link to ADR] <!-- e.g. Refined by ADR-0005 -->
+- [Link type] [Link to ADR] <!-- e.g. Refined by ADR-0005 -->
 ```
 
 ## Tyree & Akerman (enterprise, traceability-heavy)
@@ -96,25 +96,25 @@ Use when the decision must trace to requirements, principles, and other
 decisions in a larger governance process.
 
 ```md
-* **Issue**: The architectural design issue being addressed, leaving no
+- **Issue**: The architectural design issue being addressed, leaving no
   question of why it's being addressed now.
-* **Decision**: The architecture's direction — the position selected.
-* **Status**: pending | decided | approved
-* **Group**: A simple grouping (integration, presentation, data, …) to
+- **Decision**: The architecture's direction — the position selected.
+- **Status**: pending | decided | approved
+- **Group**: A simple grouping (integration, presentation, data, …) to
   organize the set of decisions.
-* **Assumptions**: The underlying assumptions in the decision environment —
+- **Assumptions**: The underlying assumptions in the decision environment —
   cost, schedule, technology, etc.
-* **Constraints**: Any additional constraints the chosen alternative poses.
-* **Positions**: The positions (viable options/alternatives) considered.
-* **Argument**: Why this position was selected — cost, time to market,
+- **Constraints**: Any additional constraints the chosen alternative poses.
+- **Positions**: The positions (viable options/alternatives) considered.
+- **Argument**: Why this position was selected — cost, time to market,
   resource availability, etc.
-* **Implications**: What this decision requires next — new requirements,
+- **Implications**: What this decision requires next — new requirements,
   renegotiated scope, staff training, other decisions triggered.
-* **Related decisions**: Other decisions this one relates to.
-* **Related requirements**: The requirements/objectives this decision maps to.
-* **Related artifacts**: Architecture, design, or scope docs this impacts.
-* **Related principles**: Which agreed-upon enterprise principles this aligns with.
-* **Notes**: Notes and issues raised during the socialization process.
+- **Related decisions**: Other decisions this one relates to.
+- **Related requirements**: The requirements/objectives this decision maps to.
+- **Related artifacts**: Architecture, design, or scope docs this impacts.
+- **Related principles**: Which agreed-upon enterprise principles this aligns with.
+- **Notes**: Notes and issues raised during the socialization process.
 ```
 
 ## ITD — Important Technical Decision (lean, executive-fast)
@@ -154,19 +154,25 @@ Emphasizes building a case for a decision: criteria, candidates, and costs.
 
 ```md
 # Title
+
 (a short present-tense imperative phrase, < 50 chars, like a git commit message)
 
 ## Status
+
 proposed | accepted | rejected | deprecated | superseded
 
 ## Evaluation criteria
+
 What are we seeking to discover, and why? Be specific.
 
 ## Candidates to consider
+
 How were candidates discovered? List all candidates and related options.
 
 ## Research and analysis of each candidate
+
 For each candidate:
+
 - Does/doesn't meet criteria, and why
 - Cost analysis (licensing, training, operating, metering)
 - SWOT analysis (strengths, weaknesses, opportunities, threats)
@@ -175,6 +181,7 @@ For each candidate:
   the winner has performed since, what they'd advise differently now)
 
 ## Recommendation
+
 State the recommendation and the specifics behind it.
 ```
 
@@ -238,37 +245,48 @@ Use when contributing to an EdgeX-style project.
 # Architecture Decision Record (ADR) template
 
 ### Submitters
+
 - Name (Organization)
 
 ## Change Log
+
 State is one of: pending, approved, amended, deprecated.
+
 - [Status](URL of pull request) YYYY-MM-DD
 
 ## Referenced Use Case(s)
+
 At least one relevant, approved use case.
+
 - [Use Case Name](URL)
 
 ## Context
+
 - How is the design architecturally significant enough to warrant an ADR
   (versus a simple issue + PR)?
 - The high-level design approach (details in Proposed Design below).
 
 ## Proposed Design
+
 - Services/modules impacted, added
 - Model/DTO impact, API impact, config impact, devops impact
 
 ## Considerations
+
 Alternatives, concerns, related issues, questions raised in debate, and how
 (if) they were resolved.
 
 ## Decision
+
 Agreed-upon implementation details, caveats, future considerations,
 deferred issues. Note any requirements not satisfied by the proposed design.
 
 ## Other Related ADRs
+
 - [ADR Title](URL) — relevance
 
 ## References
+
 - [Title](URL)
 ```
 
@@ -294,18 +312,23 @@ Numbered ADR with a visual, at-a-glance options comparison.
 ## Status - DRAFT / ACTIVE / DEPRECATED by [000] / SUPERSEDES [000]
 
 ## Context
+
 Briefly describe the problem(s) this ADR addresses, and why they exist.
 
 ## Decided Approach
+
 The architecturally significant decision made, and how it addresses Context.
 
 ## Consequences
+
 Impact on architecture characteristics and functional requirements.
 
 ## Governance
+
 How will outcomes be monitored? How will compliance be ensured?
 
 ## Options Analysis
+
 Trade-off analysis across options — optionally a table per option scored
 red/amber/green against ease of implementation, timescales, strategic value,
 functional fit, and non-functional fit (scalability, performance,
@@ -321,28 +344,36 @@ availability, etc.).
 **Updated**: {YYYY-MM-DD}
 
 ## Summary
+
 2-4 sentences: the core problem/question/opportunity and a hint at the decision.
 
 ## Drivers
+
 Why this decision, why now — the motivations/needs/problems.
 
 ## Options
+
 For each option considered (even rejected ones): description, facts, links.
 
 ## Options Analysis
+
 For each option: Pro / Con / Other statements, tied back to the Drivers.
 
 ## Recommendation
+
 The final decision, the option chosen, and why — tie back to the Drivers.
 
 ### Consequences (optional)
+
 Expected outcomes, both positive and negative; known limitations/costs/risks
 accepted.
 
 ### Confirmation (optional)
+
 How implementation will be verified and compliance maintained over time —
 reviews, tests, metrics, who owns follow-up.
 
 ## More Information (optional)
+
 Supporting links, who was involved, when to re-evaluate.
 ```

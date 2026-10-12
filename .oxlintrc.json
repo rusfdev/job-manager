@@ -10,7 +10,12 @@
     "no-var": "error",
     "eqeqeq": "error",
     "prefer-const": "error",
-    "import/no-cycle": ["error", { "maxDepth": 3 }],
+    "import/no-cycle": [
+      "error",
+      {
+        "maxDepth": 3
+      }
+    ],
     "import/no-duplicates": "error",
     "typescript/consistent-type-imports": "error"
   },
@@ -22,7 +27,18 @@
       "files": ["apps/api/**"],
       "rules": {
         "typescript/consistent-type-imports": "off",
-        "typescript/no-extraneous-class": ["error", { "allowWithDecorator": true }]
+        "typescript/no-extraneous-class": [
+          "error",
+          {
+            "allowWithDecorator": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["packages/contracts/src/index.ts"],
+      "rules": {
+        "unicorn/require-module-specifiers": "off"
       }
     }
   ]

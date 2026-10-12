@@ -26,7 +26,7 @@
 
 ## Writing the Consequences section
 
-- Cover what becomes easier *and* what becomes harder.
+- Cover what becomes easier _and_ what becomes harder.
 - Call out any subsequent ADRs this decision now requires — one ADR often
   triggers the need for more, e.g. a big overarching choice creating the
   need for several smaller follow-on decisions.
@@ -37,10 +37,12 @@
 ## Deciding whether a decision needs an ADR at all
 
 Justifies raising one:
+
 - Future developers will need to understand the "why" of what's being done.
 - The decision is architecturally significant, cross-team, or hard to reverse.
 
 Justifies skipping one:
+
 - The decision isn't architectural, or is tiny (minimal-risk,
   self-contained, single-developer).
 - It's already fully covered by an existing standard/policy/doc.
@@ -52,6 +54,7 @@ A common shape: **Initiating → Researching → Evaluating → Implementing →
 Maintaining → Sunsetting.**
 
 Useful acceptance-criteria questions to gate moving between stages:
+
 - Is the problem clearly articulated?
 - Have the alternatives actually been considered?
 - Are trade-offs well understood and documented?
