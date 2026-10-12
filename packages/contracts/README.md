@@ -12,10 +12,11 @@ The only runtime dependency is `zod`.
 - Request body: `Dto` suffix. `CreatePostDtoSchema` → `CreatePostDto`.
 - Query parameters: `Query` suffix, named by action.
   `GetPostListQuerySchema` → `GetPostListQuery`.
-- Identifiers are branded: `PostIdSchema = z.uuid().brand("PostId")` →
-  `PostId`. Never a plain `string` or `number`.
-- Derived schemas come from the entity schema via `pick`, `omit`,
-  `partial`, `extend`.
+- Primitives with domain meaning are branded, identifiers first of all:
+  `PostIdSchema = z.uuid().brand("PostId")` → `PostId`. A domain value is
+  never a plain `string` or `number`.
+- Derived schemas come from the entity schema via `omit`, `partial`,
+  `extend`.
 - Names use the entity in singular
   ([ADR 0003](../../docs/adr/0003-name-code-by-domain-in-singular.md)).
 - One entity, one file: `src/<entity>/<entity>.schema.ts`.
@@ -30,6 +31,7 @@ The only runtime dependency is `zod`.
 import { z } from "zod";
 
 export const PostIdSchema = z.uuid().brand("PostId");
+
 export type PostId = z.infer<typeof PostIdSchema>;
 
 export const PostSchema = z.object({
@@ -38,23 +40,29 @@ export const PostSchema = z.object({
   url: z.url(),
   createdAt: z.iso.datetime(),
 });
+
 export type Post = z.infer<typeof PostSchema>;
 
 export const PostListSchema = z.array(PostSchema);
+
 export type PostList = z.infer<typeof PostListSchema>;
 
 export const CreatePostDtoSchema = PostSchema.omit({ id: true, createdAt: true });
+
 export type CreatePostDto = z.infer<typeof CreatePostDtoSchema>;
 
 export const UpdatePostDtoSchema = CreatePostDtoSchema.partial();
+
 export type UpdatePostDto = z.infer<typeof UpdatePostDtoSchema>;
 
 export const GetPostQuerySchema = z.object({ id: PostIdSchema });
+
 export type GetPostQuery = z.infer<typeof GetPostQuerySchema>;
 
 export const GetPostListQuerySchema = z.object({
   limit: z.coerce.number().int().min(1).max(100).default(20),
   offset: z.coerce.number().int().min(0).default(0),
 });
+
 export type GetPostListQuery = z.infer<typeof GetPostListQuerySchema>;
 ```
