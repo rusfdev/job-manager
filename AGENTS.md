@@ -1,19 +1,24 @@
 # AGENTS.md
+
 Personal job-posting manager: collects postings from configurable sources,
 helps track and evaluate them. Details: [docs/product.md](docs/product.md)
 
 Documentation and code are written in English.
 
 ## Commands
+
 Will appear once the project skeleton exists.
 
 ## Where things are
+
 - [docs/product.md](docs/product.md) — goals and non-goals
 - [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
 - apps/* — applications, packages/* — shared code
-Code folder structure will appear here once the skeleton exists.
+- [packages/contracts](packages/contracts/README.md) — Zod schemas of every
+  shape crossing an app boundary; naming rules in its README
 
 ## Decisions
+
 - Architecture decisions live in [docs/adr/](docs/adr/). Only ADRs with status
   accepted are in force; superseded, rejected and deprecated are history, not
   rules.
@@ -30,6 +35,7 @@ Code folder structure will appear here once the skeleton exists.
   stays untouched.
 
 ## Commits
+
 - Conventional Commits: type(scope): subject; subject up to 72 characters,
   imperative mood.
 - Body:
@@ -44,6 +50,7 @@ Code folder structure will appear here once the skeleton exists.
   not permission to commit.
 
 ## Boundaries
+
 - Always: do only the current task; before changing several files, show a plan.
 - Always: declare versions of dependencies shared by several workspaces in
   catalog: in pnpm-workspace.yaml, not in a package's package.json.
