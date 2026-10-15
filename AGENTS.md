@@ -7,7 +7,9 @@ Documentation and code are written in English.
 
 ## Commands
 
-Will appear once the project skeleton exists.
+- First run: copy `.env.example` to `.env` in packages/db.
+- `pnpm db:generate` — write a migration from schema changes in packages/db.
+- `pnpm db:migrate` — start Postgres if needed and apply pending migrations.
 
 ## Where things are
 

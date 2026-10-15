@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "db:up": "docker compose up -d --wait",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "turbo run db:migrate",
     "check-types": "turbo run check-types",
     "build": "turbo run build",
     "lint": "oxlint .",
