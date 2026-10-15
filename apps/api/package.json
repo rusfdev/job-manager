@@ -13,8 +13,13 @@
   },
   "dependencies": {
     "@nestjs/common": "^12.0.1",
+    "@nestjs/config": "^12.0.1",
     "@nestjs/core": "^12.0.1",
+    "@nestjs/drizzle": "0.0.2",
     "@nestjs/platform-fastify": "^12.1.2",
+    "@repo/db": "workspace:*",
+    "drizzle-orm": "catalog:",
+    "pg": "catalog:",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "zod": "catalog:"
@@ -26,6 +31,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/node": "^24.0.0",
+    "@types/pg": "catalog:",
     "@types/supertest": "^7.0.0",
     "source-map-support": "^0.5.21",
     "supertest": "^7.0.0",
