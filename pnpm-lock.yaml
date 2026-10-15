@@ -164,6 +164,9 @@ settings:
 
 catalogs:
   default:
+    '@types/node':
+      specifier: ^24.0.0
+      version: 24.19.1
     '@types/pg':
       specifier: ^8.23.1
       version: 8.23.1
@@ -249,7 +252,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.6
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 'catalog:'
         version: 24.19.1
       '@types/pg':
         specifier: 'catalog:'
@@ -292,6 +295,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.1
       '@types/pg':
         specifier: 'catalog:'
         version: 8.23.1
