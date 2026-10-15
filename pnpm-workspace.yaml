@@ -3,7 +3,14 @@ packages:
   - "packages/*"
 
 catalog:
+  "@types/pg": "^8.23.1"
+  "drizzle-orm": "1.0.0-rc.4"
+  "pg": "^8.23.1"
   "typescript": "^6.0.3"
   "zod": "^4.6.5"
 
 engineStrict: true
+
+allowBuilds:
+  # drizzle-kit dependency.
+  esbuild: true
