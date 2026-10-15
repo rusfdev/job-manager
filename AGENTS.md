@@ -16,6 +16,8 @@ Will appear once the project skeleton exists.
 - apps/* — applications, packages/* — shared code
 - [packages/contracts](packages/contracts/README.md) — Zod schemas of every
   shape crossing an app boundary; naming rules in its README
+- [packages/db](packages/db/README.md) — Drizzle schema, relations and SQL
+  migrations; rules in its README
 
 ## Decisions
 
