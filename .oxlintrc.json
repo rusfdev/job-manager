@@ -34,12 +34,6 @@
           }
         ]
       }
-    },
-    {
-      "files": ["packages/contracts/src/index.ts", "packages/db/src/schema/index.ts"],
-      "rules": {
-        "unicorn/require-module-specifiers": "off"
-      }
     }
   ]
 }
