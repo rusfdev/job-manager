@@ -4,9 +4,8 @@
     "target": "es2022",
     "lib": ["es2022"],
     "module": "nodenext",
-    "declaration": true,
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "types": ["node"],
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "drizzle.config.ts"]
 }
