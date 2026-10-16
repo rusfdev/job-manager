@@ -8,9 +8,10 @@ Documentation and code are written in English.
 ## Commands
 
 - First run: copy `.env.example` to `.env` in apps/api and packages/db.
-- `pnpm dev` — start Postgres in Docker, apply migrations, run the apps.
+- `pnpm dev` — run the apps and rebuild packages on change.
+- `pnpm db:up` — start Postgres in Docker.
+- `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
 - `pnpm db:generate` — write a migration from schema changes in packages/db.
-- `pnpm db:migrate` — start Postgres if needed and apply pending migrations.
 
 ## Where things are
 
