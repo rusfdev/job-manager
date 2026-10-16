@@ -12,11 +12,11 @@
     "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
   },
   "dependencies": {
-    "@nestjs/common": "^12.0.1",
+    "@nestjs/common": "^12.1.3",
     "@nestjs/config": "^12.0.1",
-    "@nestjs/core": "^12.0.1",
+    "@nestjs/core": "^12.1.3",
     "@nestjs/drizzle": "0.0.2",
-    "@nestjs/platform-fastify": "^12.1.2",
+    "@nestjs/platform-express": "^12.1.3",
     "@repo/db": "workspace:*",
     "drizzle-orm": "catalog:",
     "pg": "catalog:",
@@ -25,11 +25,11 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@nestjs/cli": "^12.0.0",
-    "@nestjs/schematics": "^12.0.0",
-    "@nestjs/testing": "^12.0.1",
+    "@nestjs/cli": "^12.0.8",
+    "@nestjs/schematics": "^12.0.7",
+    "@nestjs/testing": "^12.1.3",
     "@repo/typescript-config": "workspace:*",
-    "@types/express": "^5.0.0",
+    "@types/express": "^5.0.6",
     "@types/node": "catalog:",
     "@types/pg": "catalog:",
     "@types/supertest": "^7.0.0",
