@@ -19,4 +19,4 @@ Copy `.env.example` to `.env` and set `DATABASE_URL`; only drizzle-kit
 reads it. Run the commands from the repository root:
 
 - `pnpm db:generate` — write a migration for schema changes.
-- `pnpm db:migrate` — start Postgres if needed and apply pending migrations.
+- `pnpm db:migrate` — apply pending migrations; Postgres must be up (`pnpm db:up`).
