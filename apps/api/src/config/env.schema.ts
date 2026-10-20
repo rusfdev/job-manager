@@ -1,6 +1,8 @@
 import { z } from "zod";
 
-// Variables listed here are validated at boot; undeclared ones are not checked.
 export const envSchema = z.object({
+  PORT: z.coerce.number().positive().int(),
   DATABASE_URL: z.url(),
 });
+
+export type Env = z.infer<typeof envSchema>;
