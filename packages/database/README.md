@@ -1,4 +1,4 @@
-# @repo/db
+# @repo/database
 
 Database schema, relations and SQL migrations for PostgreSQL with Drizzle
 ([ADR 0005](../../docs/adr/0005-store-data-in-postgresql-with-drizzle.md)).

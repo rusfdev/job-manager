@@ -7,11 +7,12 @@ Documentation and code are written in English.
 
 ## Commands
 
-- First run: copy `.env.example` to `.env` in apps/api and packages/db.
+- First run: copy `.env.example` to `.env` in apps/api and packages/database.
 - `pnpm dev` — run the apps and rebuild packages on change.
 - `pnpm db:up` — start Postgres in Docker.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
-- `pnpm db:generate` — write a migration from schema changes in packages/db.
+- `pnpm db:generate` — write a migration from schema changes in
+  packages/database.
 
 ## Where things are
 
@@ -20,8 +21,8 @@ Documentation and code are written in English.
 - apps/* — applications, packages/* — shared code
 - [packages/contracts](packages/contracts/README.md) — Zod schemas of every
   shape crossing an app boundary; naming rules in its README
-- [packages/db](packages/db/README.md) — Drizzle schema, relations and SQL
-  migrations; rules in its README
+- [packages/database](packages/database/README.md) — Drizzle schema,
+  relations and SQL migrations; rules in its README
 
 ## Decisions
 

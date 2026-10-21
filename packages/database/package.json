@@ -1,5 +1,5 @@
 {
-  "name": "@repo/db",
+  "name": "@repo/database",
   "private": true,
   "type": "module",
   "sideEffects": false,

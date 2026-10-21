@@ -38,12 +38,12 @@ shared database code must stay plain code that can move to another package.
 - Applications connect through `DrizzleModule.forRootAsync` with the
   connection string from `ConfigService`, because the module closes the pool
   on shutdown and each application gets its own pool.
-- `packages/db` holds the schema, relations, `drizzle.config.ts` and the
+- `packages/database` holds the schema, relations, `drizzle.config.ts` and the
   migrations. Its `src/` never reads the environment and never creates a
   client, because a module-level instance would be shared by every
   application in one process and closed by the first one to shut down.
 - `drizzle-kit generate` writes SQL migrations committed in
-  `packages/db/drizzle`; `drizzle-kit migrate` applies them as a separate
+  `packages/database/drizzle`; `drizzle-kit migrate` applies them as a separate
   step, never on application startup, because Drizzle has no migration lock
   and instances would race
   ([migrations](https://orm.drizzle.team/docs/migrations),

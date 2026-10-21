@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { DrizzleModule } from "@nestjs/drizzle";
-import { relations } from "@repo/db";
+import { relations } from "@repo/database";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { AppController } from "./app.controller.js";
 import { ConfigModule } from "./config/config.module.js";
