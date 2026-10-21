@@ -1,2 +1,2 @@
 export * as schema from "./schema/index.js";
-export { relations } from "./relations.js";
+export { type Database, type DatabaseConfig, createDatabase } from "./database.js";
