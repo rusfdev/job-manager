@@ -14,5 +14,5 @@ catalog:
 engineStrict: true
 
 allowBuilds:
-  # drizzle-kit dependency.
+  "@scarf/scarf": true
   esbuild: true
