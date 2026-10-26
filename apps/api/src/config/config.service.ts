@@ -7,14 +7,16 @@ export class ConfigService {
   constructor(private readonly config: NestConfigService<Env, true>) {}
 
   private get<K extends keyof Env>(key: K): Env[K] {
-    return this.config.get(key, { infer: true });
+    return this.config.getOrThrow(key, { infer: true });
   }
 
   get port() {
     return this.get("PORT");
   }
 
-  get databaseUrl() {
-    return this.get("DATABASE_URL");
+  get database() {
+    return {
+      url: this.get("DATABASE_URL"),
+    };
   }
 }

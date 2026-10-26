@@ -1,21 +1,10 @@
 import { Module } from "@nestjs/common";
-import { DrizzleModule } from "@nestjs/drizzle";
-import { createDatabase } from "@repo/database";
 import { AppController } from "./app.controller.js";
 import { ConfigModule } from "./config/config.module.js";
-import { ConfigService } from "./config/config.service.js";
+import { DatabaseModule } from "./database/database.module.js";
 
 @Module({
-  imports: [
-    ConfigModule,
-    DrizzleModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        db: createDatabase({ connection: config.databaseUrl }),
-      }),
-    }),
-  ],
+  imports: [ConfigModule, DatabaseModule],
   controllers: [AppController],
 })
 export class AppModule {}
