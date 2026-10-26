@@ -1,10 +1,16 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller.js";
-import { ConfigModule } from "./config/config.module.js";
 import { DatabaseModule } from "./database/database.module.js";
+import { ConfigModule } from "@nestjs/config";
+import { appConfig } from "./config/app.config.js";
 
 @Module({
-  imports: [ConfigModule, DatabaseModule],
-  controllers: [AppController],
+  imports: [
+    ConfigModule.forRoot({
+      cache: true,
+      isGlobal: true,
+      load: [appConfig],
+    }),
+    DatabaseModule,
+  ],
 })
 export class AppModule {}
