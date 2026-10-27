@@ -24,6 +24,17 @@
   },
   "overrides": [
     {
+      "files": ["packages/database/**"],
+      "rules": {
+        "typescript/no-extraneous-class": [
+          "error",
+          {
+            "allowWithDecorator": true
+          }
+        ]
+      }
+    },
+    {
       "files": ["apps/api/**"],
       "rules": {
         "typescript/consistent-type-imports": "off",

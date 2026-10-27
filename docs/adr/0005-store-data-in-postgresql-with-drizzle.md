@@ -2,7 +2,7 @@
 
 ## Status
 
-accepted
+Superseded by [0006](0006-provide-nest-database-module-from-package.md)
 
 Date: 2026-10-15
 

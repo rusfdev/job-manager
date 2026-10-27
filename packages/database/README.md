@@ -1,12 +1,16 @@
 # @repo/database
 
 Database schema, relations and SQL migrations for PostgreSQL with Drizzle
-([ADR 0005](../../docs/adr/0005-store-data-in-postgresql-with-drizzle.md)).
+([ADR 0006](../../docs/adr/0006-provide-nest-database-module-from-package.md)).
 
 ## Rules
 
-- `src/` never reads the environment and never creates a database client.
-  Applications create the connection through `DrizzleModule.forRootAsync`.
+- `DatabaseModule` and its config (`src/database.config.ts`, reads
+  `DATABASE_URL`) live here; applications just import the module
+  ([ADR 0006](../../docs/adr/0006-provide-nest-database-module-from-package.md)).
+  The client is created in the module's factory, per application, never at
+  module level.
+- Outside `src/database.config.ts`, `src/` does not read the environment.
 - Tables are exported from `src/schema/index.ts`; relations are built from
   them in `src/relations.ts`.
 - Migrations in `drizzle/` are generated, committed and never edited by
