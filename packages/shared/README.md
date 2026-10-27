@@ -1,8 +1,9 @@
-# @repo/contracts
+# @repo/shared
 
-Zod schemas for every shape that crosses an application boundary
+Constants, types and Zod schemas shared by server and client apps
 ([ADR 0004](../../docs/adr/0004-keep-contracts-as-zod-schemas.md)).
-The only runtime dependency is `zod`.
+Runtime dependencies: `zod` and framework-agnostic helpers only, no backend
+or frontend packages.
 
 ## Rules
 
@@ -20,7 +21,7 @@ The only runtime dependency is `zod`.
 - Names use the entity in singular
   ([ADR 0003](../../docs/adr/0003-name-code-by-domain-in-singular.md)).
 - One entity, one file: `src/<entity>/<entity>.schema.ts`.
-  Shared shapes (pagination, response envelope): `src/shared/<topic>.schema.ts`.
+  Shared shapes (pagination, response envelope): `src/common/<topic>.schema.ts`.
 - `src/index.ts` re-exports every file. Files only declare and export:
   the package is `sideEffects: false`.
 - Not here: HTTP paths, database schemas, application config.

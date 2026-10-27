@@ -19,8 +19,8 @@ Documentation and code are written in English.
 - [docs/product.md](docs/product.md) — goals and non-goals
 - [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
 - apps/* — applications, packages/* — shared code
-- [packages/contracts](packages/contracts/README.md) — Zod schemas of every
-  shape crossing an app boundary; naming rules in its README
+- [packages/shared](packages/shared/README.md) — constants, types and Zod
+  schemas shared by server and client apps; rules in its README
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
 
