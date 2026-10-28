@@ -7,6 +7,10 @@
     ".": {
       "types": "./src/index.ts",
       "default": "./dist/index.js"
+    },
+    "./schema": {
+      "types": "./src/schema/index.ts",
+      "default": "./dist/schema/index.js"
     }
   },
   "scripts": {
@@ -17,18 +21,18 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
+    "@nestjs/drizzle": "^0.0.2",
+    "drizzle-orm": "1.0.0-rc.5",
     "pg": "^8.23.1"
   },
   "devDependencies": {
     "@nestjs/common": "catalog:",
     "@nestjs/config": "catalog:",
     "@nestjs/core": "catalog:",
-    "@nestjs/drizzle": "catalog:",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/pg": "^8.23.1",
-    "drizzle-kit": "catalog:",
-    "drizzle-orm": "catalog:",
+    "drizzle-kit": "1.0.0-rc.5",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
     "typescript": "catalog:",
@@ -38,8 +42,6 @@
     "@nestjs/common": "catalog:",
     "@nestjs/config": "catalog:",
     "@nestjs/core": "catalog:",
-    "@nestjs/drizzle": "catalog:",
-    "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
     "zod": "catalog:"
