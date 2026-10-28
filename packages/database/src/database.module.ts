@@ -1,9 +1,8 @@
 import { Global, Module } from "@nestjs/common";
 import { DrizzleModule } from "@nestjs/drizzle";
 import { ConfigModule } from "@nestjs/config";
-import { drizzle } from "drizzle-orm/node-postgres";
-import { relations } from "./relations.js";
 import { databaseConfig, type DatabaseConfig } from "./database.config.js";
+import { createDatabase } from "./database.js";
 
 @Global()
 @Module({
@@ -12,7 +11,8 @@ import { databaseConfig, type DatabaseConfig } from "./database.config.js";
       imports: [ConfigModule.forFeature(databaseConfig)],
       inject: [databaseConfig.KEY],
       useFactory: (config: DatabaseConfig) => ({
-        db: drizzle({ connection: config.url, relations }),
+        db: createDatabase(config),
+        autoCloseConnection: true,
       }),
     }),
   ],

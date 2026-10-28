@@ -17,8 +17,7 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
-    "pg": "^8.23.1",
-    "zod": "catalog:"
+    "pg": "^8.23.1"
   },
   "devDependencies": {
     "@nestjs/common": "catalog:",
@@ -32,7 +31,8 @@
     "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "zod": "catalog:"
   },
   "peerDependencies": {
     "@nestjs/common": "catalog:",
@@ -41,6 +41,7 @@
     "@nestjs/drizzle": "catalog:",
     "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
-    "rxjs": "catalog:"
+    "rxjs": "catalog:",
+    "zod": "catalog:"
   }
 }
