@@ -10,7 +10,11 @@ Documentation and code are written in English.
 - First run: copy `.env.example` to `.env` in apps/api and packages/database.
 - `pnpm dev` — run the apps and rebuild packages on change.
 - `pnpm db:up` — start Postgres in Docker.
+- `pnpm db:down` — stop Postgres; data is kept.
+- `pnpm db:reset` — delete all local data, start Postgres and apply
+  migrations.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
+- `pnpm db:studio` — browse the local database in Drizzle Studio.
 - `pnpm db:generate` — write a migration from schema changes in
   packages/database.
 

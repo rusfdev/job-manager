@@ -21,3 +21,6 @@ engineStrict: true
 allowBuilds:
   "@scarf/scarf": true
   "esbuild": true
+
+minimumReleaseAgeExclude:
+  - "@nestjs/authentication@0.1.2"

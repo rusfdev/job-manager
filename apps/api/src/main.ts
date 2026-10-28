@@ -1,3 +1,4 @@
+import { StandardSchemaValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module.js";
 import { setupSwagger } from "./swagger/setup-swagger.js";
@@ -8,6 +9,7 @@ async function bootstrap() {
   const config = app.get<AppConfig>(appConfig.KEY);
 
   app.enableShutdownHooks();
+  app.useGlobalPipes(new StandardSchemaValidationPipe());
 
   setupSwagger(app);
 

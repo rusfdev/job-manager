@@ -1,0 +1,14 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022"],
+    "module": "nodenext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}
