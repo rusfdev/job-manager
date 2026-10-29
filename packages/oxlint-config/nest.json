@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["./base.json"],
+  "rules": {
+    "typescript/consistent-type-imports": "off",
+    "typescript/no-extraneous-class": ["error", { "allowWithDecorator": true }]
+  },
+  "overrides": [
+    {
+      "files": ["**/*"],
+      "env": {
+        "es2025": true,
+        "node": true
+      }
+    }
+  ]
+}

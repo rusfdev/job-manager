@@ -20,13 +20,14 @@
     "db:migrate": {
       "cache": false
     },
-    "//#lint": {},
-    "//#lint:fix": {
+    "lint": {
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/packages/oxlint-config/*.json"]
+    },
+    "lint:fix": {
       "cache": false
     },
     "//#format": {},
     "//#format:fix": {
-      "dependsOn": ["//#lint:fix"],
       "cache": false
     }
   }

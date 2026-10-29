@@ -54,7 +54,7 @@ export class DrizzleAuthenticationStore implements SessionStore {
     return deleted.length > 0;
   }
 
-  async listUserSessions(userId: string): Promise<SessionRecord[]> {
+  listUserSessions(userId: string): Promise<SessionRecord[]> {
     return this.db.select().from(session).where(eq(session.userId, userId));
   }
 

@@ -11,14 +11,13 @@
     "db:generate": "turbo run db:generate",
     "db:migrate": "turbo run db:migrate",
     "db:studio": "pnpm --filter @repo/database db:studio",
-    "lint": "oxlint .",
-    "lint:fix": "oxlint --fix .",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "format": "oxfmt --check",
     "format:fix": "oxfmt ."
   },
   "devDependencies": {
     "oxfmt": "^0.71.0",
-    "oxlint": "^1.86.0",
     "turbo": "^2.11.7"
   },
   "devEngines": {
