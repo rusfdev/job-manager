@@ -5,11 +5,11 @@
   "sideEffects": false,
   "exports": {
     "./auth": {
-      "types": "./src/auth/index.ts",
+      "types": "./dist/auth/index.d.ts",
       "default": "./dist/auth/index.js"
     },
     "./user": {
-      "types": "./src/user/index.ts",
+      "types": "./dist/user/index.d.ts",
       "default": "./dist/user/index.js"
     }
   },

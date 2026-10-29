@@ -5,11 +5,11 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./src/index.ts",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
     "./schema": {
-      "types": "./src/schema/index.ts",
+      "types": "./dist/schema/index.d.ts",
       "default": "./dist/schema/index.js"
     }
   },
