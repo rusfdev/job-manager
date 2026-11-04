@@ -1,9 +1,11 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { AuthModule } from "@repo/auth";
-import { appConfig } from "./config/app.config.js";
+import { AuthenticationModule } from "@nestjs/authentication";
 import { DrizzleModule } from "@nestjs/drizzle";
+import { appConfig } from "./config/app.config.js";
+import { authenticationConfig } from "./config/authentication.config.js";
 import { databaseConfig } from "./config/database.config.js";
+import { AuthModule } from "./modules/auth/auth.module.js";
 
 @Module({
   imports: [
@@ -13,6 +15,7 @@ import { databaseConfig } from "./config/database.config.js";
       load: [appConfig],
     }),
     DrizzleModule.forRootAsync(databaseConfig.asProvider()),
+    AuthenticationModule.forRootAsync(authenticationConfig.asProvider()),
     AuthModule,
   ],
 })
