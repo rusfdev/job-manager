@@ -24,9 +24,11 @@
   "devDependencies": {
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
+    "@nestjs/drizzle": "catalog:",
     "@repo/oxlint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
+    "drizzle-orm": "catalog:",
     "oxlint": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
@@ -35,6 +37,8 @@
   "peerDependencies": {
     "@nestjs/common": "catalog:",
     "@nestjs/core": "catalog:",
+    "@nestjs/drizzle": "catalog:",
+    "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:"
   }

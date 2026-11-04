@@ -4,14 +4,16 @@ import {
   type SessionRecord,
   type SessionStore,
 } from "@nestjs/authentication";
-import { and, eq, InjectDatabase, lt, type Database } from "@repo/database";
+import { InjectDrizzle } from "@nestjs/drizzle";
+import type { Database } from "@repo/database";
 import { session, user } from "@repo/database/schema";
+import { and, eq, lt } from "drizzle-orm";
 import { toUser } from "./auth.mapper.js";
 
 @Injectable()
 export class DrizzleAuthenticationStore implements SessionStore {
   constructor(
-    @InjectDatabase() private readonly db: Database,
+    @InjectDrizzle() private readonly db: Database,
     storage: AuthenticationStorage,
   ) {
     storage.registerSource({ sessions: this });

@@ -24,31 +24,18 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@nestjs/drizzle": "^0.0.2",
-    "drizzle-orm": "1.0.0-rc.5",
     "pg": "^8.23.1"
   },
   "devDependencies": {
-    "@nestjs/common": "catalog:",
-    "@nestjs/config": "catalog:",
-    "@nestjs/core": "catalog:",
     "@repo/oxlint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "catalog:",
     "@types/pg": "^8.23.1",
-    "drizzle-kit": "1.0.0-rc.5",
+    "drizzle-kit": "catalog:",
+    "drizzle-orm": "catalog:",
     "oxlint": "catalog:",
-    "reflect-metadata": "catalog:",
-    "rxjs": "catalog:",
-    "typescript": "catalog:",
-    "zod": "catalog:"
+    "typescript": "catalog:"
   },
   "peerDependencies": {
-    "@nestjs/common": "catalog:",
-    "@nestjs/config": "catalog:",
-    "@nestjs/core": "catalog:",
-    "reflect-metadata": "catalog:",
-    "rxjs": "catalog:",
-    "zod": "catalog:"
+    "drizzle-orm": "catalog:"
   }
 }

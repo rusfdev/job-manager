@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { DatabaseModule } from "@repo/database";
 import { AuthModule } from "@repo/auth";
 import { appConfig } from "./config/app.config.js";
+import { DrizzleModule } from "@nestjs/drizzle";
+import { databaseConfig } from "./config/database.config.js";
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { appConfig } from "./config/app.config.js";
       isGlobal: true,
       load: [appConfig],
     }),
-    DatabaseModule,
+    DrizzleModule.forRootAsync(databaseConfig.asProvider()),
     AuthModule,
   ],
 })

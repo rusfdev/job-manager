@@ -1,6 +1,9 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { relations } from "./relations.js";
-import type { DatabaseConfig } from "./database.config.js";
+
+export type DatabaseConfig = {
+  url: string;
+};
 
 export const createDatabase = (config: DatabaseConfig) =>
   drizzle({

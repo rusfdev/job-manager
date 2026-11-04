@@ -1,7 +1,9 @@
 import { Injectable } from "@nestjs/common";
+import { InjectDrizzle } from "@nestjs/drizzle";
 import type { User, UserId } from "@repo/contracts/user";
-import { eq, InjectDatabase, type Database } from "@repo/database";
+import type { Database } from "@repo/database";
 import { user } from "@repo/database/schema";
+import { eq } from "drizzle-orm";
 import { toUser } from "./auth.mapper.js";
 
 export interface AuthCredentials {
@@ -12,7 +14,7 @@ export interface AuthCredentials {
 @Injectable()
 export class AuthRepository {
   constructor(
-    @InjectDatabase()
+    @InjectDrizzle()
     private readonly db: Database,
   ) {}
 
