@@ -7,8 +7,12 @@ Documentation and code are written in English.
 
 ## Commands
 
-- First run: copy `.env.example` to `.env` in apps/api and packages/database.
+- First run: copy every `.env.example` in the repo to `.env` next to it.
 - `pnpm dev` — run the apps and rebuild packages on change.
+- `pnpm build` — build all apps and packages.
+- `pnpm check-types` — type-check all workspaces.
+- `pnpm lint` / `pnpm lint:fix` — lint with oxlint; fix what it can.
+- `pnpm format` / `pnpm format:fix` — check formatting with oxfmt; fix it.
 - `pnpm db:up` — start Postgres in Docker.
 - `pnpm db:down` — stop Postgres; data is kept.
 - `pnpm db:reset` — delete all local data, start Postgres and apply
@@ -23,10 +27,14 @@ Documentation and code are written in English.
 - [docs/product.md](docs/product.md) — goals and non-goals
 - [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
 - apps/* — applications, packages/* — shared code
-- [packages/shared](packages/shared/README.md) — constants, types and Zod
-  schemas shared by server and client apps; rules in its README
+- apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
+- [packages/contracts](packages/contracts/README.md) — Zod schemas, types and
+  constants shared by backend and frontend, split by domain; rules in its
+  README
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
+- packages/oxlint-config, packages/typescript-config — shared lint and
+  TypeScript configs
 
 ## Decisions
 

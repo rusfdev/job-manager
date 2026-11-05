@@ -1,0 +1,11 @@
+name: local
+variables:
+  - name: BASE_URL
+    value: "{{process.env.BASE_URL}}"
+    description: API base URL
+  - name: AUTH_EMAIL
+    value: "{{process.env.AUTH_EMAIL}}"
+    description: Auth email
+  - name: AUTH_PASSWORD
+    value: "{{process.env.AUTH_PASSWORD}}"
+    description: Auth password
