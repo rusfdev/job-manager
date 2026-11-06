@@ -255,7 +255,7 @@ importers:
         version: link:../../packages/contracts
       '@repo/database':
         specifier: workspace:*
-        version: link:../../packages/backend/database
+        version: link:../../packages/modules/database
       drizzle-orm:
         specifier: 'catalog:'
         version: 1.0.0-rc.5(@types/pg@8.23.1)(pg@8.23.1)(zod@4.6.5)
@@ -306,7 +306,7 @@ importers:
         specifier: 'catalog:'
         version: 4.1.11(@types/node@24.19.1)(vite@8.3.2(@types/node@24.19.1)(jiti@2.7.0))
 
-  packages/backend/database:
+  packages/modules/database:
     dependencies:
       pg:
         specifier: ^8.23.1
