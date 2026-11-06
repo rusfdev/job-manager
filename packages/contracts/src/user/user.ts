@@ -6,8 +6,6 @@ export const userSchema = z
     id: userIdSchema,
     email: z.email(),
   })
-  .meta({
-    id: "User",
-  });
+  .meta({ id: "User" });
 
 export type User = z.infer<typeof userSchema>;
