@@ -20,19 +20,21 @@ Documentation and code are written in English.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
 - `pnpm db:studio` — browse the local database in Drizzle Studio.
 - `pnpm db:generate` — write a migration from schema changes in
-  packages/modules/database.
+  packages/database.
 
 ## Where things are
 
 - [docs/product.md](docs/product.md) — goals and non-goals
 - [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
-- apps/* — applications, packages/* — shared code, packages/modules/* —
-  modules (backend-only packages)
+- apps/* — applications, packages/* — shared code
 - apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
-- [packages/contracts](packages/contracts/README.md) — Zod schemas, types and
-  constants shared by backend and frontend, split by domain; rules in its
-  README
-- [packages/modules/database](packages/modules/database/README.md) — Drizzle schema,
+- [packages/shared](packages/shared/README.md) — Zod primitives, value
+  objects, entity identifiers, constants and pure utilities used by backend
+  and frontend; rules in its README
+- [packages/contracts](packages/contracts/README.md) — DTOs exchanged by
+  frontend and backend: request and response bodies and the values in them,
+  as Zod schemas split by domain; rules in its README
+- [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
 - packages/oxlint-config, packages/typescript-config — shared lint and
   TypeScript configs
