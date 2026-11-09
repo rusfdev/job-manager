@@ -1,8 +1,9 @@
+import { emailSchema } from "@repo/shared";
 import { z } from "zod";
 
 export const signInSchema = z
   .object({
-    email: z.email(),
+    email: emailSchema,
     password: z.string(),
   })
   .meta({ id: "SignInDto" });

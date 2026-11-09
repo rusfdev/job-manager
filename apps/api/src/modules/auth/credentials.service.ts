@@ -1,7 +1,6 @@
 import { ConflictException, Injectable } from "@nestjs/common";
 import { PasswordHasher } from "@nestjs/authentication";
-import type { SignInDto, SignUpDto } from "@repo/contracts/auth";
-import type { User } from "@repo/contracts/user";
+import type { SignInDto, SignUpDto, UserDto } from "@repo/contracts";
 import { AuthRepository } from "./auth.repository.js";
 
 @Injectable()
@@ -11,7 +10,7 @@ export class CredentialsService {
     private readonly passwordHasher: PasswordHasher,
   ) {}
 
-  async register({ email, password }: SignUpDto): Promise<User> {
+  async register({ email, password }: SignUpDto): Promise<UserDto> {
     const passwordHash = await this.passwordHasher.hash(password);
     const user = await this.authRepository.create(email, passwordHash);
 
@@ -22,7 +21,7 @@ export class CredentialsService {
     return user;
   }
 
-  async verify({ email, password }: SignInDto): Promise<User | undefined> {
+  async verify({ email, password }: SignInDto): Promise<UserDto | undefined> {
     const credentials = await this.authRepository.findCredentials(email);
     const isValid = await this.passwordHasher.verify(password, credentials?.passwordHash);
 

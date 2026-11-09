@@ -4,13 +4,9 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    "./auth": {
-      "types": "./dist/auth/index.d.ts",
-      "default": "./dist/auth/index.js"
-    },
-    "./user": {
-      "types": "./dist/user/index.d.ts",
-      "default": "./dist/user/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
@@ -19,6 +15,9 @@
     "check-types": "tsc --noEmit",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix ."
+  },
+  "dependencies": {
+    "@repo/shared": "workspace:*"
   },
   "devDependencies": {
     "@repo/oxlint-config": "workspace:*",

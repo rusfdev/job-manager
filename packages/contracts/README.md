@@ -1,27 +1,50 @@
 # @repo/contracts
 
-Schemas, types and constants needed by both the backend and the frontend,
-split by domain. The package has no backend or frontend dependencies, only
-`zod`.
+DTOs that the frontend and the backend exchange: objects, such as request and
+response bodies, and the values in them.
 
-## Structure
+## Rules
 
-- The package is split by domain concept.
-- Every domain folder has an `index.ts` barrel that exports the group of the
-  domain.
-- The package exports in `package.json` are defined through these barrels.
-- Domains import each other only by a relative import.
-- `types.ts`, `common.ts` and `utils.ts` must not be created. Group files by
-  concept.
+- Depends only on `zod` and `@repo/shared`.
+- A DTO is a Zod schema; its type is inferred with `z.infer`, never written by
+  hand.
+- One folder per domain. No `types.ts`, `common.ts` or `utils.ts`.
+- `src/index.ts` is the only entry point and the only barrel. Files import
+  each other directly, not through it.
+- Names: schema `<name>Schema`; type `<Name>Dto` for an object, `<Name>` for a
+  value.
+- Every schema has `.meta({ id })` equal to its type name; it is the schema
+  name in Swagger. A branded schema uses the same name in `.brand()`.
 
-## Swagger metadata (required)
+## Example
 
-- Every schema must have `.meta({ id })`. Other meta fields are added only
-  when necessary and are never generated automatically.
-- `id` and the brand, if the schema is branded, are identical and unique. The
-  name of the TypeScript type derived from the schema matches the brand name
-  and `id`.
+```ts
+// src/entity/entity-name.ts — a value
+export const entityNameSchema = z.string().brand("EntityName").meta({ id: "EntityName" });
 
-## Identifiers
+export type EntityName = z.infer<typeof entityNameSchema>;
 
-- Every entity identifier must be a branded type.
+// src/entity/entity.ts — an object
+import { entityIdSchema } from "@repo/shared";
+import { entityNameSchema } from "./entity-name.js";
+
+export const entitySchema = z
+  .object({ id: entityIdSchema, name: entityNameSchema })
+  .meta({ id: "EntityDto" });
+
+export type EntityDto = z.infer<typeof entitySchema>;
+
+// src/entity/create-entity.ts — an object
+import { entityNameSchema } from "./entity-name.js";
+
+export const createEntitySchema = z
+  .object({ name: entityNameSchema })
+  .meta({ id: "CreateEntityDto" });
+
+export type CreateEntityDto = z.infer<typeof createEntitySchema>;
+
+// src/index.ts
+export * from "./entity/create-entity.js";
+export * from "./entity/entity-name.js";
+export * from "./entity/entity.js";
+```

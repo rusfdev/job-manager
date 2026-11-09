@@ -1,13 +1,14 @@
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
-import type { User, UserId } from "@repo/contracts/user";
+import type { UserDto } from "@repo/contracts";
 import type { Database } from "@repo/database";
 import { user } from "@repo/database/schema";
+import type { UserId } from "@repo/shared";
 import { eq } from "drizzle-orm";
 import { toUser } from "./auth.mapper.js";
 
 export interface AuthCredentials {
-  user: User;
+  user: UserDto;
   passwordHash: string;
 }
 
@@ -18,7 +19,7 @@ export class AuthRepository {
     private readonly db: Database,
   ) {}
 
-  async create(email: string, passwordHash: string): Promise<User | undefined> {
+  async create(email: string, passwordHash: string): Promise<UserDto | undefined> {
     const [row] = await this.db
       .insert(user)
       .values({ email, passwordHash })

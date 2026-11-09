@@ -1,11 +1,11 @@
+import { emailSchema, userIdSchema } from "@repo/shared";
 import { z } from "zod";
-import { userIdSchema } from "./user-id.js";
 
 export const userSchema = z
   .object({
     id: userIdSchema,
-    email: z.email(),
+    email: emailSchema,
   })
-  .meta({ id: "User" });
+  .meta({ id: "UserDto" });
 
-export type User = z.infer<typeof userSchema>;
+export type UserDto = z.infer<typeof userSchema>;

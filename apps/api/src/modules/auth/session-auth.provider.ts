@@ -4,23 +4,23 @@ import {
   SessionCookieProvider,
   type SessionRecord,
 } from "@nestjs/authentication";
-import type { User } from "@repo/contracts/user";
+import type { UserDto } from "@repo/contracts";
 
 declare module "@nestjs/authentication" {
   interface AuthenticationTypes {
-    user: User;
-    sessionExtra: { user: User };
+    user: UserDto;
+    sessionExtra: { user: UserDto };
   }
 }
 
 @Injectable()
-export class SessionAuth extends SessionCookieProvider<User> {
+export class SessionAuth extends SessionCookieProvider<UserDto> {
   constructor(registry: AuthenticationRegistry) {
     super();
     registry.registerProvider(this);
   }
 
-  protected validate(session: SessionRecord): User | null {
+  protected validate(session: SessionRecord): UserDto | null {
     return session.extra?.user ?? null;
   }
 }
