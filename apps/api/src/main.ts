@@ -1,12 +1,17 @@
+import { StandardSchemaValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module.js";
-import { ConfigService } from "./config/config.service.js";
+import { setupSwagger } from "./swagger/setup-swagger.js";
+import { appConfig, type AppConfig } from "./config/app.config.js";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableShutdownHooks();
+  const config = app.get<AppConfig>(appConfig.KEY);
 
-  const config = app.get(ConfigService);
+  app.enableShutdownHooks();
+  app.useGlobalPipes(new StandardSchemaValidationPipe());
+
+  setupSwagger(app);
 
   await app.listen(config.port);
 }

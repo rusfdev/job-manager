@@ -8,55 +8,32 @@ Date: 2026-10-15
 
 ## Context
 
-[ADR 0004](0004-keep-contracts-as-zod-schemas.md) left storage and the
-database schema to a follow-on ADR. PostgreSQL and Drizzle were chosen by
-the product owner when the storage work started; other databases and ORMs
-were not evaluated. Several NestJS or Node instances will share one
-database, so the schema and its migrations must live in shared code, and the
-shared database code must stay plain code that can move to another package.
+Several instances share one database, so the schema and its migrations must
+live in shared code. PostgreSQL and Drizzle were chosen by the product owner;
+other databases and ORMs were not evaluated.
 
 ## Considered Options
 
-- Driver `pg` (node-postgres) or `postgres` (postgres.js) — both supported
-  by Drizzle; postgres.js uses prepared statements by default, which need
-  `prepare: false` behind connection poolers.
-- Official `@nestjs/drizzle` module or a hand-written provider with a
-  `Symbol` token — the module is pre-1.0 (0.0.2); with our own provider,
-  pool shutdown and error handling are ours to write.
-- Migrations applied by `migrate()` on application startup or by a
-  separate one-off command — startup needs no extra step, but every instance
-  tries to migrate at once.
+- Driver `pg` or `postgres`.
+- `@nestjs/drizzle` or our own provider.
+- Migrations on application startup or by a separate command.
 
 ## Decision
 
-- Drizzle ORM and drizzle-kit `1.0.0-rc.4`, pinned exactly and upgraded
-  together, because v1 is a release candidate and its API may still change
-  ([upgrade to v1](https://orm.drizzle.team/docs/upgrade-v1)).
-- Driver `pg`, because the NestJS Drizzle chapter is written for it and
-  `@nestjs/drizzle` handles errors of its pool
-  ([NestJS Drizzle](https://docs.nestjs.com/data/drizzle)).
-- Applications connect through `DrizzleModule.forRootAsync` with the
-  connection string from `ConfigService`, because the module closes the pool
-  on shutdown and each application gets its own pool.
-- `packages/database` holds the schema, relations, `drizzle.config.ts` and the
-  migrations. Its `src/` never reads the environment and never creates a
-  client, because a module-level instance would be shared by every
-  application in one process and closed by the first one to shut down.
-- `drizzle-kit generate` writes SQL migrations committed in
-  `packages/database/drizzle`; `drizzle-kit migrate` applies them as a separate
-  step, never on application startup, because Drizzle has no migration lock
-  and instances would race
-  ([migrations](https://orm.drizzle.team/docs/migrations),
-  [no lock](https://github.com/drizzle-team/drizzle-orm/issues/874)).
-  Locally the step runs before `pnpm dev`; in CI it runs before rollout.
+- PostgreSQL and Drizzle (product owner's choice).
+- Driver `pg`: the NestJS Drizzle guide is written for it.
+- `@nestjs/drizzle` instead of our own provider: it closes the pool on
+  shutdown and handles pool errors, which we would otherwise write ourselves.
+- `packages/database` holds the schema, relations and migrations. It does not
+  read the environment or create a client: a client at module level would be
+  shared by all applications in a process and closed by the first to stop.
+  Each application creates its own.
+- Migrations run as a separate CI step before rollout, never on application
+  startup: Drizzle has no migration lock, so instances would race.
 
 ## Consequences
 
-- Easier: one schema and one migration history for every service.
-- Harder: during a rollout old instances run on the new schema, so every
-  schema change must stay backward compatible within one release
-  (expand, then contract). drizzle-kit has no down migrations
-  ([drizzle-kit](https://orm.drizzle.team/docs/kit-overview)); a bad
-  migration is fixed with a new one.
-- Follow-up: the CI pipeline with the migration step; stable Drizzle 1.0 and
-  `@nestjs/drizzle` 1.0; integration tests against a real database.
+- One schema and one migration history for all services.
+- Schema changes stay backward compatible within one release, because old
+  instances run on the new schema during rollout.
+- No down migrations; a bad migration is fixed with a new one.

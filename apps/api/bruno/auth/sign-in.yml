@@ -1,0 +1,17 @@
+info:
+  name: Sign In
+  type: http
+  seq: 2
+  tags:
+    - Auth
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/auth/sign-in"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{AUTH_EMAIL}}",
+        "password": "{{AUTH_PASSWORD}}"
+      }

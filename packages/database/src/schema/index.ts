@@ -1,3 +1,2 @@
-// Tables are exported from here; there are none yet.
-// oxlint-disable-next-line unicorn/require-module-specifiers
-export {};
+export { session } from "./auth.js";
+export { user } from "./user.js";

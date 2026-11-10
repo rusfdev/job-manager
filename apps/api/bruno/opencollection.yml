@@ -1,0 +1,12 @@
+opencollection: 1.0.0
+
+info:
+  name: job-manager
+  version: "1"
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+      - .omc

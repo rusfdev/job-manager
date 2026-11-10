@@ -33,7 +33,7 @@ layer or class-based DTOs to get runtime validation on the backend.
 
 ## Decision
 
-Contracts are Zod schemas in `packages/contracts`, the single source of
+Contracts are Zod schemas in `packages/shared`, the single source of
 truth for every shape that crosses an application boundary.
 
 - The package contains schemas of domain entities and of request and
