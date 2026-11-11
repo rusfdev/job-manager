@@ -29,8 +29,10 @@ Documentation and code are written in English.
 - apps/* — applications, packages/* — shared code
 - apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
 - [packages/shared](packages/shared/README.md) — Zod primitives, value
-  objects, entity identifiers, constants and pure utilities used by backend
-  and frontend; rules in its README
+  objects, entity identifiers and constants used by backend and frontend;
+  rules in its README
+- [packages/utils](packages/utils/README.md) — generic TypeScript helpers
+  with no domain and no dependencies, such as `Result`; rules in its README
 - [packages/contracts](packages/contracts/README.md) — DTOs exchanged by
   frontend and backend: request and response bodies and the values in them,
   as Zod schemas split by domain; rules in its README

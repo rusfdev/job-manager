@@ -1,0 +1,29 @@
+{
+  "name": "@repo/utils",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./assert": {
+      "types": "./dist/assert/index.d.ts",
+      "default": "./dist/assert/index.js"
+    },
+    "./result": {
+      "types": "./dist/result/index.d.ts",
+      "default": "./dist/result/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix ."
+  },
+  "devDependencies": {
+    "@repo/oxlint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "oxlint": "catalog:",
+    "typescript": "catalog:"
+  }
+}

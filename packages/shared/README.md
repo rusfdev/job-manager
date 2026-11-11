@@ -1,7 +1,8 @@
 # @repo/shared
 
-Zod primitives, value objects, entity identifiers, constants and pure
-utilities used by both the backend and the frontend.
+Zod primitives, value objects, entity identifiers and constants used by both
+the backend and the frontend. Generic helpers with no domain live in
+[`@repo/utils`](../utils/README.md).
 
 ## Rules
 
