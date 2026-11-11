@@ -31,6 +31,8 @@ Documentation and code are written in English.
 - [packages/shared](packages/shared/README.md) — Zod primitives, value
   objects, entity identifiers and constants used by backend and frontend;
   rules in its README
+- [packages/primitives](packages/primitives/README.md) — branded primitives
+  such as `UserId` and `Email` and functions over them; rules in its README
 - [packages/utils](packages/utils/README.md) — generic TypeScript helpers
   with no domain and no dependencies, such as `Result`; rules in its README
 - [packages/contracts](packages/contracts/README.md) — DTOs exchanged by
