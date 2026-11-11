@@ -1,5 +1,5 @@
-import { registerAs } from "@nestjs/config";
 import type { AuthenticationModuleOptions } from "@nestjs/authentication";
+import { registerAs } from "@nestjs/config";
 
 export const authenticationConfig = registerAs<AuthenticationModuleOptions>(
   "authentication",

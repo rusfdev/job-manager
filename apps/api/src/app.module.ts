@@ -1,6 +1,6 @@
+import { AuthenticationModule } from "@nestjs/authentication";
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { AuthenticationModule } from "@nestjs/authentication";
 import { DrizzleModule } from "@nestjs/drizzle";
 import { appConfig } from "./config/app.config.js";
 import { authenticationConfig } from "./config/authentication.config.js";

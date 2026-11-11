@@ -1,5 +1,5 @@
-import { ConflictException, Injectable } from "@nestjs/common";
 import { PasswordHasher } from "@nestjs/authentication";
+import { ConflictException, Injectable } from "@nestjs/common";
 import type { SignInDto, SignUpDto, UserDto } from "@repo/contracts";
 import { AuthRepository } from "./auth.repository.js";
 
