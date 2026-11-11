@@ -3,7 +3,7 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import type { UserDto } from "@repo/contracts";
 import type { Database } from "@repo/database";
 import { user } from "@repo/database/schema";
-import type { UserId } from "@repo/shared";
+import type { UserId } from "@repo/primitives";
 import { eq } from "drizzle-orm";
 import { toUser } from "./auth.mapper.js";
 

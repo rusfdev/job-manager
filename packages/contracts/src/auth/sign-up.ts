@@ -1,6 +1,5 @@
-import { emailSchema } from "@repo/shared";
+import { emailSchema, passwordSchema } from "@repo/primitives";
 import { z } from "zod";
-import { passwordSchema } from "./password.js";
 
 export const signUpSchema = z
   .object({
