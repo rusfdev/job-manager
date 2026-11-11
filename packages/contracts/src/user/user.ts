@@ -1,4 +1,4 @@
-import { emailSchema, userIdSchema } from "@repo/shared";
+import { emailSchema, userIdSchema } from "@repo/primitives";
 import { z } from "zod";
 
 export const userSchema = z

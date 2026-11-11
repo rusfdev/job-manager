@@ -5,7 +5,7 @@ response bodies, and the values in them.
 
 ## Rules
 
-- Depends only on `zod` and `@repo/shared`.
+- Depends only on `zod` and `@repo/primitives`.
 - A DTO is a Zod schema; its type is inferred with `z.infer`, never written by
   hand.
 - One folder per domain. No `types.ts`, `common.ts` or `utils.ts`.
@@ -15,6 +15,8 @@ response bodies, and the values in them.
   value.
 - Every schema has `.meta({ id })` equal to its type name; it is the schema
   name in Swagger. A branded schema uses the same name in `.brand()`.
+- Schemas of primitives (`emailSchema`, `userIdSchema`, ...) come from
+  `@repo/primitives`; they are not declared here.
 
 ## Example
 
@@ -25,7 +27,7 @@ export const entityNameSchema = z.string().brand("EntityName").meta({ id: "Entit
 export type EntityName = z.infer<typeof entityNameSchema>;
 
 // src/entity/entity.ts — an object
-import { entityIdSchema } from "@repo/shared";
+import { entityIdSchema } from "@repo/primitives";
 import { entityNameSchema } from "./entity-name.js";
 
 export const entitySchema = z
