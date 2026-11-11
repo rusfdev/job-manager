@@ -1,7 +1,7 @@
 import { registerAs } from "@nestjs/config";
 import type { DrizzleModuleOptions } from "@nestjs/drizzle";
-import { createDatabase } from "@repo/database";
 import { z } from "zod";
+import { createDatabase } from "@repo/database";
 
 const databaseEnvSchema = z.object({
   DATABASE_URL: z.url(),

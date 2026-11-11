@@ -1,3 +1,4 @@
+import { Public, SignInService } from "@nestjs/authentication";
 import {
   Body,
   Controller,
@@ -6,7 +7,6 @@ import {
   Post,
   UnauthorizedException,
 } from "@nestjs/common";
-import { Public, SignInService } from "@nestjs/authentication";
 import {
   signInSchema,
   signUpSchema,

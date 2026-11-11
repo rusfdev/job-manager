@@ -1,9 +1,9 @@
-import { Injectable } from "@nestjs/common";
 import {
   AuthenticationRegistry,
   SessionCookieProvider,
   type SessionRecord,
 } from "@nestjs/authentication";
+import { Injectable } from "@nestjs/common";
 import type { UserDto } from "@repo/contracts";
 
 declare module "@nestjs/authentication" {

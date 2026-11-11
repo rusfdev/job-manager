@@ -1,3 +1,35 @@
 {
-  "$schema": "./node_modules/oxfmt/configuration_schema.json"
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "sortImports": {
+    "newlinesBetween": false,
+    "customGroups": [
+      {
+        "groupName": "repo-utils",
+        "elementNamePattern": ["@repo/utils", "@repo/utils/**"]
+      },
+      {
+        "groupName": "repo-primitives",
+        "elementNamePattern": ["@repo/primitives", "@repo/primitives/**"]
+      },
+      {
+        "groupName": "repo-database",
+        "elementNamePattern": ["@repo/database", "@repo/database/**"]
+      },
+      {
+        "groupName": "repo-contracts",
+        "elementNamePattern": ["@repo/contracts", "@repo/contracts/**"]
+      }
+    ],
+    "groups": [
+      "builtin",
+      "external",
+      "repo-utils",
+      "repo-primitives",
+      "repo-database",
+      "repo-contracts",
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ]
+  }
 }
