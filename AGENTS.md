@@ -31,9 +31,6 @@ Documentation and code are written in English.
 - apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
 - [packages/shared](packages/shared/README.md) — code shared by frontend and
   backend; rules in its README
-- [packages/contracts](packages/contracts/README.md) — DTOs exchanged by
-  frontend and backend: request and response bodies and the values in them,
-  as Zod schemas split by domain; rules in its README
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
 - packages/nestjs/* — NestJS modules shared by backend apps
