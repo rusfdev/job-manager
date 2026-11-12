@@ -11,6 +11,7 @@ Documentation and code are written in English.
 - `pnpm dev` — run the apps and rebuild packages on change.
 - `pnpm build` — build all apps and packages.
 - `pnpm check-types` — type-check all workspaces.
+- `pnpm test` — run unit tests in all workspaces.
 - `pnpm lint` / `pnpm lint:fix` — lint with oxlint; fix what it can.
 - `pnpm format` / `pnpm format:fix` — check formatting with oxfmt; fix it.
 - `pnpm db:up` — start Postgres in Docker.
@@ -35,6 +36,8 @@ Documentation and code are written in English.
   as Zod schemas split by domain; rules in its README
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
+- packages/nestjs/* — NestJS modules shared by backend apps
+  (@repo/nestjs-<name>)
 - packages/oxlint-config, packages/typescript-config — shared lint and
   TypeScript configs
 

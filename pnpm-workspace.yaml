@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - "packages/nestjs/*"
   - "packages/modules/*"
 
 catalog:

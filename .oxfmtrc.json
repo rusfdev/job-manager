@@ -14,6 +14,10 @@
       {
         "groupName": "repo-contracts",
         "elementNamePattern": ["@repo/contracts", "@repo/contracts/**"]
+      },
+      {
+        "groupName": "repo-nestjs",
+        "elementNamePattern": ["@repo/nestjs-*", "@repo/nestjs-*/**"]
       }
     ],
     "groups": [
@@ -22,6 +26,7 @@
       "repo-shared",
       "repo-database",
       "repo-contracts",
+      "repo-nestjs",
       ["parent", "sibling", "index"],
       "style",
       "unknown"
