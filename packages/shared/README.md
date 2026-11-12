@@ -13,6 +13,8 @@ Code shared by frontend and backend, split by purpose, not by kind.
 ## Structure
 
 - [`src/assert`](src/assert/) — runtime assertions.
+- [`src/contracts`](src/contracts/README.md) — DTOs exchanged by frontend and
+  backend.
 - [`src/errors`](src/errors/) — application errors.
 - [`src/primitives`](src/primitives/README.md) — branded primitive values.
 - [`src/result`](src/result/) — explicit success or failure values.

@@ -13,7 +13,7 @@ import {
   type SignInDto,
   type SignUpDto,
   type UserDto,
-} from "@repo/contracts";
+} from "@repo/shared/contracts";
 import { CredentialsService } from "./credentials.service.js";
 
 @Public()

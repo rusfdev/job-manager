@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
+import type { UserDto } from "@repo/shared/contracts";
 import type { UserId } from "@repo/shared/primitives";
 import type { Database } from "@repo/database";
 import { user } from "@repo/database/schema";
-import type { UserDto } from "@repo/contracts";
 import { toUser } from "./auth.mapper.js";
 
 export interface AuthCredentials {
