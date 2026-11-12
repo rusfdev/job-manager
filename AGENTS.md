@@ -28,11 +28,8 @@ Documentation and code are written in English.
 - [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
 - apps/* — applications, packages/* — shared code
 - apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
-- [packages/primitives](packages/primitives/README.md) — branded primitives
-  such as `UserId` and `Email`: Zod schemas, their types and functions over
-  them; rules in its README
-- [packages/utils](packages/utils/README.md) — generic TypeScript helpers
-  with no domain and no dependencies, such as `Result`; rules in its README
+- [packages/shared](packages/shared/README.md) — code shared by frontend and
+  backend; rules in its README
 - [packages/contracts](packages/contracts/README.md) — DTOs exchanged by
   frontend and backend: request and response bodies and the values in them,
   as Zod schemas split by domain; rules in its README
@@ -78,6 +75,8 @@ Documentation and code are written in English.
 - Always: do only the current task; before changing several files, show a plan.
 - Always: declare versions of dependencies shared by several workspaces in
   catalog: in pnpm-workspace.yaml, not in a package's package.json.
+- Always: when adding, renaming or removing a package, update its import
+  groups in sortImports in .oxfmtrc.json.
 - Ask first: anything from the list in "Decisions" unless an accepted ADR
   explicitly covers it.
 - Never: import one application from another; apps/* are connected only

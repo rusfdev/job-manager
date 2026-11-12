@@ -1,4 +1,4 @@
-import type { Email, UserId } from "@repo/primitives";
+import type { Email, UserId } from "@repo/shared/primitives";
 import type { user } from "@repo/database/schema";
 import type { UserDto } from "@repo/contracts";
 

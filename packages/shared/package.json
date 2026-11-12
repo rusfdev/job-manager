@@ -1,12 +1,20 @@
 {
-  "name": "@repo/primitives",
+  "name": "@repo/shared",
   "private": true,
   "type": "module",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+    "./assert": {
+      "types": "./dist/assert/index.d.ts",
+      "default": "./dist/assert/index.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "default": "./dist/primitives/index.js"
+    },
+    "./result": {
+      "types": "./dist/result/index.d.ts",
+      "default": "./dist/result/index.js"
     }
   },
   "scripts": {

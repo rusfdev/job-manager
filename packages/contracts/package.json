@@ -17,7 +17,7 @@
     "lint:fix": "oxlint --fix ."
   },
   "dependencies": {
-    "@repo/primitives": "workspace:*"
+    "@repo/shared": "workspace:*"
   },
   "devDependencies": {
     "@repo/oxlint-config": "workspace:*",
