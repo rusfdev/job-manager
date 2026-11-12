@@ -8,6 +8,10 @@
       "types": "./dist/assert/index.d.ts",
       "default": "./dist/assert/index.js"
     },
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "default": "./dist/errors/index.js"
+    },
     "./primitives": {
       "types": "./dist/primitives/index.d.ts",
       "default": "./dist/primitives/index.js"
