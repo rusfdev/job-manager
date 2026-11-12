@@ -4,12 +4,8 @@
     "newlinesBetween": false,
     "customGroups": [
       {
-        "groupName": "repo-utils",
-        "elementNamePattern": ["@repo/utils", "@repo/utils/**"]
-      },
-      {
-        "groupName": "repo-primitives",
-        "elementNamePattern": ["@repo/primitives", "@repo/primitives/**"]
+        "groupName": "repo-shared",
+        "elementNamePattern": ["@repo/shared", "@repo/shared/**"]
       },
       {
         "groupName": "repo-database",
@@ -23,8 +19,7 @@
     "groups": [
       "builtin",
       "external",
-      "repo-utils",
-      "repo-primitives",
+      "repo-shared",
       "repo-database",
       "repo-contracts",
       ["parent", "sibling", "index"],

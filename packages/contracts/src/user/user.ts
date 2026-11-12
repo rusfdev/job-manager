@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { emailSchema, userIdSchema } from "@repo/primitives";
+import { emailSchema, userIdSchema } from "@repo/shared/primitives";
 
 export const userSchema = z
   .object({

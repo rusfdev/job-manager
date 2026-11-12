@@ -23,7 +23,7 @@
     "@nestjs/swagger": "12.0.2",
     "@repo/contracts": "workspace:*",
     "@repo/database": "workspace:*",
-    "@repo/primitives": "workspace:*",
+    "@repo/shared": "workspace:*",
     "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
