@@ -8,5 +8,6 @@
   "json.schemaDownload.trustedDomains": {
     "https://turborepo.dev": true
   },
-  "cSpell.words": ["vitest"]
+  "cSpell.words": ["vitest"],
+  "explorer.compactFolders": false
 }

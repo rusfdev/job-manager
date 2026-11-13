@@ -10,12 +10,12 @@ export type Err<E> = {
 
 export type Result<T, E = never> = Ok<T> | Err<E>;
 
-export const ok = <T>(value: T): Ok<T> => ({
-  isOk: true,
-  value,
-});
+export function ok(): Ok<void>;
+export function ok<T>(value: T): Ok<T>;
+export function ok<T>(value?: T): Ok<T | void> {
+  return { isOk: true, value };
+}
 
-export const err = <E>(error: E): Err<E> => ({
-  isOk: false,
-  error,
-});
+export function err<E>(error: E): Err<E> {
+  return { isOk: false, error };
+}

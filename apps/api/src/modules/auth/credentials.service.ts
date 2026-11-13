@@ -1,6 +1,8 @@
 import { PasswordHasher } from "@nestjs/authentication";
 import { ConflictException, Injectable } from "@nestjs/common";
+import { CommandBus } from "@nestjs/cqrs";
 import type { SignInDto, SignUpDto, UserDto } from "@repo/shared/contracts";
+import { CreateUserCommand } from "../user/index.js";
 import { AuthRepository } from "./auth.repository.js";
 
 @Injectable()
@@ -8,17 +10,18 @@ export class CredentialsService {
   constructor(
     private readonly authRepository: AuthRepository,
     private readonly passwordHasher: PasswordHasher,
+    private readonly commandBus: CommandBus,
   ) {}
 
   async register({ email, password }: SignUpDto): Promise<UserDto> {
     const passwordHash = await this.passwordHasher.hash(password);
-    const user = await this.authRepository.create(email, passwordHash);
+    const result = await this.commandBus.execute(new CreateUserCommand(email, passwordHash));
 
-    if (!user) {
+    if (!result.isOk) {
       throw new ConflictException("Email already registered");
     }
 
-    return user;
+    return { id: result.value, email };
   }
 
   async verify({ email, password }: SignInDto): Promise<UserDto | undefined> {

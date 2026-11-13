@@ -1,0 +1,41 @@
+import { AggregateRoot } from "@nestjs/cqrs";
+import { type Email, type UserId } from "@repo/shared/primitives";
+
+export interface UserProps {
+  id: UserId;
+  email: Email;
+  passwordHash: string;
+}
+
+export class User extends AggregateRoot {
+  readonly #id: UserId;
+  readonly #email: Email;
+  readonly #passwordHash: string;
+
+  private constructor(props: UserProps) {
+    super();
+    this.#id = props.id;
+    this.#email = props.email;
+    this.#passwordHash = props.passwordHash;
+  }
+
+  static create(props: UserProps): User {
+    return new User(props);
+  }
+
+  static restore(props: UserProps): User {
+    return new User(props);
+  }
+
+  get id(): UserId {
+    return this.#id;
+  }
+
+  get email(): Email {
+    return this.#email;
+  }
+
+  get passwordHash(): string {
+    return this.#passwordHash;
+  }
+}
