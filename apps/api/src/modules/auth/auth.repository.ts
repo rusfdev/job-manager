@@ -19,16 +19,6 @@ export class AuthRepository {
     private readonly db: Database,
   ) {}
 
-  async create(email: string, passwordHash: string): Promise<UserDto | undefined> {
-    const [row] = await this.db
-      .insert(user)
-      .values({ email, passwordHash })
-      .onConflictDoNothing({ target: user.email })
-      .returning({ id: user.id, email: user.email });
-
-    return row && toUser(row);
-  }
-
   async findCredentials(email: string): Promise<AuthCredentials | undefined> {
     const [row] = await this.db
       .select({ id: user.id, email: user.email, passwordHash: user.passwordHash })
