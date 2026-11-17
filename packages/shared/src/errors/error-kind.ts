@@ -5,9 +5,7 @@ export const ERROR_KIND = {
   VALIDATION: "validation",
   CONFLICT: "conflict",
   RATE_LIMIT: "rate_limit",
-  TIMEOUT: "timeout",
   UNAVAILABLE: "unavailable",
-  CANCELLED: "cancelled",
   INTERNAL: "internal",
 } as const;
 
