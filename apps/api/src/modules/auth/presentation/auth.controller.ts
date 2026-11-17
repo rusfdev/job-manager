@@ -8,6 +8,7 @@ import {
   UnauthorizedException,
 } from "@nestjs/common";
 import { CommandBus } from "@nestjs/cqrs";
+import { minutes, Throttle } from "@nestjs/throttler";
 import { signInSchema, signUpSchema, type SignInDto, type SignUpDto } from "@repo/shared/contracts";
 import { unwrapResult } from "@repo/shared/result";
 import { CreateUserCommand } from "../application/commands/create-user/create-user.command.js";
@@ -31,6 +32,7 @@ export class AuthController {
 
   @Post("sign-in")
   @HttpCode(HttpStatus.NO_CONTENT)
+  @Throttle({ default: { limit: 10, ttl: minutes(15) } })
   async signIn(@Body({ schema: signInSchema }) { email, password }: SignInDto): Promise<void> {
     const result = await this.commandBus.execute(new VerifyCredentialsCommand(email, password));
     const userId = unwrapResult(result);
