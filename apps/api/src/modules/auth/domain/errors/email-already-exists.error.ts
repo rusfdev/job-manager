@@ -1,10 +1,10 @@
 import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/shared/errors";
 
-export class UserAlreadyExistsError extends AppError {
+export class EmailAlreadyExistsError extends AppError {
   readonly kind = ERROR_KIND.CONFLICT;
-  readonly code = "USER_ALREADY_EXISTS";
+  readonly code = "EMAIL_ALREADY_EXISTS";
 
   constructor(options?: AppErrorOptions) {
-    super("User already exists", options);
+    super("Email already exists", options);
   }
 }

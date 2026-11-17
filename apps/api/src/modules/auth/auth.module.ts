@@ -1,12 +1,34 @@
+import { AuthenticationModule } from "@nestjs/authentication";
 import { Module } from "@nestjs/common";
-import { AuthController } from "./auth.controller.js";
-import { AuthRepository } from "./auth.repository.js";
-import { CredentialsService } from "./credentials.service.js";
-import { DrizzleAuthenticationStore } from "./drizzle-authentication.store.js";
-import { SessionAuth } from "./session-auth.provider.js";
+import { IdGeneratorModule } from "@repo/nestjs-id-generator";
+import { CreateUserHandler } from "./application/commands/create-user/create-user.handler.js";
+import { VerifyCredentialsHandler } from "./application/commands/verify-credentials/verify-credentials.handler.js";
+import { UserRepository } from "./domain/user.repository.js";
+import { DrizzleSessionStore } from "./infrastructure/drizzle-session.store.js";
+import { DrizzleUserRepository } from "./infrastructure/drizzle-user.repository.js";
+import { SessionAuth } from "./infrastructure/session-auth.provider.js";
+import { AuthController } from "./presentation/auth.controller.js";
 
 @Module({
+  imports: [
+    AuthenticationModule.forRoot({
+      session: {
+        absoluteTtl: "14d",
+        idleTtl: "3d",
+      },
+    }),
+    IdGeneratorModule,
+  ],
   controllers: [AuthController],
-  providers: [AuthRepository, CredentialsService, DrizzleAuthenticationStore, SessionAuth],
+  providers: [
+    CreateUserHandler,
+    VerifyCredentialsHandler,
+    {
+      provide: UserRepository,
+      useClass: DrizzleUserRepository,
+    },
+    DrizzleSessionStore,
+    SessionAuth,
+  ],
 })
 export class AuthModule {}

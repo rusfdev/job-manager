@@ -10,7 +10,7 @@ export interface UserProps {
 export class User extends AggregateRoot {
   readonly #id: UserId;
   readonly #email: Email;
-  readonly #passwordHash: string;
+  #passwordHash: string;
 
   private constructor(props: UserProps) {
     super();
@@ -37,5 +37,9 @@ export class User extends AggregateRoot {
 
   get passwordHash(): string {
     return this.#passwordHash;
+  }
+
+  changePasswordHash(passwordHash: string): void {
+    this.#passwordHash = passwordHash;
   }
 }
