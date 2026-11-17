@@ -10,7 +10,8 @@ export class Logger extends ConsoleLogger {
     @Inject(MODULE_OPTIONS_TOKEN) options: LoggerModuleOptions,
   ) {
     super({
-      context: parentClass?.constructor.name,
+      context:
+        parentClass && !(parentClass instanceof Logger) ? parentClass.constructor.name : undefined,
       logLevels: options.logLevels,
       prefix: options.prefix,
       redact: ["password", "token", "authorization", "cookie"],
