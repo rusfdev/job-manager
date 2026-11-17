@@ -1,5 +1,5 @@
 {
-  "name": "@repo/nestjs-id-generator",
+  "name": "@repo/id-generator",
   "private": true,
   "type": "module",
   "sideEffects": false,

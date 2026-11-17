@@ -12,8 +12,8 @@
         "elementNamePattern": ["@repo/database", "@repo/database/**"]
       },
       {
-        "groupName": "repo-nestjs",
-        "elementNamePattern": ["@repo/nestjs-*", "@repo/nestjs-*/**"]
+        "groupName": "repo-id-generator",
+        "elementNamePattern": ["@repo/id-generator", "@repo/id-generator/**"]
       }
     ],
     "groups": [
@@ -21,7 +21,7 @@
       "external",
       "repo-shared",
       "repo-database",
-      "repo-nestjs",
+      "repo-id-generator",
       ["parent", "sibling", "index"],
       "style",
       "unknown"

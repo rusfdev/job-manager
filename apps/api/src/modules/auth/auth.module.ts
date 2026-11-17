@@ -1,6 +1,6 @@
 import { AuthenticationModule } from "@nestjs/authentication";
 import { Module } from "@nestjs/common";
-import { IdGeneratorModule } from "@repo/nestjs-id-generator";
+import { IdGeneratorModule } from "@repo/id-generator";
 import { CreateUserHandler } from "./application/commands/create-user/create-user.handler.js";
 import { VerifyCredentialsHandler } from "./application/commands/verify-credentials/verify-credentials.handler.js";
 import { UserRepository } from "./domain/user.repository.js";
