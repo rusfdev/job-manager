@@ -24,6 +24,7 @@
     "@nestjs/swagger": "12.0.2",
     "@repo/database": "workspace:*",
     "@repo/id-generator": "workspace:*",
+    "@repo/logger": "workspace:*",
     "@repo/shared": "workspace:*",
     "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",

@@ -262,6 +262,9 @@ importers:
       '@repo/id-generator':
         specifier: workspace:*
         version: link:../../packages/id-generator
+      '@repo/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
       '@repo/shared':
         specifier: workspace:*
         version: link:../../packages/shared

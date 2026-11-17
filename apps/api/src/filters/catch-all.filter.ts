@@ -4,11 +4,11 @@ import {
   type ExceptionFilter,
   HttpException,
   HttpStatus,
-  Logger,
 } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
 import type { ApiErrorDto } from "@repo/shared/contracts";
 import { AppError, ERROR_KIND, type ErrorKind } from "@repo/shared/errors";
+import { Logger } from "@repo/logger";
 
 const HTTP_STATUS_BY_KIND: Record<ErrorKind, HttpStatus> = {
   [ERROR_KIND.VALIDATION]: HttpStatus.BAD_REQUEST,
@@ -23,9 +23,10 @@ const HTTP_STATUS_BY_KIND: Record<ErrorKind, HttpStatus> = {
 
 @Catch()
 export class CatchAllFilter implements ExceptionFilter {
-  private readonly logger = new Logger(CatchAllFilter.name);
-
-  constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
+  constructor(
+    private readonly httpAdapterHost: HttpAdapterHost,
+    private readonly logger: Logger,
+  ) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
     const { httpAdapter } = this.httpAdapterHost;
@@ -39,7 +40,7 @@ export class CatchAllFilter implements ExceptionFilter {
     if (exception instanceof AppError) return this.fromAppError(exception);
     if (exception instanceof HttpException) return this.fromHttpException(exception);
 
-    this.logUnknown(exception);
+    this.logger.error(exception);
 
     return {
       statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
@@ -61,14 +62,5 @@ export class CatchAllFilter implements ExceptionFilter {
       errorCode: exception.errorCode,
       message: exception.message,
     };
-  }
-
-  private logUnknown(exception: unknown): void {
-    if (exception instanceof Error) {
-      this.logger.error(exception.message, exception.stack);
-      return;
-    }
-
-    this.logger.error(exception);
   }
 }

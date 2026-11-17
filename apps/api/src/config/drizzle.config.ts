@@ -3,12 +3,12 @@ import type { DrizzleModuleOptions } from "@nestjs/drizzle";
 import { z } from "zod";
 import { createDatabase } from "@repo/database";
 
-const databaseEnvSchema = z.object({
+const drizzleEnvSchema = z.object({
   DATABASE_URL: z.url(),
 });
 
-export const databaseConfig = registerAs<DrizzleModuleOptions>("database", () => {
-  const env = databaseEnvSchema.parse(process.env);
+export const drizzleConfig = registerAs<DrizzleModuleOptions>("drizzle", () => {
+  const env = drizzleEnvSchema.parse(process.env);
 
   return {
     db: createDatabase({ url: env.DATABASE_URL }),
