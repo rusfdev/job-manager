@@ -13,7 +13,11 @@
       },
       {
         "groupName": "repo-id-generator",
-        "elementNamePattern": ["@repo/id-generator", "@repo/id-generator/**"]
+        "elementNamePattern": ["@repo/id-generator"]
+      },
+      {
+        "groupName": "repo-logger",
+        "elementNamePattern": ["@repo/logger"]
       }
     ],
     "groups": [
@@ -22,6 +26,7 @@
       "repo-shared",
       "repo-database",
       "repo-id-generator",
+      "repo-logger",
       ["parent", "sibling", "index"],
       "style",
       "unknown"

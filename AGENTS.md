@@ -34,6 +34,7 @@ Documentation and code are written in English.
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
 - packages/id-generator — NestJS module that generates entity IDs
+- packages/logger — NestJS logger module (ConsoleLogger with a log level)
 - packages/oxlint-config, packages/typescript-config — shared lint and
   TypeScript configs
 
