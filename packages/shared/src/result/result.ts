@@ -19,3 +19,8 @@ export function ok<T>(value?: T): Ok<T | void> {
 export function err<E>(error: E): Err<E> {
   return { isOk: false, error };
 }
+
+export function unwrapResult<T, E extends Error>(result: Result<T, E>): T {
+  if (!result.isOk) throw result.error;
+  return result.value;
+}
