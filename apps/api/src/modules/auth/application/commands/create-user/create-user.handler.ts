@@ -2,7 +2,7 @@ import { PasswordHasher } from "@nestjs/authentication";
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
 import type { UserId } from "@repo/shared/primitives";
 import { ok, type Result } from "@repo/shared/result";
-import { IdGenerator } from "@repo/nestjs-id-generator";
+import { IdGenerator } from "@repo/id-generator";
 import type { EmailAlreadyExistsError } from "../../../domain/errors/email-already-exists.error.js";
 import { User } from "../../../domain/user.aggregate.js";
 import { UserRepository } from "../../../domain/user.repository.js";

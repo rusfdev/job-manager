@@ -33,8 +33,7 @@ Documentation and code are written in English.
   backend; rules in its README
 - [packages/database](packages/database/README.md) — Drizzle schema,
   relations and SQL migrations; rules in its README
-- packages/nestjs/* — NestJS modules shared by backend apps
-  (@repo/nestjs-<name>)
+- packages/id-generator — NestJS module that generates entity IDs
 - packages/oxlint-config, packages/typescript-config — shared lint and
   TypeScript configs
 
