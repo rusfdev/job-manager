@@ -13,6 +13,7 @@ Code shared by frontend and backend, split by purpose, not by kind.
 ## Structure
 
 - [`src/assert`](src/assert/) — runtime assertions.
+- [`src/auth`](src/auth/) — authentication and authorization.
 - [`src/contracts`](src/contracts/README.md) — DTOs exchanged by frontend and
   backend.
 - [`src/errors`](src/errors/) — application errors.
