@@ -1,4 +1,4 @@
-import type { Email } from "@repo/shared/primitives";
+import type { Email } from "@repo/shared/domain";
 import type { Result } from "@repo/shared/result";
 import type { EmailAlreadyExistsError } from "./errors/email-already-exists.error.js";
 import { type User } from "./user.aggregate.js";

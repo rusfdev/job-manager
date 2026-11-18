@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
-import type { Email, UserId } from "@repo/shared/primitives";
+import type { Email, UserId } from "@repo/shared/domain";
 import { err, ok, type Result } from "@repo/shared/result";
 import type { Database } from "@repo/database";
 import { user } from "@repo/database/schema";

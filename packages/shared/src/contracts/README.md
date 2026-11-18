@@ -1,7 +1,8 @@
 # @repo/shared/contracts
 
-DTOs that the frontend and the backend exchange: objects, such as request and
-response bodies, and the values in them.
+Objects exchanged between layers and applications: request and response
+bodies, the authenticated principal, error and (later) pagination shapes.
+The values inside them come from [`../domain`](../domain/README.md).
 
 ## Rules
 
@@ -14,8 +15,8 @@ response bodies, and the values in them.
   value.
 - Every schema has `.meta({ id })` equal to its type name; it is the schema
   name in Swagger. A branded schema uses the same name in `.brand()`.
-- Schemas of primitives (`emailSchema`, `userIdSchema`, ...) come from
-  [`../primitives`](../primitives/README.md); they are not declared here.
+- Values (`emailSchema`, `userIdSchema`, `vacancyStatusSchema`, ...) come
+  from [`../domain`](../domain/README.md); they are not declared here.
 
 ## Example
 
@@ -26,7 +27,7 @@ export const entityNameSchema = z.string().brand("EntityName").meta({ id: "Entit
 export type EntityName = z.infer<typeof entityNameSchema>;
 
 // entity/entity.ts — an object
-import { entityIdSchema } from "../../primitives/index.js";
+import { entityIdSchema } from "../../domain/index.js";
 import { entityNameSchema } from "./entity-name.js";
 
 export const entitySchema = z

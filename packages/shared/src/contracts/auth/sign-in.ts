@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { emailSchema } from "../../primitives/index.js";
+import { emailSchema } from "../../domain/index.js";
 
 export const signInSchema = z
   .object({

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { idSchema } from "@repo/shared/primitives";
+import { idSchema } from "@repo/shared/domain";
 import { IdGenerator } from "./id-generator.js";
 
 describe("IdGenerator", () => {
