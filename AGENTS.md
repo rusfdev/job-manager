@@ -78,6 +78,7 @@ Documentation and code are written in English.
   groups in sortImports in .oxfmtrc.json.
 - Ask first: anything from the list in "Decisions" unless an accepted ADR
   explicitly covers it.
+- Never: write code comments; propose them after the task instead.
 - Never: import one application from another; apps/* are connected only
   through packages/*.
 - Never: commit secrets or .env; delete or weaken tests to make them pass; set

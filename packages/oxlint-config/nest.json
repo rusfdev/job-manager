@@ -12,6 +12,12 @@
         "es2025": true,
         "node": true
       }
+    },
+    {
+      "files": ["**/domain/**", "**/*.spec.ts"],
+      "rules": {
+        "typescript/consistent-type-imports": "error"
+      }
     }
   ]
 }

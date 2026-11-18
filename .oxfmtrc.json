@@ -18,6 +18,10 @@
       {
         "groupName": "repo-logger",
         "elementNamePattern": ["@repo/logger"]
+      },
+      {
+        "groupName": "repo-vacancy-core",
+        "elementNamePattern": ["@repo/vacancy-core"]
       }
     ],
     "groups": [
@@ -27,6 +31,7 @@
       "repo-database",
       "repo-id-generator",
       "repo-logger",
+      "repo-vacancy-core",
       ["parent", "sibling", "index"],
       "style",
       "unknown"
