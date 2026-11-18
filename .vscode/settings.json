@@ -3,7 +3,8 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit"
+    "source.fixAll.oxc": "explicit",
+    "source.fixAll.ts": "explicit"
   },
   "json.schemaDownload.trustedDomains": {
     "https://turborepo.dev": true

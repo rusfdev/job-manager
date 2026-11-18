@@ -1,0 +1,101 @@
+import { AggregateRoot } from "@nestjs/cqrs";
+import {
+  type UserId,
+  VACANCY_STATUS,
+  type VacancyId,
+  type VacancyStatus,
+  type VacancyTransition,
+  type VacancyUrl,
+} from "@repo/shared/domain";
+import { err, ok, type Result } from "@repo/shared/result";
+import { InvalidVacancyTransitionError } from "./errors/invalid-vacancy-transition.error.js";
+import {
+  VACANCY_TRANSITION_RULES,
+  type VacancyTransitionRule,
+} from "./vacancy-transition-rules.js";
+import { normalizeVacancyUrl } from "./vacancy-url.js";
+
+export interface VacancyProps {
+  id: VacancyId;
+  ownerId: UserId;
+  url: VacancyUrl;
+  position: string;
+  description: string;
+  status: VacancyStatus;
+}
+
+export interface CreateVacancyProps {
+  id: VacancyId;
+  ownerId: UserId;
+  url: VacancyUrl;
+  position: string;
+  description: string;
+}
+
+export class Vacancy extends AggregateRoot {
+  readonly #id: VacancyId;
+  readonly #ownerId: UserId;
+  readonly #url: VacancyUrl;
+  readonly #position: string;
+  readonly #description: string;
+  #status: VacancyStatus;
+
+  private constructor(props: VacancyProps) {
+    super();
+    this.#id = props.id;
+    this.#ownerId = props.ownerId;
+    this.#url = props.url;
+    this.#position = props.position;
+    this.#description = props.description;
+    this.#status = props.status;
+  }
+
+  static create(props: CreateVacancyProps): Vacancy {
+    const vacancy = new Vacancy({
+      ...props,
+      url: normalizeVacancyUrl(props.url),
+      status: VACANCY_STATUS.NEW,
+    });
+
+    return vacancy;
+  }
+
+  static restore(props: VacancyProps): Vacancy {
+    return new Vacancy(props);
+  }
+
+  get id(): VacancyId {
+    return this.#id;
+  }
+
+  get ownerId(): UserId {
+    return this.#ownerId;
+  }
+
+  get url(): VacancyUrl {
+    return this.#url;
+  }
+
+  get position(): string {
+    return this.#position;
+  }
+
+  get description(): string {
+    return this.#description;
+  }
+
+  get status(): VacancyStatus {
+    return this.#status;
+  }
+
+  transition(transition: VacancyTransition): Result<void, InvalidVacancyTransitionError> {
+    const { from, to }: VacancyTransitionRule = VACANCY_TRANSITION_RULES[transition];
+
+    if (!from.includes(this.#status)) {
+      return err(new InvalidVacancyTransitionError(transition, this.#status));
+    }
+
+    this.#status = to;
+    return ok();
+  }
+}

@@ -1,10 +1,11 @@
 import { z } from "zod";
+import { vacancyUrlSchema } from "../../domain/index.js";
 
 export const createVacancySchema = z
   .object({
-    url: z.url(),
-    position: z.string().trim().min(1),
-    description: z.string().trim(),
+    url: vacancyUrlSchema,
+    position: z.string().trim().nonempty(),
+    description: z.string().trim().nonempty(),
   })
   .meta({
     id: "CreateVacancyDto",
