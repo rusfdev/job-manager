@@ -1,7 +1,6 @@
 packages:
   - "apps/*"
   - "packages/*"
-  - "packages/modules/*"
 
 catalog:
   "@nestjs/cli": "^12.0.8"

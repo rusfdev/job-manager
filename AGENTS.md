@@ -25,16 +25,15 @@ Documentation and code are written in English.
 
 ## Where things are
 
-- [docs/product.md](docs/product.md) — goals and non-goals
-- [docs/adr/](docs/adr/) — architecture decisions, one file each, status inside
-- apps/* — applications, packages/* — shared code
-- apps/api — NestJS API; apps/api/bruno — Bruno collection for its endpoints
+- [docs/product.md](docs/product.md) — product description
+- [docs/adr/](docs/adr/) — architecture decisions
+- apps/api — NestJS API; apps/api/bruno — Bruno collection
 - [packages/shared](packages/shared/README.md) — code shared by frontend and
-  backend; rules in its README
-- [packages/database](packages/database/README.md) — Drizzle schema,
-  relations and SQL migrations; rules in its README
+  backend
+- [packages/database](packages/database/README.md) — database schema and
+  migrations
 - packages/id-generator — NestJS module that generates entity IDs
-- packages/logger — NestJS logger module (ConsoleLogger with a log level)
+- packages/logger — NestJS logger module
 - packages/oxlint-config, packages/typescript-config — shared lint and
   TypeScript configs
 

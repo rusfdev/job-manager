@@ -6,7 +6,7 @@ Database schema, relations and SQL migrations for PostgreSQL with Drizzle.
 
 - The package does not depend on Nest and has no module. It exports
   `createDatabase(config)` and the `Database` type; the application builds
-  the client from its own config (`apps/api/src/config/database.config.ts`)
+  the client from its own config (`apps/api/src/config/drizzle.config.ts`)
   and registers it with `DrizzleModule`. Consumers inject it with
   `InjectDrizzle()` from `@nestjs/drizzle` and import operators from
   `drizzle-orm`.
