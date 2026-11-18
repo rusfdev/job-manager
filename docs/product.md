@@ -9,8 +9,7 @@ status.
 ## Who it is for
 
 Job seekers, first of all the project author. Multiple users are supported
-from the start, but there is no public sign-up: accounts are created manually,
-users only authenticate.
+from the start. Sign-up exists but is closed behind a feature flag.
 
 ## Key features
 
