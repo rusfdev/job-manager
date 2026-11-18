@@ -1,6 +1,6 @@
 import { PasswordHasher } from "@nestjs/authentication";
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
-import type { UserId } from "@repo/shared/primitives";
+import type { UserId } from "@repo/shared/domain";
 import { err, ok, type Result } from "@repo/shared/result";
 import { InvalidCredentialsError } from "../../../domain/errors/invalid-credentials.error.js";
 import { UserRepository } from "../../../domain/user.repository.js";

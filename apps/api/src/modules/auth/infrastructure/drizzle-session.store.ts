@@ -6,7 +6,7 @@ import {
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { and, eq, lt } from "drizzle-orm";
-import type { UserId } from "@repo/shared/primitives";
+import type { UserId } from "@repo/shared/domain";
 import type { Database } from "@repo/database";
 import { session } from "@repo/database/schema";
 
