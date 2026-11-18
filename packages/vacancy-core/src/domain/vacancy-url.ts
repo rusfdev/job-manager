@@ -1,13 +1,35 @@
-import type { VacancyUrl } from "@repo/shared/domain";
+import { err, ok, type Result } from "@repo/shared/result";
+import { InvalidVacancyUrlError } from "./errors/invalid-vacancy-url.error.js";
 
-export function normalizeVacancyUrl(url: VacancyUrl): VacancyUrl {
-  const parsed = new URL(url);
+export class VacancyUrl {
+  readonly #value: string;
 
-  parsed.hostname = parsed.hostname.replace(/^www\./u, "");
-  parsed.hash = "";
-  parsed.search = "";
+  private constructor(value: string) {
+    this.#value = value;
+  }
 
-  const normalized = parsed.toString() as VacancyUrl;
+  static create(value: string): Result<VacancyUrl, InvalidVacancyUrlError> {
+    const url = URL.parse(value);
 
-  return normalized;
+    if (!url || url.protocol !== "https:") {
+      return err(new InvalidVacancyUrlError());
+    }
+
+    url.hostname = url.hostname.replace(/^www\./u, "");
+    url.pathname = url.pathname.replace(/\/+$/u, "");
+    url.hash = "";
+    url.search = "";
+
+    const vacancyUrl = new VacancyUrl(url.toString());
+
+    return ok(vacancyUrl);
+  }
+
+  get value(): string {
+    return this.#value;
+  }
+
+  equals(other: VacancyUrl): boolean {
+    return this.#value === other.#value;
+  }
 }

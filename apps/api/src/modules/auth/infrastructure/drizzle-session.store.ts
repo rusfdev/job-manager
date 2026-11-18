@@ -8,7 +8,7 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import { and, eq, lt } from "drizzle-orm";
 import type { UserId } from "@repo/shared/domain";
 import type { Database } from "@repo/database";
-import { session } from "@repo/database/schema";
+import { sessions } from "@repo/database/schema";
 
 @Injectable()
 export class DrizzleSessionStore implements SessionStore {
@@ -20,38 +20,38 @@ export class DrizzleSessionStore implements SessionStore {
   }
 
   async getSession(id: string): Promise<SessionRecord | undefined> {
-    const [row] = await this.db.select().from(session).where(eq(session.id, id));
+    const [row] = await this.db.select().from(sessions).where(eq(sessions.id, id));
     if (!row) return;
 
     return { ...row, extra: { user: { id: row.userId as UserId } } };
   }
 
   async createSession(record: SessionRecord): Promise<void> {
-    await this.db.insert(session).values(record);
-    await this.db.delete(session).where(lt(session.expiresAt, record.createdAt));
+    await this.db.insert(sessions).values(record);
+    await this.db.delete(sessions).where(lt(sessions.expiresAt, record.createdAt));
   }
 
   async touchSession(id: string, lastActiveAt: Date): Promise<void> {
     await this.db
-      .update(session)
+      .update(sessions)
       .set({ lastActiveAt })
-      .where(and(eq(session.id, id), lt(session.lastActiveAt, lastActiveAt)));
+      .where(and(eq(sessions.id, id), lt(sessions.lastActiveAt, lastActiveAt)));
   }
 
   async deleteSession(id: string): Promise<boolean> {
     const deleted = await this.db
-      .delete(session)
-      .where(eq(session.id, id))
-      .returning({ id: session.id });
+      .delete(sessions)
+      .where(eq(sessions.id, id))
+      .returning({ id: sessions.id });
 
     return deleted.length > 0;
   }
 
   listUserSessions(userId: UserId): Promise<SessionRecord[]> {
-    return this.db.select().from(session).where(eq(session.userId, userId));
+    return this.db.select().from(sessions).where(eq(sessions.userId, userId));
   }
 
   async deleteUserSessions(userId: UserId): Promise<void> {
-    await this.db.delete(session).where(eq(session.userId, userId));
+    await this.db.delete(sessions).where(eq(sessions.userId, userId));
   }
 }

@@ -1,6 +1,6 @@
 import type { z } from "zod";
-import { createBrandIdSchema } from "../common/id.js";
+import { brandIdSchema } from "../common/id.js";
 
-export const vacancyIdSchema = createBrandIdSchema("VacancyId");
+export const vacancyIdSchema = brandIdSchema("VacancyId");
 
 export type VacancyId = z.infer<typeof vacancyIdSchema>;

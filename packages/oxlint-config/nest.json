@@ -3,7 +3,11 @@
   "extends": ["./base.json"],
   "rules": {
     "typescript/consistent-type-imports": "off",
-    "typescript/no-extraneous-class": ["error", { "allowWithDecorator": true }]
+    "unicorn/no-static-only-class": "off",
+    "typescript/no-extraneous-class": [
+      "error",
+      { "allowWithDecorator": true, "allowStaticOnly": true }
+    ]
   },
   "overrides": [
     {
