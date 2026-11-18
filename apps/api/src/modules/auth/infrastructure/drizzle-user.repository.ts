@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import type { Email, UserId } from "@repo/shared/domain";
 import { err, ok, type Result } from "@repo/shared/result";
 import type { Database } from "@repo/database";
-import { user } from "@repo/database/schema";
+import { users } from "@repo/database/schema";
 import { EmailAlreadyExistsError } from "../domain/errors/email-already-exists.error.js";
 import { User } from "../domain/user.aggregate.js";
 import { UserRepository } from "../domain/user.repository.js";
@@ -15,19 +15,19 @@ export class DrizzleUserRepository implements UserRepository {
 
   async add({ id, email, passwordHash }: User): Promise<Result<void, EmailAlreadyExistsError>> {
     const [row] = await this.db
-      .insert(user)
+      .insert(users)
       .values({ id, email, passwordHash })
-      .onConflictDoNothing({ target: user.email })
-      .returning({ id: user.id });
+      .onConflictDoNothing({ target: users.email })
+      .returning({ id: users.id });
 
     return row ? ok() : err(new EmailAlreadyExistsError());
   }
 
   async findByEmail(email: Email): Promise<User | undefined> {
     const [row] = await this.db
-      .select({ id: user.id, email: user.email, passwordHash: user.passwordHash })
-      .from(user)
-      .where(eq(user.email, email));
+      .select({ id: users.id, email: users.email, passwordHash: users.passwordHash })
+      .from(users)
+      .where(eq(users.email, email));
 
     if (!row) return;
 
@@ -39,6 +39,6 @@ export class DrizzleUserRepository implements UserRepository {
   }
 
   async save({ id, email, passwordHash }: User): Promise<void> {
-    await this.db.update(user).set({ email, passwordHash }).where(eq(user.id, id));
+    await this.db.update(users).set({ email, passwordHash }).where(eq(users.id, id));
   }
 }

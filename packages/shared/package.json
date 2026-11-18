@@ -4,17 +4,17 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    "./assert": {
-      "types": "./dist/assert/index.d.ts",
-      "default": "./dist/assert/index.js"
+    "./domain": {
+      "types": "./dist/domain/index.d.ts",
+      "default": "./dist/domain/index.js"
     },
     "./contracts": {
       "types": "./dist/contracts/index.d.ts",
       "default": "./dist/contracts/index.js"
     },
-    "./domain": {
-      "types": "./dist/domain/index.d.ts",
-      "default": "./dist/domain/index.js"
+    "./assert": {
+      "types": "./dist/assert/index.d.ts",
+      "default": "./dist/assert/index.js"
     },
     "./errors": {
       "types": "./dist/errors/index.d.ts",

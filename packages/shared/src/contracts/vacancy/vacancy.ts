@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { vacancyIdSchema, vacancyStatusSchema, vacancyUrlSchema } from "../../domain/index.js";
+import { vacancyIdSchema, vacancyStatusSchema } from "../../domain/index.js";
 
 export const vacancySchema = z
   .object({
     id: vacancyIdSchema,
-    url: vacancyUrlSchema,
+    url: z.httpUrl(),
     status: vacancyStatusSchema,
     position: z.string(),
     description: z.string(),

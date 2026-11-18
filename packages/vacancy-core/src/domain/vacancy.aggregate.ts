@@ -5,7 +5,6 @@ import {
   type VacancyId,
   type VacancyStatus,
   type VacancyTransition,
-  type VacancyUrl,
 } from "@repo/shared/domain";
 import { err, ok, type Result } from "@repo/shared/result";
 import { InvalidVacancyTransitionError } from "./errors/invalid-vacancy-transition.error.js";
@@ -13,7 +12,7 @@ import {
   VACANCY_TRANSITION_RULES,
   type VacancyTransitionRule,
 } from "./vacancy-transition-rules.js";
-import { normalizeVacancyUrl } from "./vacancy-url.js";
+import type { VacancyUrl } from "./vacancy-url.js";
 
 export interface VacancyProps {
   id: VacancyId;
@@ -24,13 +23,7 @@ export interface VacancyProps {
   status: VacancyStatus;
 }
 
-export interface CreateVacancyProps {
-  id: VacancyId;
-  ownerId: UserId;
-  url: VacancyUrl;
-  position: string;
-  description: string;
-}
+export type CreateVacancyProps = Omit<VacancyProps, "status">;
 
 export class Vacancy extends AggregateRoot {
   readonly #id: VacancyId;
@@ -51,13 +44,10 @@ export class Vacancy extends AggregateRoot {
   }
 
   static create(props: CreateVacancyProps): Vacancy {
-    const vacancy = new Vacancy({
+    return new Vacancy({
       ...props,
-      url: normalizeVacancyUrl(props.url),
       status: VACANCY_STATUS.NEW,
     });
-
-    return vacancy;
   }
 
   static restore(props: VacancyProps): Vacancy {
