@@ -18,7 +18,9 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@repo/contracts": "workspace:*",
     "@repo/database": "workspace:*",
+    "@repo/id-generator": "workspace:*",
     "@repo/shared": "workspace:*"
   },
   "devDependencies": {

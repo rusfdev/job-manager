@@ -3,12 +3,12 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.oxc": "explicit",
-    "source.fixAll.ts": "explicit"
+    "source.fixAll.oxc": "explicit"
   },
   "json.schemaDownload.trustedDomains": {
     "https://turborepo.dev": true
   },
   "cSpell.words": ["vitest"],
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "typescript.preferences.preferTypeOnlyAutoImports": true
 }

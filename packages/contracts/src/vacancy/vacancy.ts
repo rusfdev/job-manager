@@ -9,6 +9,8 @@ export const vacancySchema = z
     position: z.string(),
     description: z.string(),
   })
-  .meta({ id: "VacancyDto" });
+  .meta({
+    id: "VacancyDto",
+  });
 
 export type VacancyDto = z.infer<typeof vacancySchema>;

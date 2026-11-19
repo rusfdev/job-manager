@@ -1,8 +1,6 @@
 import { index, snakeCase, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import { users } from "../auth/users.js";
 
-export const VACANCIES_OWNER_ID_URL_UNIQUE = "vacancies_owner_id_url_unique";
-
 export const vacancies = snakeCase.table(
   "vacancies",
   {
@@ -21,7 +19,7 @@ export const vacancies = snakeCase.table(
       .$onUpdate(() => new Date()),
   },
   (table) => [
-    unique(VACANCIES_OWNER_ID_URL_UNIQUE).on(table.ownerId, table.url),
+    unique("vacancies_owner_id_url_unique").on(table.ownerId, table.url),
     index("vacancies_owner_id_created_at_idx").on(table.ownerId, table.createdAt),
   ],
 );

@@ -6,6 +6,8 @@ export const signInSchema = z
     email: emailSchema,
     password: z.string().nonempty(),
   })
-  .meta({ id: "SignInDto" });
+  .meta({
+    id: "SignInDto",
+  });
 
 export type SignInDto = z.infer<typeof signInSchema>;
