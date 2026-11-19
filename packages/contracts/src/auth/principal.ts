@@ -6,6 +6,8 @@ export const principalSchema = z
     id: userIdSchema,
   })
   .readonly()
-  .meta({ id: "Principal" });
+  .meta({
+    id: "Principal",
+  });
 
 export type Principal = z.infer<typeof principalSchema>;

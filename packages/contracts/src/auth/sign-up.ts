@@ -6,6 +6,8 @@ export const signUpSchema = z
     email: emailSchema,
     password: passwordSchema,
   })
-  .meta({ id: "SignUpDto" });
+  .meta({
+    id: "SignUpDto",
+  });
 
 export type SignUpDto = z.infer<typeof signUpSchema>;

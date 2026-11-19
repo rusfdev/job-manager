@@ -6,6 +6,8 @@ export const apiErrorSchema = z
     errorCode: z.string().optional(),
     message: z.string(),
   })
-  .meta({ id: "ApiErrorDto" });
+  .meta({
+    id: "ApiErrorDto",
+  });
 
 export type ApiErrorDto = z.infer<typeof apiErrorSchema>;

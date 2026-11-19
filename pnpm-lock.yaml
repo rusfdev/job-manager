@@ -478,9 +478,15 @@ importers:
 
   packages/vacancy-core:
     dependencies:
+      '@repo/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@repo/database':
         specifier: workspace:*
         version: link:../database
+      '@repo/id-generator':
+        specifier: workspace:*
+        version: link:../id-generator
       '@repo/shared':
         specifier: workspace:*
         version: link:../shared

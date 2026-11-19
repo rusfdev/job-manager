@@ -78,6 +78,10 @@ export class Vacancy extends AggregateRoot {
     return this.#status;
   }
 
+  isOwnedBy(userId: UserId): boolean {
+    return this.#ownerId === userId;
+  }
+
   transition(transition: VacancyTransition): Result<void, InvalidVacancyTransitionError> {
     const { from, to }: VacancyTransitionRule = VACANCY_TRANSITION_RULES[transition];
 
