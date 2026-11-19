@@ -8,6 +8,10 @@
         "elementNamePattern": ["@repo/shared", "@repo/shared/**"]
       },
       {
+        "groupName": "repo-contracts",
+        "elementNamePattern": ["@repo/contracts", "@repo/contracts/**"]
+      },
+      {
         "groupName": "repo-database",
         "elementNamePattern": ["@repo/database", "@repo/database/**"]
       },
@@ -28,6 +32,7 @@
       "builtin",
       "external",
       "repo-shared",
+      "repo-contracts",
       "repo-database",
       "repo-id-generator",
       "repo-logger",

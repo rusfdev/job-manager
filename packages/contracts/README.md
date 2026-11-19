@@ -1,22 +1,37 @@
-# @repo/shared/contracts
+# @repo/contracts
 
 Objects exchanged between layers and applications: request and response
 bodies, the authenticated principal, error and (later) pagination shapes.
-The values inside them come from [`../domain`](../domain/README.md).
+The values inside them come from
+[`@repo/shared/domain`](../shared/src/domain/README.md).
 
 ## Rules
 
+- Runs in Node and the browser: no Node, DOM or framework APIs. Runtime
+  dependencies are `zod` (peer, from the catalog) and `@repo/shared`.
 - A DTO is a Zod schema; its type is inferred with `z.infer`, never written by
   hand.
-- One folder per domain. No `types.ts`, `common.ts` or `utils.ts`.
-- `index.ts` is the only entry point and the only barrel. Files import
-  each other directly, not through it.
+- One folder in `src/` per business domain, singular (ADR 0003), imported by
+  subpath: `@repo/contracts/<domain>`. No `types.ts`, `common.ts` or
+  `utils.ts`.
+- Contracts used by every domain (API error, later pagination) live in the
+  root of `src/` and are imported from `@repo/contracts`.
+- A domain folder may import the root files, never another domain folder.
+  The root never imports a domain folder.
+- `index.ts` (root or `<domain>/`) is the only entry point and the only
+  barrel of its level. Files import each other directly, not through it.
 - Names: schema `<name>Schema`; type `<Name>Dto` for an object, `<Name>` for a
   value.
 - Every schema has `.meta({ id })` equal to its type name; it is the schema
   name in Swagger. A branded schema uses the same name in `.brand()`.
 - Values (`emailSchema`, `userIdSchema`, `vacancyStatusSchema`, ...) come
-  from [`../domain`](../domain/README.md); they are not declared here.
+  from `@repo/shared/domain`; they are not declared here.
+
+## Structure
+
+- `src/` root — API error response.
+- `src/auth` — principal, sign-in, sign-up.
+- `src/vacancy` — vacancy, create-vacancy.
 
 ## Example
 
@@ -27,7 +42,7 @@ export const entityNameSchema = z.string().brand("EntityName").meta({ id: "Entit
 export type EntityName = z.infer<typeof entityNameSchema>;
 
 // entity/entity.ts — an object
-import { entityIdSchema } from "../../domain/index.js";
+import { entityIdSchema } from "@repo/shared/domain";
 import { entityNameSchema } from "./entity-name.js";
 
 export const entitySchema = z
@@ -45,8 +60,10 @@ export const createEntitySchema = z
 
 export type CreateEntityDto = z.infer<typeof createEntitySchema>;
 
-// index.ts
-export * from "./entity/create-entity.js";
-export * from "./entity/entity-name.js";
-export * from "./entity/entity.js";
+// entity/index.ts
+export * from "./create-entity.js";
+export * from "./entity-name.js";
+export * from "./entity.js";
 ```
+
+A new domain folder also gets its subpath in `exports` of `package.json`.
