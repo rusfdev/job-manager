@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { vacancyIdSchema, vacancyStatusSchema } from "../../domain/index.js";
+import { vacancyIdSchema, vacancyStatusSchema } from "@repo/shared/domain";
 
 export const vacancySchema = z
   .object({
     id: vacancyIdSchema,
-    url: z.httpUrl(),
+    url: z.url(),
     status: vacancyStatusSchema,
     position: z.string(),
     description: z.string(),

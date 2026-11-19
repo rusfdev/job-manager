@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { emailSchema } from "../../domain/index.js";
+import { emailSchema } from "@repo/shared/domain";
 
 export const signInSchema = z
   .object({

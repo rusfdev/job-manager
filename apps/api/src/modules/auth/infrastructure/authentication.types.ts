@@ -1,4 +1,4 @@
-import type { Principal } from "@repo/shared/contracts";
+import type { Principal } from "@repo/contracts/auth";
 
 declare module "@nestjs/authentication" {
   interface AuthenticationTypes {

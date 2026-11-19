@@ -30,6 +30,8 @@ Documentation and code are written in English.
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
 - [packages/shared](packages/shared/README.md) — code shared by frontend and
   backend
+- [packages/contracts](packages/contracts/README.md) — contracts shared by frontend and
+  backend
 - [packages/database](packages/database/README.md) — database schema and
   migrations
 - packages/id-generator — NestJS module that generates entity IDs

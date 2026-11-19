@@ -9,8 +9,8 @@ import {
 } from "@nestjs/common";
 import { CommandBus } from "@nestjs/cqrs";
 import { minutes, Throttle } from "@nestjs/throttler";
-import { signInSchema, signUpSchema, type SignInDto, type SignUpDto } from "@repo/shared/contracts";
 import { unwrapResult } from "@repo/shared/result";
+import { signInSchema, signUpSchema, type SignInDto, type SignUpDto } from "@repo/contracts/auth";
 import { CreateUserCommand } from "../application/commands/create-user/create-user.command.js";
 import { VerifyCredentialsCommand } from "../application/commands/verify-credentials/verify-credentials.command.js";
 
