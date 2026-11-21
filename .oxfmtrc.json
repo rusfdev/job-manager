@@ -24,8 +24,12 @@
         "elementNamePattern": ["@repo/logger"]
       },
       {
+        "groupName": "repo-vacancy-shared",
+        "elementNamePattern": ["@repo/vacancy-shared", "@repo/vacancy-shared/**"]
+      },
+      {
         "groupName": "repo-vacancy-core",
-        "elementNamePattern": ["@repo/vacancy-core"]
+        "elementNamePattern": ["@repo/vacancy-core", "@repo/vacancy-core/**"]
       }
     ],
     "groups": [
@@ -36,6 +40,7 @@
       "repo-database",
       "repo-id-generator",
       "repo-logger",
+      "repo-vacancy-shared",
       "repo-vacancy-core",
       ["parent", "sibling", "index"],
       "style",
