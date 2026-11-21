@@ -1,7 +1,7 @@
 import { type IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { InjectDrizzle } from "@nestjs/drizzle";
+import type { VacancyId, VacancyStatus } from "@repo/vacancy-shared/domain";
 import { desc, eq } from "drizzle-orm";
-import type { VacancyId, VacancyStatus } from "@repo/shared/domain";
 import type { VacancyDto } from "@repo/contracts/vacancy";
 import type { Database } from "@repo/database";
 import { vacancies } from "@repo/database/schema";

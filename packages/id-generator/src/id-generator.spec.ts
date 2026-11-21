@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { idSchema } from "@repo/shared/domain";
+import { Id } from "@repo/shared/domain";
 import { IdGenerator } from "./id-generator.js";
 
 describe("IdGenerator", () => {
-  const gen = new IdGenerator();
+  const id = new IdGenerator();
 
   it("generates an id that passes the schema", () => {
-    expect(idSchema.safeParse(gen.generate()).success).toBe(true);
+    expect(Id.safeParse(id.generate()).success).toBe(true);
   });
 });

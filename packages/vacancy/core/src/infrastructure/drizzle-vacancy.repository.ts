@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
+import type { VacancyId } from "@repo/vacancy-shared/domain";
 import { eq } from "drizzle-orm";
-import type { VacancyId } from "@repo/shared/domain";
 import { UniqueViolationError } from "@repo/shared/errors";
 import { type Database, isUniqueViolation } from "@repo/database";
 import { vacancies } from "@repo/database/schema";

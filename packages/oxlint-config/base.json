@@ -17,6 +17,7 @@
     "import/max-dependencies": ["error", { "max": 20 }],
     "typescript/consistent-type-imports": "error",
     "no-undef": "off",
-    "import/export": "off"
+    "import/export": "off",
+    "no-redeclare": "off"
   }
 }

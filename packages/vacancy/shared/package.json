@@ -1,12 +1,16 @@
 {
-  "name": "@repo/vacancy-contracts",
+  "name": "@repo/vacancy-shared",
   "private": true,
   "type": "module",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+    "./domain": {
+      "types": "./src/domain/index.ts",
+      "default": "./dist/domain/index.js"
+    },
+    "./contracts": {
+      "types": "./src/contracts/index.ts",
+      "default": "./dist/contracts/index.js"
     }
   },
   "scripts": {

@@ -1,11 +1,6 @@
 import { AggregateRoot } from "@nestjs/cqrs";
-import {
-  type UserId,
-  VACANCY_STATUS,
-  type VacancyId,
-  type VacancyStatus,
-  type VacancyTransition,
-} from "@repo/shared/domain";
+import { VacancyStatus, type VacancyId, type VacancyTransition } from "@repo/vacancy-shared/domain";
+import type { UserId } from "@repo/shared/domain";
 import { err, ok, type Result } from "@repo/shared/result";
 import { InvalidVacancyTransitionError } from "./errors/invalid-vacancy-transition.error.js";
 import {
@@ -46,7 +41,7 @@ export class Vacancy extends AggregateRoot {
   static create(props: CreateVacancyProps): Vacancy {
     return new Vacancy({
       ...props,
-      status: VACANCY_STATUS.NEW,
+      status: VacancyStatus.enum.NEW,
     });
   }
 

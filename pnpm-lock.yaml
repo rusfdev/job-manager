@@ -476,28 +476,6 @@ importers:
 
   packages/typescript-config: {}
 
-  packages/vacancy/contracts:
-    dependencies:
-      '@repo/shared':
-        specifier: workspace:*
-        version: link:../../shared
-    devDependencies:
-      '@repo/oxlint-config':
-        specifier: workspace:*
-        version: link:../../oxlint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../typescript-config
-      oxlint:
-        specifier: 'catalog:'
-        version: 1.86.0
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-      zod:
-        specifier: 'catalog:'
-        version: 4.6.5
-
   packages/vacancy/core:
     dependencies:
       '@repo/contracts':
@@ -512,6 +490,9 @@ importers:
       '@repo/shared':
         specifier: workspace:*
         version: link:../../shared
+      '@repo/vacancy-shared':
+        specifier: workspace:*
+        version: link:../shared
     devDependencies:
       '@nestjs/common':
         specifier: 'catalog:'
@@ -555,6 +536,28 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.1.11(@types/node@24.19.1)(vite@8.3.2(@types/node@24.19.1))
+      zod:
+        specifier: 'catalog:'
+        version: 4.6.5
+
+  packages/vacancy/shared:
+    dependencies:
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../../shared
+    devDependencies:
+      '@repo/oxlint-config':
+        specifier: workspace:*
+        version: link:../../oxlint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../typescript-config
+      oxlint:
+        specifier: 'catalog:'
+        version: 1.86.0
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
       zod:
         specifier: 'catalog:'
         version: 4.6.5
