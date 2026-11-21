@@ -1,4 +1,5 @@
-import type { UserId, VacancyId, VacancyStatus } from "@repo/shared/domain";
+import type { VacancyId, VacancyStatus } from "@repo/vacancy-shared/domain";
+import type { UserId } from "@repo/shared/domain";
 import { unwrapResult } from "@repo/shared/result";
 import type { InsertVacancy, SelectVacancy } from "@repo/database/schema";
 import { VacancyUrl } from "../domain/vacancy-url.js";

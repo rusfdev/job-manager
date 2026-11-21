@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-export const createVacancySchema = z
+export const CreateVacancyDto = z
   .object({
-    url: z.httpUrl(),
+    url: z.url(),
     position: z.string().trim().nonempty(),
     description: z.string().trim().nonempty(),
   })
@@ -10,4 +10,4 @@ export const createVacancySchema = z
     id: "CreateVacancyDto",
   });
 
-export type CreateVacancyDto = z.infer<typeof createVacancySchema>;
+export type CreateVacancyDto = z.infer<typeof CreateVacancyDto>;
