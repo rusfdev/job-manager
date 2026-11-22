@@ -1,4 +1,4 @@
-import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/shared/errors";
+import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/common/errors";
 
 export class InvalidVacancyUrlError extends AppError {
   readonly kind = ERROR_KIND.VALIDATION;

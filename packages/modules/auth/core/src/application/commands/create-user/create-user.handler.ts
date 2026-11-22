@@ -1,6 +1,6 @@
 import { PasswordHasher } from "@nestjs/authentication";
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
-import { ok, type Result } from "@repo/shared/result";
+import { ok, type Result } from "@repo/common/result";
 import { IdGenerator } from "@repo/id-generator";
 import { Logger } from "@repo/logger";
 import type { UserId } from "@repo/auth-common/domain";

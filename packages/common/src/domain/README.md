@@ -1,8 +1,8 @@
-# @repo/shared/domain
+# @repo/common/domain
 
 Domain values: ids, enum-like values and other typed scalars used on every
 layer — domain, persistence, application, transport and the frontend. Objects
-built from them live in [`@repo/shared/contracts`](../contracts/).
+built from them live in [`@repo/common/contracts`](../contracts/).
 
 ## Rules
 

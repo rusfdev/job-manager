@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { unwrapResult } from "@repo/shared/result";
+import { unwrapResult } from "@repo/common/result";
 import { VacancyUrl } from "./vacancy-url.js";
 
 interface EquivalenceGroup {

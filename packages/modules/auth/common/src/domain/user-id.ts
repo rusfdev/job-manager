@@ -1,5 +1,5 @@
 import type { z } from "zod";
-import { defineId } from "@repo/shared/domain";
+import { defineId } from "@repo/common/domain";
 
 export const UserId = defineId("UserId");
 

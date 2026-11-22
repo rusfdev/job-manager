@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@repo/auth-common": "workspace:*",
+    "@repo/common": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/id-generator": "workspace:*",
-    "@repo/logger": "workspace:*",
-    "@repo/shared": "workspace:*"
+    "@repo/logger": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/authentication": "catalog:",

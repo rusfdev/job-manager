@@ -1,6 +1,6 @@
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
-import { UniqueViolationError } from "@repo/shared/errors";
-import { err, ok } from "@repo/shared/result";
+import { UniqueViolationError } from "@repo/common/errors";
+import { err, ok } from "@repo/common/result";
 import { IdGenerator } from "@repo/id-generator";
 import { VacancyAlreadyExistsError } from "../../../domain/errors/vacancy-already-exists.error.js";
 import { VacancyUrl } from "../../../domain/vacancy-url.js";

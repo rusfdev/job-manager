@@ -1,5 +1,5 @@
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
-import { err, ok } from "@repo/shared/result";
+import { err, ok } from "@repo/common/result";
 import { VacancyNotFoundError } from "../../../domain/errors/vacancy-not-found.error.js";
 import { VacancyRepository } from "../../../domain/vacancy.repository.js";
 import { TransitionVacancyCommand } from "./transition-vacancy.command.js";
