@@ -8,6 +8,10 @@
       "types": "./dist/domain/index.d.ts",
       "default": "./dist/domain/index.js"
     },
+    "./contracts": {
+      "types": "./dist/contracts/index.d.ts",
+      "default": "./dist/contracts/index.js"
+    },
     "./assert": {
       "types": "./dist/assert/index.d.ts",
       "default": "./dist/assert/index.js"

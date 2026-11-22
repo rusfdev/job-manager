@@ -13,10 +13,12 @@ Code shared by frontend and backend, split by purpose, not by kind.
 ## Structure
 
 - [`src/assert`](src/assert/) — runtime assertions.
+- [`src/contracts`](src/contracts/) — contracts used by every domain: API
+  error response, authenticated principal.
 - [`src/domain`](src/domain/README.md) — domain values: ids, enum-like
   values, typed scalars.
 - [`src/errors`](src/errors/) — application errors.
 - [`src/result`](src/result/) — explicit success or failure values.
 
-Contracts (DTOs, principal) live in
+Request and response bodies of a business domain live in
 [`@repo/contracts`](../contracts/README.md).

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { userIdSchema } from "@repo/shared/domain";
+import { userIdSchema } from "../domain/auth/user-id.js";
 
 export const principalSchema = z
   .object({
