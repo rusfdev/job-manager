@@ -9,7 +9,7 @@ import {
 } from "@nestjs/common";
 import { CommandBus } from "@nestjs/cqrs";
 import { minutes, Throttle } from "@nestjs/throttler";
-import { unwrapResult } from "@repo/shared/result";
+import { unwrapResult } from "@repo/common/result";
 import { SignInDto, SignUpDto } from "@repo/auth-common/contracts";
 import { CreateUserCommand, VerifyCredentialsCommand } from "@repo/auth-core";
 

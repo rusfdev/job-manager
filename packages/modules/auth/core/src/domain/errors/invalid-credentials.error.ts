@@ -1,4 +1,4 @@
-import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/shared/errors";
+import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/common/errors";
 
 export class InvalidCredentialsError extends AppError {
   readonly kind = ERROR_KIND.UNAUTHENTICATED;

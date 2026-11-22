@@ -1,4 +1,4 @@
-# @repo/shared
+# @repo/common
 
 Code shared by frontend and backend, split by purpose, not by kind.
 
@@ -7,7 +7,7 @@ Code shared by frontend and backend, split by purpose, not by kind.
 - Runs in Node and the browser: no Node, DOM or framework APIs.
 - No heavy dependencies.
 - One folder in `src/` per purpose, imported by subpath:
-  `@repo/shared/<purpose>`. No root entry point.
+  `@repo/common/<purpose>`. No root entry point.
 - A folder with its own rules keeps them in its README, linked below.
 
 ## Structure

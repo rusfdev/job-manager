@@ -1,5 +1,5 @@
 import { Command } from "@nestjs/cqrs";
-import type { Result } from "@repo/shared/result";
+import type { Result } from "@repo/common/result";
 import type { Email, UserId } from "@repo/auth-common/domain";
 import type { InvalidCredentialsError } from "../../../domain/errors/invalid-credentials.error.js";
 

@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@repo/auth-common": "workspace:*",
+    "@repo/common": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/id-generator": "workspace:*",
-    "@repo/shared": "workspace:*",
     "@repo/vacancy-common": "workspace:*"
   },
   "devDependencies": {

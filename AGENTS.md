@@ -28,7 +28,7 @@ Documentation and code are written in English.
 - [docs/product.md](docs/product.md) — product description
 - [docs/adr/](docs/adr/) — architecture decisions
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
-- [packages/shared](packages/shared/README.md) — code shared by frontend and
+- [packages/common](packages/common/README.md) — code shared by frontend and
   backend
 - [packages/platform/database](packages/platform/database/README.md) — database
   schema and migrations

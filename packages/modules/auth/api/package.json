@@ -19,7 +19,7 @@
   "dependencies": {
     "@repo/auth-common": "workspace:*",
     "@repo/auth-core": "workspace:*",
-    "@repo/shared": "workspace:*"
+    "@repo/common": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/authentication": "catalog:",

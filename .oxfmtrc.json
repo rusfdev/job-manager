@@ -4,8 +4,8 @@
     "newlinesBetween": false,
     "customGroups": [
       {
-        "groupName": "repo-shared",
-        "elementNamePattern": ["@repo/shared", "@repo/shared/**"]
+        "groupName": "repo-common",
+        "elementNamePattern": ["@repo/common", "@repo/common/**"]
       },
       {
         "groupName": "repo-database",
@@ -43,7 +43,7 @@
     "groups": [
       "builtin",
       "external",
-      "repo-shared",
+      "repo-common",
       "repo-database",
       "repo-id-generator",
       "repo-logger",
