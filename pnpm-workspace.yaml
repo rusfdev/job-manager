@@ -3,7 +3,7 @@ packages:
   - "packages/*"
   - "packages/platform/*"
   - "packages/config/*"
-  - "packages/vacancy/*"
+  - "packages/modules/*/*"
 
 catalog:
   "@nestjs/cli": "^12.0.8"
