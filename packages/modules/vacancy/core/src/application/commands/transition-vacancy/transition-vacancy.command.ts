@@ -1,7 +1,7 @@
 import { Command } from "@nestjs/cqrs";
-import type { VacancyId, VacancyTransition } from "@repo/vacancy-shared/domain";
-import type { UserId } from "@repo/shared/domain";
 import type { Result } from "@repo/shared/result";
+import type { UserId } from "@repo/auth-common/domain";
+import type { VacancyId, VacancyTransition } from "@repo/vacancy-shared/domain";
 import type { InvalidVacancyTransitionError } from "../../../domain/errors/invalid-vacancy-transition.error.js";
 import type { VacancyNotFoundError } from "../../../domain/errors/vacancy-not-found.error.js";
 

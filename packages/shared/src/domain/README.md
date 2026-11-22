@@ -2,8 +2,7 @@
 
 Domain values: ids, enum-like values and other typed scalars used on every
 layer — domain, persistence, application, transport and the frontend. Objects
-built from them live in [`@repo/shared/contracts`](../contracts/) and
-[`@repo/contracts`](../../../contracts/README.md).
+built from them live in [`@repo/shared/contracts`](../contracts/).
 
 ## Rules
 
@@ -16,7 +15,7 @@ built from them live in [`@repo/shared/contracts`](../contracts/) and
   show the value as a named schema instead of an anonymous string.
 - One folder per domain, singular (ADR 0003); `common/` for values with no
   domain. `index.ts` is the only entry point.
-- Depends on nothing but `zod`; never imports `@repo/contracts`.
+- Depends on nothing but `zod`.
 
 ## Example
 

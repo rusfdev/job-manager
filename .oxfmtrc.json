@@ -8,10 +8,6 @@
         "elementNamePattern": ["@repo/shared", "@repo/shared/**"]
       },
       {
-        "groupName": "repo-contracts",
-        "elementNamePattern": ["@repo/contracts", "@repo/contracts/**"]
-      },
-      {
         "groupName": "repo-database",
         "elementNamePattern": ["@repo/database", "@repo/database/**"]
       },
@@ -22,6 +18,18 @@
       {
         "groupName": "repo-logger",
         "elementNamePattern": ["@repo/logger"]
+      },
+      {
+        "groupName": "repo-auth-common",
+        "elementNamePattern": ["@repo/auth-common", "@repo/auth-common/**"]
+      },
+      {
+        "groupName": "repo-auth-core",
+        "elementNamePattern": ["@repo/auth-core"]
+      },
+      {
+        "groupName": "repo-auth-api",
+        "elementNamePattern": ["@repo/auth-api"]
       },
       {
         "groupName": "repo-vacancy-shared",
@@ -36,10 +44,12 @@
       "builtin",
       "external",
       "repo-shared",
-      "repo-contracts",
       "repo-database",
       "repo-id-generator",
       "repo-logger",
+      "repo-auth-common",
+      "repo-auth-core",
+      "repo-auth-api",
       "repo-vacancy-shared",
       "repo-vacancy-core",
       ["parent", "sibling", "index"],

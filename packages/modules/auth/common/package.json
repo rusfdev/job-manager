@@ -1,0 +1,36 @@
+{
+  "name": "@repo/auth-common",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./domain": {
+      "types": "./src/domain/index.ts",
+      "default": "./dist/domain/index.js"
+    },
+    "./contracts": {
+      "types": "./src/contracts/index.ts",
+      "default": "./dist/contracts/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix ."
+  },
+  "dependencies": {
+    "@repo/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/oxlint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "oxlint": "catalog:",
+    "typescript": "catalog:",
+    "zod": "catalog:"
+  },
+  "peerDependencies": {
+    "zod": "catalog:"
+  }
+}
