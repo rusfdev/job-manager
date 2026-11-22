@@ -24,7 +24,7 @@
       "cache": false
     },
     "lint": {
-      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/packages/oxlint-config/*.json"]
+      "inputs": ["$TURBO_DEFAULT$", "$TURBO_ROOT$/packages/config/oxlint-config/*.json"]
     },
     "lint:fix": {
       "cache": false
