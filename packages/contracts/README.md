@@ -1,9 +1,9 @@
 # @repo/contracts
 
-Objects exchanged between layers and applications: request and response
-bodies, the authenticated principal, error and (later) pagination shapes.
-The values inside them come from
-[`@repo/shared/domain`](../shared/src/domain/README.md).
+Request and response bodies of each business domain. Contracts used by every
+domain (API error, principal) live in
+[`@repo/shared/contracts`](../shared/README.md). The values inside them come
+from [`@repo/shared/domain`](../shared/src/domain/README.md).
 
 ## Rules
 
@@ -14,12 +14,9 @@ The values inside them come from
 - One folder in `src/` per business domain, singular (ADR 0003), imported by
   subpath: `@repo/contracts/<domain>`. No `types.ts`, `common.ts` or
   `utils.ts`.
-- Contracts used by every domain (API error, later pagination) live in the
-  root of `src/` and are imported from `@repo/contracts`.
-- A domain folder may import the root files, never another domain folder.
-  The root never imports a domain folder.
-- `index.ts` (root or `<domain>/`) is the only entry point and the only
-  barrel of its level. Files import each other directly, not through it.
+- No root entry point. A domain folder never imports another domain folder.
+- `<domain>/index.ts` is the only entry point and the only barrel of its
+  folder. Files import each other directly, not through it.
 - Names: schema `<name>Schema`; type `<Name>Dto` for an object, `<Name>` for a
   value.
 - Every schema has `.meta({ id })` equal to its type name; it is the schema
@@ -29,8 +26,7 @@ The values inside them come from
 
 ## Structure
 
-- `src/` root — API error response.
-- `src/auth` — principal, sign-in, sign-up.
+- `src/auth` — sign-in, sign-up.
 - `src/vacancy` — vacancy, create-vacancy.
 
 ## Example

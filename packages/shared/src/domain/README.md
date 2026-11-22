@@ -2,7 +2,8 @@
 
 Domain values: ids, enum-like values and other typed scalars used on every
 layer — domain, persistence, application, transport and the frontend. Objects
-built from them live in [`@repo/contracts`](../../../contracts/README.md).
+built from them live in [`@repo/shared/contracts`](../contracts/) and
+[`@repo/contracts`](../../../contracts/README.md).
 
 ## Rules
 

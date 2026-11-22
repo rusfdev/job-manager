@@ -4,7 +4,7 @@ import {
   type SessionRecord,
 } from "@nestjs/authentication";
 import { Injectable } from "@nestjs/common";
-import type { Principal } from "@repo/contracts/auth";
+import type { Principal } from "@repo/shared/contracts";
 
 @Injectable()
 export class SessionAuth extends SessionCookieProvider<Principal> {

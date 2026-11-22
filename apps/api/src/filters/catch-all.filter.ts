@@ -6,8 +6,8 @@ import {
   HttpStatus,
 } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
+import type { ApiErrorDto } from "@repo/shared/contracts";
 import { AppError, ERROR_KIND, type ErrorKind } from "@repo/shared/errors";
-import type { ApiErrorDto } from "@repo/contracts";
 import { Logger } from "@repo/logger";
 
 const HTTP_STATUS_BY_KIND: Record<ErrorKind, HttpStatus> = {
