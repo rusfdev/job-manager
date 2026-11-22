@@ -1,13 +1,13 @@
 import { z } from "zod";
-import { userIdSchema } from "../domain/user-id.js";
+import { UserId } from "../domain/user-id.js";
 
-export const principalSchema = z
+export const Principal = z
   .object({
-    id: userIdSchema,
+    id: UserId,
   })
   .readonly()
   .meta({
     id: "Principal",
   });
 
-export type Principal = z.infer<typeof principalSchema>;
+export type Principal = z.infer<typeof Principal>;

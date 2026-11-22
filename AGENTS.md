@@ -39,7 +39,7 @@ Documentation and code are written in English.
 - packages/modules/auth/core — auth NestJS module: domain, commands,
   persistence and session authentication
 - packages/modules/auth/api — auth HTTP controller
-- packages/modules/vacancy/shared — vacancy domain types and contracts shared
+- packages/modules/vacancy/common — vacancy domain values and contracts shared
   by frontend and backend
 - packages/modules/vacancy/core — vacancy NestJS module: domain, commands,
   queries and persistence

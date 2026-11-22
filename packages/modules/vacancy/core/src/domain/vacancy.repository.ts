@@ -1,4 +1,4 @@
-import type { VacancyId } from "@repo/vacancy-shared/domain";
+import type { VacancyId } from "@repo/vacancy-common/domain";
 import type { Vacancy } from "./vacancy.aggregate.js";
 
 export abstract class VacancyRepository {

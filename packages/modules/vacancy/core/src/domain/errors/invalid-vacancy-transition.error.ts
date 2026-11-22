@@ -1,5 +1,5 @@
-import type { VacancyStatus, VacancyTransition } from "@repo/vacancy-shared/domain";
 import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/shared/errors";
+import type { VacancyStatus, VacancyTransition } from "@repo/vacancy-common/domain";
 
 export class InvalidVacancyTransitionError extends AppError {
   readonly kind = ERROR_KIND.CONFLICT;

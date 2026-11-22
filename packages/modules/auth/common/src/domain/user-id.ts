@@ -1,6 +1,6 @@
 import type { z } from "zod";
 import { defineId } from "@repo/shared/domain";
 
-export const userIdSchema = defineId("UserId");
+export const UserId = defineId("UserId");
 
-export type UserId = z.infer<typeof userIdSchema>;
+export type UserId = z.infer<typeof UserId>;
