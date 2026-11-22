@@ -3,8 +3,8 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import { desc, eq } from "drizzle-orm";
 import type { Database } from "@repo/database";
 import { vacancies } from "@repo/database/schema";
-import type { VacancyDto } from "@repo/vacancy-shared/contracts";
-import type { VacancyId, VacancyStatus } from "@repo/vacancy-shared/domain";
+import type { VacancyDto } from "@repo/vacancy-common/contracts";
+import type { VacancyId, VacancyStatus } from "@repo/vacancy-common/domain";
 import { ListVacancyQuery } from "./list-vacancy.query.js";
 
 @QueryHandler(ListVacancyQuery)

@@ -32,8 +32,8 @@
         "elementNamePattern": ["@repo/auth-api"]
       },
       {
-        "groupName": "repo-vacancy-shared",
-        "elementNamePattern": ["@repo/vacancy-shared", "@repo/vacancy-shared/**"]
+        "groupName": "repo-vacancy-common",
+        "elementNamePattern": ["@repo/vacancy-common", "@repo/vacancy-common/**"]
       },
       {
         "groupName": "repo-vacancy-core",
@@ -50,7 +50,7 @@
       "repo-auth-common",
       "repo-auth-core",
       "repo-auth-api",
-      "repo-vacancy-shared",
+      "repo-vacancy-common",
       "repo-vacancy-core",
       ["parent", "sibling", "index"],
       "style",

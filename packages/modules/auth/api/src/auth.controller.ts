@@ -10,12 +10,7 @@ import {
 import { CommandBus } from "@nestjs/cqrs";
 import { minutes, Throttle } from "@nestjs/throttler";
 import { unwrapResult } from "@repo/shared/result";
-import {
-  signInSchema,
-  signUpSchema,
-  type SignInDto,
-  type SignUpDto,
-} from "@repo/auth-common/contracts";
+import { SignInDto, SignUpDto } from "@repo/auth-common/contracts";
 import { CreateUserCommand, VerifyCredentialsCommand } from "@repo/auth-core";
 
 @Public()
@@ -28,7 +23,7 @@ export class AuthController {
 
   @Post("sign-up")
   @HttpCode(HttpStatus.NO_CONTENT)
-  async signUp(@Body({ schema: signUpSchema }) { email, password }: SignUpDto): Promise<void> {
+  async signUp(@Body({ schema: SignUpDto }) { email, password }: SignUpDto): Promise<void> {
     const result = await this.commandBus.execute(new CreateUserCommand(email, password));
     const userId = unwrapResult(result);
     await this.signInService.signIn(userId, { method: "password" });
@@ -37,7 +32,7 @@ export class AuthController {
   @Post("sign-in")
   @HttpCode(HttpStatus.NO_CONTENT)
   @Throttle({ default: { limit: 10, ttl: minutes(15) } })
-  async signIn(@Body({ schema: signInSchema }) { email, password }: SignInDto): Promise<void> {
+  async signIn(@Body({ schema: SignInDto }) { email, password }: SignInDto): Promise<void> {
     const result = await this.commandBus.execute(new VerifyCredentialsCommand(email, password));
     const userId = unwrapResult(result);
     await this.signInService.signIn(userId, { method: "password" });

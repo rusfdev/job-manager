@@ -1,4 +1,4 @@
-import { VacancyStatus, VacancyTransition } from "@repo/vacancy-shared/domain";
+import { VacancyStatus, VacancyTransition } from "@repo/vacancy-common/domain";
 
 const STATUS = VacancyStatus.enum;
 const TRANSITION = VacancyTransition.enum;

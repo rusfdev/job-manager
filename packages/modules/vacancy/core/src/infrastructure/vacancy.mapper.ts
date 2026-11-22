@@ -1,7 +1,7 @@
 import { unwrapResult } from "@repo/shared/result";
 import type { InsertVacancy, SelectVacancy } from "@repo/database/schema";
 import type { UserId } from "@repo/auth-common/domain";
-import type { VacancyId, VacancyStatus } from "@repo/vacancy-shared/domain";
+import type { VacancyId, VacancyStatus } from "@repo/vacancy-common/domain";
 import { VacancyUrl } from "../domain/vacancy-url.js";
 import { Vacancy } from "../domain/vacancy.aggregate.js";
 

@@ -1,5 +1,5 @@
 {
-  "name": "@repo/vacancy-shared",
+  "name": "@repo/vacancy-common",
   "private": true,
   "type": "module",
   "sideEffects": false,

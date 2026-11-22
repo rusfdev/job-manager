@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const apiErrorSchema = z
+export const ApiErrorDto = z
   .object({
     statusCode: z.number().int(),
     errorCode: z.string().optional(),
@@ -10,4 +10,4 @@ export const apiErrorSchema = z
     id: "ApiErrorDto",
   });
 
-export type ApiErrorDto = z.infer<typeof apiErrorSchema>;
+export type ApiErrorDto = z.infer<typeof ApiErrorDto>;

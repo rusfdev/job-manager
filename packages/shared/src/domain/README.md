@@ -7,10 +7,9 @@ built from them live in [`@repo/shared/contracts`](../contracts/).
 ## Rules
 
 - Only values; no objects. At runtime a value is a plain string or number.
-- A branded value is a Zod schema with `.brand()`; its type is inferred with
-  `z.infer`, never written by hand.
-- An enum-like value is an `as const` object in `UPPER_CASE`, a type derived
-  from it and a `z.enum` schema.
+- A branded value is a Zod schema with `.brand()`; an enum-like value is a
+  `z.enum` schema. Its type is inferred with `z.infer`, never written by hand.
+- The schema and its type have the same name.
 - Every schema has `.meta({ id })` equal to its type name. Swagger needs it to
   show the value as a named schema instead of an anonymous string.
 - One folder per domain, singular (ADR 0003); `common/` for values with no
@@ -20,8 +19,10 @@ built from them live in [`@repo/shared/contracts`](../contracts/).
 ## Example
 
 ```ts
-// vacancy/vacancy-status.ts
-export const VACANCY_STATUS = { NEW: "new", APPLIED: "applied" } as const;
-export type VacancyStatus = (typeof VACANCY_STATUS)[keyof typeof VACANCY_STATUS];
-export const vacancyStatusSchema = z.enum(VACANCY_STATUS).meta({ id: "VacancyStatus" });
+// vacancy-status.ts
+export const VacancyStatus = z
+  .enum({ NEW: "new", APPLIED: "applied" })
+  .meta({ id: "VacancyStatus" });
+
+export type VacancyStatus = z.infer<typeof VacancyStatus>;
 ```
