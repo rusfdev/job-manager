@@ -30,12 +30,15 @@ Documentation and code are written in English.
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
 - [packages/shared](packages/shared/README.md) — code shared by frontend and
   backend
-- [packages/contracts](packages/contracts/README.md) — contracts shared by frontend and
-  backend
 - [packages/platform/database](packages/platform/database/README.md) — database
   schema and migrations
 - packages/platform/id-generator — NestJS module that generates entity IDs
 - packages/platform/logger — NestJS logger module
+- packages/modules/auth/common — auth domain values and contracts shared by
+  frontend and backend
+- packages/modules/auth/core — auth NestJS module: domain, commands,
+  persistence and session authentication
+- packages/modules/auth/api — auth HTTP controller
 - packages/modules/vacancy/shared — vacancy domain types and contracts shared
   by frontend and backend
 - packages/modules/vacancy/core — vacancy NestJS module: domain, commands,
