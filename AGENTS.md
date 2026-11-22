@@ -36,6 +36,10 @@ Documentation and code are written in English.
   schema and migrations
 - packages/platform/id-generator — NestJS module that generates entity IDs
 - packages/platform/logger — NestJS logger module
+- packages/modules/vacancy/shared — vacancy domain types and contracts shared
+  by frontend and backend
+- packages/modules/vacancy/core — vacancy NestJS module: domain, commands,
+  queries and persistence
 - packages/config/oxlint-config, packages/config/typescript-config — shared lint
   and TypeScript configs
 
