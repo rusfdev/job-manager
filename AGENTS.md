@@ -21,7 +21,7 @@ Documentation and code are written in English.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
 - `pnpm db:studio` — browse the local database in Drizzle Studio.
 - `pnpm db:generate` — write a migration from schema changes in
-  packages/database.
+  packages/platform/database.
 
 ## Where things are
 
@@ -32,12 +32,12 @@ Documentation and code are written in English.
   backend
 - [packages/contracts](packages/contracts/README.md) — contracts shared by frontend and
   backend
-- [packages/database](packages/database/README.md) — database schema and
-  migrations
+- [packages/platform/database](packages/platform/database/README.md) — database
+  schema and migrations
 - packages/id-generator — NestJS module that generates entity IDs
 - packages/logger — NestJS logger module
-- packages/oxlint-config, packages/typescript-config — shared lint and
-  TypeScript configs
+- packages/config/oxlint-config, packages/config/typescript-config — shared lint
+  and TypeScript configs
 
 ## Decisions
 
