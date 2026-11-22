@@ -34,8 +34,8 @@ Documentation and code are written in English.
   backend
 - [packages/platform/database](packages/platform/database/README.md) — database
   schema and migrations
-- packages/id-generator — NestJS module that generates entity IDs
-- packages/logger — NestJS logger module
+- packages/platform/id-generator — NestJS module that generates entity IDs
+- packages/platform/logger — NestJS logger module
 - packages/config/oxlint-config, packages/config/typescript-config — shared lint
   and TypeScript configs
 
