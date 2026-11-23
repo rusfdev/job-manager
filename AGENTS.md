@@ -43,6 +43,7 @@ Documentation and code are written in English.
   by frontend and backend
 - packages/modules/vacancy/core — vacancy NestJS module: domain, commands,
   queries and persistence
+- packages/modules/vacancy/api — vacancy HTTP controller
 - packages/config/oxlint-config, packages/config/typescript-config — shared lint
   and TypeScript configs
 

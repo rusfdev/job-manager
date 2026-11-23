@@ -280,6 +280,9 @@ importers:
       '@repo/logger':
         specifier: workspace:*
         version: link:../../packages/platform/logger
+      '@repo/vacancy-api':
+        specifier: workspace:*
+        version: link:../../packages/modules/vacancy/api
       drizzle-orm:
         specifier: 'catalog:'
         version: 1.0.0-rc.5(@types/pg@8.23.1)(pg@8.23.1)(zod@4.6.5)
@@ -484,6 +487,58 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
+
+  packages/modules/vacancy/api:
+    dependencies:
+      '@repo/auth-common':
+        specifier: workspace:*
+        version: link:../../auth/common
+      '@repo/common':
+        specifier: workspace:*
+        version: link:../../../common
+      '@repo/vacancy-common':
+        specifier: workspace:*
+        version: link:../common
+      '@repo/vacancy-core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@nestjs/authentication':
+        specifier: 'catalog:'
+        version: 0.1.2(@nestjs/common@12.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@12.1.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/common':
+        specifier: 'catalog:'
+        version: 12.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/core':
+        specifier: 'catalog:'
+        version: 12.1.3(@nestjs/common@12.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@12.1.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@nestjs/cqrs':
+        specifier: 'catalog:'
+        version: 12.1.2(@nestjs/common@12.1.3(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@12.1.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@repo/oxlint-config':
+        specifier: workspace:*
+        version: link:../../../config/oxlint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../../config/typescript-config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.19.1
+      oxlint:
+        specifier: 'catalog:'
+        version: 1.86.0
+      reflect-metadata:
+        specifier: 'catalog:'
+        version: 0.2.2
+      rxjs:
+        specifier: 'catalog:'
+        version: 7.8.2
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+      zod:
+        specifier: 'catalog:'
+        version: 4.6.5
 
   packages/modules/vacancy/common:
     dependencies:

@@ -1,0 +1,27 @@
+info:
+  name: Transition Vacancy
+  type: http
+  seq: 3
+  tags:
+    - Vacancy
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/vacancies/:id/transitions"
+  params:
+    - name: id
+      value: 01a20796-877d-71ce-920b-cc0446671c39
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "transition": "apply"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
