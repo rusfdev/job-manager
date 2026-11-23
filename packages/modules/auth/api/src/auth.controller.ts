@@ -1,4 +1,3 @@
-import { Public, SignInService } from "@nestjs/authentication";
 import {
   Body,
   Controller,
@@ -7,6 +6,7 @@ import {
   Post,
   UnauthorizedException,
 } from "@nestjs/common";
+import { Public, SignInService } from "@nestjs/authentication";
 import { CommandBus } from "@nestjs/cqrs";
 import { minutes, Throttle } from "@nestjs/throttler";
 import { unwrapResult } from "@repo/common/utils";
