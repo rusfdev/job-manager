@@ -5,16 +5,15 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./src/index.ts",
       "default": "./dist/index.js"
     },
     "./schema": {
-      "types": "./dist/schema/index.d.ts",
+      "types": "./src/schema/index.ts",
       "default": "./dist/schema/index.js"
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
     "build": "tsc",
     "check-types": "tsc --noEmit",
     "lint": "oxlint .",

@@ -5,28 +5,27 @@
   "sideEffects": false,
   "exports": {
     "./domain": {
-      "types": "./dist/domain/index.d.ts",
+      "types": "./src/domain/index.ts",
       "default": "./dist/domain/index.js"
     },
     "./contracts": {
-      "types": "./dist/contracts/index.d.ts",
+      "types": "./src/contracts/index.ts",
       "default": "./dist/contracts/index.js"
     },
     "./assert": {
-      "types": "./dist/assert/index.d.ts",
+      "types": "./src/assert/index.ts",
       "default": "./dist/assert/index.js"
     },
     "./errors": {
-      "types": "./dist/errors/index.d.ts",
+      "types": "./src/errors/index.ts",
       "default": "./dist/errors/index.js"
     },
     "./result": {
-      "types": "./dist/result/index.d.ts",
+      "types": "./src/result/index.ts",
       "default": "./dist/result/index.js"
     }
   },
   "scripts": {
-    "dev": "tsc --watch",
     "build": "tsc",
     "check-types": "tsc --noEmit",
     "lint": "oxlint .",

@@ -8,7 +8,7 @@ Documentation and code are written in English.
 ## Commands
 
 - First run: copy every `.env.example` in the repo to `.env` next to it.
-- `pnpm dev` — run the apps and rebuild packages on change.
+- `pnpm dev` — build packages once and run the apps in watch mode.
 - `pnpm build` — build all apps and packages.
 - `pnpm check-types` — type-check all workspaces.
 - `pnpm test` — run unit tests in all workspaces.
