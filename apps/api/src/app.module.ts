@@ -1,8 +1,9 @@
 /* oxlint-disable import/max-dependencies */
-import { AuthenticationModule } from "@nestjs/authentication";
+
 import { Module, StandardSchemaValidationPipe } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
 import { APP_FILTER, APP_GUARD, APP_PIPE } from "@nestjs/core";
+import { AuthenticationModule } from "@nestjs/authentication";
+import { ConfigModule } from "@nestjs/config";
 import { CqrsModule } from "@nestjs/cqrs";
 import { DrizzleModule } from "@nestjs/drizzle";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
