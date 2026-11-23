@@ -12,17 +12,13 @@
       "types": "./src/contracts/index.ts",
       "default": "./dist/contracts/index.js"
     },
-    "./assert": {
-      "types": "./src/assert/index.ts",
-      "default": "./dist/assert/index.js"
-    },
     "./errors": {
       "types": "./src/errors/index.ts",
       "default": "./dist/errors/index.js"
     },
-    "./result": {
-      "types": "./src/result/index.ts",
-      "default": "./dist/result/index.js"
+    "./utils": {
+      "types": "./src/utils/index.ts",
+      "default": "./dist/utils/index.js"
     }
   },
   "scripts": {

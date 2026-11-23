@@ -1,24 +1,21 @@
 # @repo/common
 
-Code shared by frontend and backend, split by purpose, not by kind.
+Shared code reused by backend and frontend; where possible, not tied to a
+single domain.
 
 ## Rules
 
-- Runs in Node and the browser: no Node, DOM or framework APIs.
-- No heavy dependencies.
-- One folder in `src/` per purpose, imported by subpath:
-  `@repo/common/<purpose>`. No root entry point.
-- A folder with its own rules keeps them in its README, linked below.
+- No Node-only, browser-only or framework APIs: the code runs in Node and the
+  browser.
+- Import from a folder subpath, e.g. `@repo/common/utils`; `@repo/common`
+  itself exports nothing.
+- A new folder needs an `index.ts` and its own entry in `package.json`
+  `exports`.
 
 ## Structure
 
-- [`src/assert`](src/assert/) — runtime assertions.
-- [`src/contracts`](src/contracts/) — contracts used by every domain: API
-  error response.
-- [`src/domain`](src/domain/README.md) — domain values: ids, enum-like
-  values, typed scalars.
-- [`src/errors`](src/errors/) — application errors.
-- [`src/result`](src/result/) — explicit success or failure values.
-
-Values and contracts of a business domain live in its own package in
-`packages/modules/<domain>`.
+- `src/domain` — Shared domain primitives such as value objects, types, schemas and
+  base classes.
+- `src/contracts` — Shared dto types and schemas.
+- `src/errors` — Base class for domain errors, plus shared persistence errors.
+- `src/utils` — Shared utilities.

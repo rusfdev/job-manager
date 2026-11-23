@@ -1,4 +1,4 @@
-import type { Result } from "@repo/common/result";
+import type { Result } from "@repo/common/utils";
 import type { Email } from "@repo/auth-common/domain";
 import type { EmailAlreadyExistsError } from "./errors/email-already-exists.error.js";
 import { type User } from "./user.aggregate.js";
