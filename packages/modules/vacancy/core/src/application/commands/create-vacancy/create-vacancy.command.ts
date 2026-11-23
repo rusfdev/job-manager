@@ -1,5 +1,5 @@
 import { Command } from "@nestjs/cqrs";
-import type { Result } from "@repo/common/result";
+import type { Result } from "@repo/common/utils";
 import type { UserId } from "@repo/auth-common/domain";
 import type { VacancyId } from "@repo/vacancy-common/domain";
 import type { InvalidVacancyUrlError } from "../../../domain/errors/invalid-vacancy-url.error.js";
