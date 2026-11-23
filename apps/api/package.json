@@ -27,6 +27,7 @@
     "@repo/common": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/logger": "workspace:*",
+    "@repo/vacancy-api": "workspace:*",
     "drizzle-orm": "catalog:",
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",

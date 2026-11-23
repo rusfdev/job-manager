@@ -1,0 +1,25 @@
+info:
+  name: Create Vacancy
+  type: http
+  seq: 2
+  tags:
+    - Vacancy
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/vacancies"
+  body:
+    type: json
+    data: |-
+      {
+        "url": "https://Example.com/JOBS/2/",
+        "position": "Backend Engineer",
+        "description": "TypeScript, NestJS, PostgreSQL"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true

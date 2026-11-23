@@ -1,0 +1,10 @@
+info:
+  name: List Vacancies
+  type: http
+  seq: 1
+  tags:
+    - Vacancy
+
+http:
+  method: GET
+  url: "{{BASE_URL}}/vacancies"
