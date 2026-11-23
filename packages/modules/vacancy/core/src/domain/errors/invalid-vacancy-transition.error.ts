@@ -10,6 +10,6 @@ export class InvalidVacancyTransitionError extends AppError {
     readonly status: VacancyStatus,
     options?: AppErrorOptions,
   ) {
-    super(`Cannot [${transition}] a vacancy in status [${status}]`, options);
+    super(`Cannot ${transition} a vacancy in status ${status}`, options);
   }
 }
