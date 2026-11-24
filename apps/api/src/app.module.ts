@@ -8,7 +8,7 @@ import { CqrsModule } from "@nestjs/cqrs";
 import { DrizzleModule } from "@nestjs/drizzle";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { LoggerModule } from "@repo/logger";
-import { AuthApiModule } from "@repo/auth-api";
+import { AuthModule } from "@repo/auth";
 import { VacancyApiModule } from "@repo/vacancy/api";
 import { appConfig } from "./config/app.config.js";
 import { authenticationConfig } from "./config/authentication.config.js";
@@ -28,7 +28,7 @@ import { CatchAllFilter } from "./filters/catch-all.filter.js";
     DrizzleModule.forRootAsync(drizzleConfig.asProvider()),
     ThrottlerModule.forRootAsync(throttlerConfig.asProvider()),
     AuthenticationModule.forRootAsync(authenticationConfig.asProvider()),
-    AuthApiModule,
+    AuthModule,
     VacancyApiModule,
   ],
   providers: [

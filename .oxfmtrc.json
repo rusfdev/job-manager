@@ -35,18 +35,14 @@
         "groupName": "repo-logger",
         "elementNamePattern": ["@repo/logger"]
       },
-      // @repo auth module: common, core, api
+      // @repo auth module: common, module
       {
         "groupName": "repo-auth-common",
         "elementNamePattern": ["@repo/auth-common", "@repo/auth-common/**"]
       },
       {
-        "groupName": "repo-auth-core",
-        "elementNamePattern": ["@repo/auth-core"]
-      },
-      {
-        "groupName": "repo-auth-api",
-        "elementNamePattern": ["@repo/auth-api"]
+        "groupName": "repo-auth",
+        "elementNamePattern": ["@repo/auth", "@repo/auth/**"]
       },
       // @repo vacancy module: common, module
       {
@@ -73,10 +69,9 @@
       "repo-database",
       "repo-id-generator",
       "repo-logger",
-      // @repo auth module: common, core, api
+      // @repo auth module: common, module
       "repo-auth-common",
-      "repo-auth-core",
-      "repo-auth-api",
+      "repo-auth",
       // @repo vacancy module: common, module
       "repo-vacancy-common",
       "repo-vacancy",
