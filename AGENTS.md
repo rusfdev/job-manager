@@ -41,9 +41,8 @@ Documentation and code are written in English.
 - packages/auth/api — auth HTTP controller
 - packages/vacancy/common — vacancy domain values and contracts shared
   by frontend and backend
-- packages/vacancy/core — vacancy NestJS module: domain, commands,
-  queries and persistence
-- packages/vacancy/api — vacancy HTTP controller
+- packages/vacancy/module — vacancy module, one package with subpaths:
+  `/core` (domain, commands, queries, persistence), `/api` (HTTP controller)
 - packages/shared/oxlint-config, packages/shared/typescript-config — shared lint
   and TypeScript configs
 

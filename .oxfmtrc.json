@@ -48,18 +48,14 @@
         "groupName": "repo-auth-api",
         "elementNamePattern": ["@repo/auth-api"]
       },
-      // @repo vacancy module: common, core, api
+      // @repo vacancy module: common, module
       {
         "groupName": "repo-vacancy-common",
         "elementNamePattern": ["@repo/vacancy-common", "@repo/vacancy-common/**"]
       },
       {
-        "groupName": "repo-vacancy-core",
-        "elementNamePattern": ["@repo/vacancy-core", "@repo/vacancy-core/**"]
-      },
-      {
-        "groupName": "repo-vacancy-api",
-        "elementNamePattern": ["@repo/vacancy-api"]
+        "groupName": "repo-vacancy",
+        "elementNamePattern": ["@repo/vacancy", "@repo/vacancy/**"]
       }
     ],
     "groups": [
@@ -81,10 +77,9 @@
       "repo-auth-common",
       "repo-auth-core",
       "repo-auth-api",
-      // @repo vacancy module: common, core, api
+      // @repo vacancy module: common, module
       "repo-vacancy-common",
-      "repo-vacancy-core",
-      "repo-vacancy-api",
+      "repo-vacancy",
       // Relative imports: ../, ./
       ["parent", "sibling", "index"],
       // Style imports: .css, .scss, ...
