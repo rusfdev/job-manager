@@ -1,9 +1,9 @@
 packages:
   - "apps/*"
-  - "packages/*"
-  - "packages/platform/*"
-  - "packages/config/*"
-  - "packages/modules/*/*"
+  - "packages/shared/*"
+  - "packages/shared/platform/*"
+  - "packages/auth/*"
+  - "packages/vacancy/*"
 
 catalog:
   "@nestjs/authentication": "^0.1.2"
