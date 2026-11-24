@@ -21,30 +21,30 @@ Documentation and code are written in English.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
 - `pnpm db:studio` — browse the local database in Drizzle Studio.
 - `pnpm db:generate` — write a migration from schema changes in
-  packages/platform/database.
+  packages/shared/platform/database.
 
 ## Where things are
 
 - [docs/product.md](docs/product.md) — product description
 - [docs/adr/](docs/adr/) — architecture decisions
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
-- [packages/common](packages/common/README.md) — code shared by frontend and
+- [packages/shared/common](packages/shared/common/README.md) — code shared by frontend and
   backend
-- [packages/platform/database](packages/platform/database/README.md) — database
+- [packages/shared/platform/database](packages/shared/platform/database/README.md) — database
   schema and migrations
-- packages/platform/id-generator — NestJS module that generates entity IDs
-- packages/platform/logger — NestJS logger module
-- packages/modules/auth/common — auth domain values and contracts shared by
+- packages/shared/platform/id-generator — NestJS module that generates entity IDs
+- packages/shared/platform/logger — NestJS logger module
+- packages/auth/common — auth domain values and contracts shared by
   frontend and backend
-- packages/modules/auth/core — auth NestJS module: domain, commands,
+- packages/auth/core — auth NestJS module: domain, commands,
   persistence and session authentication
-- packages/modules/auth/api — auth HTTP controller
-- packages/modules/vacancy/common — vacancy domain values and contracts shared
+- packages/auth/api — auth HTTP controller
+- packages/vacancy/common — vacancy domain values and contracts shared
   by frontend and backend
-- packages/modules/vacancy/core — vacancy NestJS module: domain, commands,
+- packages/vacancy/core — vacancy NestJS module: domain, commands,
   queries and persistence
-- packages/modules/vacancy/api — vacancy HTTP controller
-- packages/config/oxlint-config, packages/config/typescript-config — shared lint
+- packages/vacancy/api — vacancy HTTP controller
+- packages/shared/oxlint-config, packages/shared/typescript-config — shared lint
   and TypeScript configs
 
 ## Decisions
