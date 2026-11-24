@@ -36,9 +36,8 @@ Documentation and code are written in English.
 - packages/shared/platform/logger — NestJS logger module
 - packages/auth/common — auth domain values and contracts shared by
   frontend and backend
-- packages/auth/core — auth NestJS module: domain, commands,
-  persistence and session authentication
-- packages/auth/api — auth HTTP controller
+- packages/auth/module — auth NestJS module: domain, commands, persistence,
+  session authentication and HTTP controller
 - packages/vacancy/common — vacancy domain values and contracts shared
   by frontend and backend
 - packages/vacancy/module — vacancy module, one package with subpaths:

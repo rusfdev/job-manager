@@ -2,7 +2,7 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestj
 import { CurrentUser } from "@nestjs/authentication";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
 import { unwrapResult } from "@repo/common/utils";
-import type { Principal } from "@repo/auth-common/contracts";
+import type { Principal } from "@repo/auth-common";
 import {
   CreateVacancyDto,
   TransitionVacancyDto,
