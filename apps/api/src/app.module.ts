@@ -9,7 +9,7 @@ import { DrizzleModule } from "@nestjs/drizzle";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { LoggerModule } from "@repo/logger";
 import { AuthApiModule } from "@repo/auth-api";
-import { VacancyApiModule } from "@repo/vacancy-api";
+import { VacancyApiModule } from "@repo/vacancy/api";
 import { appConfig } from "./config/app.config.js";
 import { authenticationConfig } from "./config/authentication.config.js";
 import { drizzleConfig } from "./config/drizzle.config.js";

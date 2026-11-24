@@ -4,13 +4,9 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    "./domain": {
-      "types": "./src/domain/index.ts",
-      "default": "./dist/domain/index.js"
-    },
-    "./contracts": {
-      "types": "./src/contracts/index.ts",
-      "default": "./dist/contracts/index.js"
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
