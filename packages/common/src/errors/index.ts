@@ -1,3 +1,7 @@
-export { ERROR_KIND, type ErrorKind } from "./error-kind.js";
-export { AppError, type AppErrorOptions } from "./app-error.js";
-export { UniqueViolationError } from "./unique-violation-error.js";
+export { ErrorKind } from "./error-kind.js";
+export { CustomError, type CustomErrorOptions } from "./custom-error.js";
+export { ValidationError } from "./validation-error.js";
+export { UnauthenticatedError } from "./unauthenticated-error.js";
+export { ForbiddenError } from "./forbidden-error.js";
+export { NotFoundError } from "./not-found-error.js";
+export { ConflictError } from "./conflict-error.js";

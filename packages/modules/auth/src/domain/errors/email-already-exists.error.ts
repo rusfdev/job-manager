@@ -1,10 +1,9 @@
-import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/common/errors";
+import { ConflictError, type CustomErrorOptions } from "@repo/common/errors";
 
-export class EmailAlreadyExistsError extends AppError {
-  readonly kind = ERROR_KIND.CONFLICT;
+export class EmailAlreadyExistsError extends ConflictError {
   readonly code = "EMAIL_ALREADY_EXISTS";
 
-  constructor(options?: AppErrorOptions) {
+  constructor(options?: CustomErrorOptions) {
     super("Email already exists", options);
   }
 }

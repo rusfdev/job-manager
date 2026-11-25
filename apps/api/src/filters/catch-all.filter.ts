@@ -6,19 +6,16 @@ import {
   HttpStatus,
 } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
-import { AppError, ERROR_KIND, type ErrorKind } from "@repo/common/errors";
+import { CustomError, ErrorKind } from "@repo/common/errors";
 import type { ApiErrorDto } from "@repo/contracts";
 import { Logger } from "@repo/logger";
 
 const HTTP_STATUS_BY_KIND: Record<ErrorKind, HttpStatus> = {
-  [ERROR_KIND.VALIDATION]: HttpStatus.BAD_REQUEST,
-  [ERROR_KIND.UNAUTHENTICATED]: HttpStatus.UNAUTHORIZED,
-  [ERROR_KIND.FORBIDDEN]: HttpStatus.FORBIDDEN,
-  [ERROR_KIND.NOT_FOUND]: HttpStatus.NOT_FOUND,
-  [ERROR_KIND.CONFLICT]: HttpStatus.CONFLICT,
-  [ERROR_KIND.RATE_LIMIT]: HttpStatus.TOO_MANY_REQUESTS,
-  [ERROR_KIND.INTERNAL]: HttpStatus.INTERNAL_SERVER_ERROR,
-  [ERROR_KIND.UNAVAILABLE]: HttpStatus.SERVICE_UNAVAILABLE,
+  [ErrorKind.VALIDATION]: HttpStatus.BAD_REQUEST,
+  [ErrorKind.UNAUTHENTICATED]: HttpStatus.UNAUTHORIZED,
+  [ErrorKind.FORBIDDEN]: HttpStatus.FORBIDDEN,
+  [ErrorKind.NOT_FOUND]: HttpStatus.NOT_FOUND,
+  [ErrorKind.CONFLICT]: HttpStatus.CONFLICT,
 };
 
 @Catch()
@@ -37,7 +34,7 @@ export class CatchAllFilter implements ExceptionFilter {
   }
 
   private toApiError(exception: unknown): ApiErrorDto {
-    if (exception instanceof AppError) return this.fromAppError(exception);
+    if (exception instanceof CustomError) return this.fromCustomError(exception);
     if (exception instanceof HttpException) return this.fromHttpException(exception);
 
     this.logger.error(exception);
@@ -48,7 +45,7 @@ export class CatchAllFilter implements ExceptionFilter {
     };
   }
 
-  private fromAppError(exception: AppError): ApiErrorDto {
+  private fromCustomError(exception: CustomError): ApiErrorDto {
     return {
       statusCode: HTTP_STATUS_BY_KIND[exception.kind],
       errorCode: exception.code,
