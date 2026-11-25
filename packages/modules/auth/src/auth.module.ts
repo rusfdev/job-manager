@@ -1,5 +1,4 @@
 import { Module } from "@nestjs/common";
-import { IdGeneratorModule } from "@repo/id-generator";
 import { AuthController } from "./api/auth.controller.js";
 import { CreateUserHandler } from "./application/commands/create-user/create-user.handler.js";
 import { VerifyCredentialsHandler } from "./application/commands/verify-credentials/verify-credentials.handler.js";
@@ -9,7 +8,6 @@ import { DrizzleUserRepository } from "./infrastructure/drizzle-user.repository.
 import { SessionAuth } from "./infrastructure/session-auth.provider.js";
 
 @Module({
-  imports: [IdGeneratorModule],
   controllers: [AuthController],
   providers: [
     CreateUserHandler,

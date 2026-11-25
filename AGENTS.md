@@ -32,7 +32,6 @@ Documentation and code are written in English.
   imported by every other package
 - [packages/database](packages/database/README.md) — database
   schema and migrations
-- packages/shared/platform/id-generator — NestJS module that generates entity IDs
 - packages/shared/platform/logger — NestJS logger module
 - [packages/contracts](packages/contracts/README.md) — everything that
   crosses a module boundary

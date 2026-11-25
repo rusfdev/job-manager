@@ -19,7 +19,6 @@
     "@repo/common": "workspace:*",
     "@repo/contracts": "workspace:*",
     "@repo/database": "workspace:*",
-    "@repo/id-generator": "workspace:*",
     "@repo/logger": "workspace:*"
   },
   "devDependencies": {

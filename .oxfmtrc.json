@@ -27,14 +27,10 @@
         "groupName": "repo-contracts",
         "elementNamePattern": ["@repo/contracts", "@repo/contracts/**"]
       },
-      // @repo platform packages: database, id-generator, logger
+      // @repo platform packages: database, logger
       {
         "groupName": "repo-database",
         "elementNamePattern": ["@repo/database", "@repo/database/**"]
-      },
-      {
-        "groupName": "repo-id-generator",
-        "elementNamePattern": ["@repo/id-generator"]
       },
       {
         "groupName": "repo-logger",
@@ -64,9 +60,8 @@
       "repo-common",
       // @repo/contracts
       "repo-contracts",
-      // @repo platform packages: database, id-generator, logger
+      // @repo platform packages: database, logger
       "repo-database",
-      "repo-id-generator",
       "repo-logger",
       // @repo auth module
       "repo-auth",

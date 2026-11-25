@@ -1,9 +1,9 @@
 import { type IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { desc, eq } from "drizzle-orm";
+import type { VacancyDto, VacancyId, VacancyStatus } from "@repo/contracts/vacancy";
 import type { Database } from "@repo/database";
 import { vacancies } from "@repo/database/schema";
-import type { VacancyDto, VacancyId, VacancyStatus } from "@repo/contracts/vacancy";
 import { ListVacancyQuery } from "./list-vacancy.query.js";
 
 @QueryHandler(ListVacancyQuery)
