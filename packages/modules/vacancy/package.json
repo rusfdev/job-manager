@@ -19,8 +19,7 @@
   "dependencies": {
     "@repo/common": "workspace:*",
     "@repo/contracts": "workspace:*",
-    "@repo/database": "workspace:*",
-    "@repo/id-generator": "workspace:*"
+    "@repo/database": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/authentication": "catalog:",

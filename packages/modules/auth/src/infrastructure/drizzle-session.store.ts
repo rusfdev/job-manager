@@ -6,9 +6,9 @@ import {
 } from "@nestjs/authentication";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { and, eq, lt } from "drizzle-orm";
+import type { UserId } from "@repo/contracts/auth";
 import type { Database } from "@repo/database";
 import { sessions } from "@repo/database/schema";
-import type { UserId } from "@repo/contracts/auth";
 
 @Injectable()
 export class DrizzleSessionStore implements SessionStore {
