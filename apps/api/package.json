@@ -25,6 +25,7 @@
     "@nestjs/throttler": "catalog:",
     "@repo/auth": "workspace:*",
     "@repo/common": "workspace:*",
+    "@repo/contracts": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/logger": "workspace:*",
     "@repo/vacancy": "workspace:*",

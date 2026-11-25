@@ -6,7 +6,7 @@ import {
   HttpStatus,
 } from "@nestjs/common";
 import { HttpAdapterHost } from "@nestjs/core";
-import type { ApiErrorDto } from "@repo/common/contracts";
+import type { ApiErrorDto } from "@repo/contracts";
 import { AppError, ERROR_KIND, type ErrorKind } from "@repo/common/errors";
 import { Logger } from "@repo/logger";
 

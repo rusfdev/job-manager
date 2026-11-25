@@ -1,4 +1,4 @@
-import { err, ok, type Result } from "@repo/common/utils";
+import { err, ok, type Result } from "@repo/common/result";
 import { InvalidVacancyUrlError } from "./errors/invalid-vacancy-url.error.js";
 
 export class VacancyUrl {

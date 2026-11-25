@@ -9,7 +9,7 @@ import {
 import { Public, SignInService } from "@nestjs/authentication";
 import { CommandBus } from "@nestjs/cqrs";
 import { minutes, Throttle } from "@nestjs/throttler";
-import { unwrapResult } from "@repo/common/utils";
+import { unwrapResult } from "@repo/common/result";
 import { SignInDto, SignUpDto } from "@repo/auth-common";
 import { CreateUserCommand } from "../application/commands/create-user/create-user.command.js";
 import { VerifyCredentialsCommand } from "../application/commands/verify-credentials/verify-credentials.command.js";

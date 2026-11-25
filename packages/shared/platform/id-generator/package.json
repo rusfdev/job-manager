@@ -13,8 +13,7 @@
     "build": "tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit",
     "lint": "oxlint .",
-    "lint:fix": "oxlint --fix .",
-    "test": "vitest run"
+    "lint:fix": "oxlint --fix ."
   },
   "dependencies": {
     "@repo/common": "workspace:*"
@@ -29,7 +28,6 @@
     "reflect-metadata": "catalog:",
     "rxjs": "catalog:",
     "typescript": "catalog:",
-    "vitest": "catalog:",
     "zod": "catalog:"
   },
   "peerDependencies": {

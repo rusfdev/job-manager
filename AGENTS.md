@@ -28,8 +28,8 @@ Documentation and code are written in English.
 - [docs/product.md](docs/product.md) — product description
 - [docs/adr/](docs/adr/) — architecture decisions
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
-- [packages/shared/common](packages/shared/common/README.md) — code shared by frontend and
-  backend
+- [packages/common](packages/common/README.md) — isomorphic base layer
+  imported by every other package
 - [packages/shared/platform/database](packages/shared/platform/database/README.md) — database
   schema and migrations
 - packages/shared/platform/id-generator — NestJS module that generates entity IDs
