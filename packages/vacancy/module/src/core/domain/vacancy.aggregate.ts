@@ -1,5 +1,5 @@
 import { AggregateRoot } from "@nestjs/cqrs";
-import { err, ok, type Result } from "@repo/common/utils";
+import { err, ok, type Result } from "@repo/common/result";
 import type { UserId } from "@repo/auth-common";
 import { VacancyStatus, type VacancyId, type VacancyTransition } from "@repo/vacancy-common";
 import { InvalidVacancyTransitionError } from "./errors/invalid-vacancy-transition.error.js";

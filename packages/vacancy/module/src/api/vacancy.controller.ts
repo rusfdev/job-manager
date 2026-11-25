@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from "@nestjs/common";
 import { CurrentUser } from "@nestjs/authentication";
 import { CommandBus, QueryBus } from "@nestjs/cqrs";
-import { unwrapResult } from "@repo/common/utils";
+import { unwrapResult } from "@repo/common/result";
 import type { Principal } from "@repo/auth-common";
 import {
   CreateVacancyDto,

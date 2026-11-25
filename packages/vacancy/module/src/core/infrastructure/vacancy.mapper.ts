@@ -1,4 +1,4 @@
-import { unwrapResult } from "@repo/common/utils";
+import { unwrapResult } from "@repo/common/result";
 import type { InsertVacancy, SelectVacancy } from "@repo/database/schema";
 import type { UserId } from "@repo/auth-common";
 import type { VacancyId, VacancyStatus } from "@repo/vacancy-common";
