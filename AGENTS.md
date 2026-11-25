@@ -21,7 +21,7 @@ Documentation and code are written in English.
 - `pnpm db:migrate` — apply pending migrations; needs `pnpm db:up` first.
 - `pnpm db:studio` — browse the local database in Drizzle Studio.
 - `pnpm db:generate` — write a migration from schema changes in
-  packages/shared/platform/database.
+  packages/database.
 
 ## Where things are
 
@@ -30,7 +30,7 @@ Documentation and code are written in English.
 - apps/api — NestJS API; apps/api/bruno — Bruno collection
 - [packages/common](packages/common/README.md) — isomorphic base layer
   imported by every other package
-- [packages/shared/platform/database](packages/shared/platform/database/README.md) — database
+- [packages/database](packages/database/README.md) — database
   schema and migrations
 - packages/shared/platform/id-generator — NestJS module that generates entity IDs
 - packages/shared/platform/logger — NestJS logger module
