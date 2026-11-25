@@ -1,12 +1,9 @@
-export const ERROR_KIND = {
-  NOT_FOUND: "not_found",
+export const ErrorKind = {
+  VALIDATION: "validation",
   UNAUTHENTICATED: "unauthenticated",
   FORBIDDEN: "forbidden",
-  VALIDATION: "validation",
+  NOT_FOUND: "not_found",
   CONFLICT: "conflict",
-  RATE_LIMIT: "rate_limit",
-  UNAVAILABLE: "unavailable",
-  INTERNAL: "internal",
 } as const;
 
-export type ErrorKind = (typeof ERROR_KIND)[keyof typeof ERROR_KIND];
+export type ErrorKind = (typeof ErrorKind)[keyof typeof ErrorKind];

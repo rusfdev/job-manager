@@ -1,10 +1,9 @@
-import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/common/errors";
+import { UnauthenticatedError, type CustomErrorOptions } from "@repo/common/errors";
 
-export class InvalidCredentialsError extends AppError {
-  readonly kind = ERROR_KIND.UNAUTHENTICATED;
+export class InvalidCredentialsError extends UnauthenticatedError {
   readonly code = "INVALID_CREDENTIALS";
 
-  constructor(options?: AppErrorOptions) {
+  constructor(options?: CustomErrorOptions) {
     super("Invalid email or password", options);
   }
 }

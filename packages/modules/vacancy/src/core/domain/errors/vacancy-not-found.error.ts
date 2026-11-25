@@ -1,10 +1,9 @@
-import { AppError, type AppErrorOptions, ERROR_KIND } from "@repo/common/errors";
+import { NotFoundError, type CustomErrorOptions } from "@repo/common/errors";
 
-export class VacancyNotFoundError extends AppError {
-  readonly kind = ERROR_KIND.NOT_FOUND;
+export class VacancyNotFoundError extends NotFoundError {
   readonly code = "VACANCY_NOT_FOUND";
 
-  constructor(options?: AppErrorOptions) {
+  constructor(options?: CustomErrorOptions) {
     super("Vacancy not found", options);
   }
 }
