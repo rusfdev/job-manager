@@ -3,8 +3,7 @@ packages:
   - "packages/*"
   - "packages/shared/*"
   - "packages/shared/platform/*"
-  - "packages/auth/*"
-  - "packages/vacancy/*"
+  - "packages/modules/*"
 
 catalog:
   "@nestjs/authentication": "^0.1.2"

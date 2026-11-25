@@ -34,13 +34,11 @@ Documentation and code are written in English.
   schema and migrations
 - packages/shared/platform/id-generator — NestJS module that generates entity IDs
 - packages/shared/platform/logger — NestJS logger module
-- packages/auth/common — auth domain values and contracts shared by
-  frontend and backend
-- packages/auth/module — auth NestJS module: domain, commands, persistence,
+- [packages/contracts](packages/contracts/README.md) — everything that
+  crosses a module boundary
+- packages/modules/auth — auth NestJS module: domain, commands, persistence,
   session authentication and HTTP controller
-- packages/vacancy/common — vacancy domain values and contracts shared
-  by frontend and backend
-- packages/vacancy/module — vacancy module, one package with subpaths:
+- packages/modules/vacancy — vacancy module, one package with subpaths:
   `/core` (domain, commands, queries, persistence), `/api` (HTTP controller)
 - packages/shared/oxlint-config, packages/shared/typescript-config — shared lint
   and TypeScript configs
