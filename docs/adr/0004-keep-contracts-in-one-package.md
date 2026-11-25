@@ -1,4 +1,4 @@
-# 0004. Keep contracts as Zod schemas in a shared package
+# 0004. Keep contracts in one package
 
 ## Status
 
@@ -33,11 +33,12 @@ layer or class-based DTOs to get runtime validation on the backend.
 
 ## Decision
 
-Contracts are Zod schemas in `packages/shared`, the single source of
-truth for every shape that crosses an application boundary.
+Contracts live in `packages/contracts`, the single source of truth for
+everything that crosses a module boundary.
 
-- The package contains schemas of domain entities and of request and
-  response bodies. Its only runtime dependency is `zod` from the catalog.
+- The package contains request and response bodies, domain primitives,
+  events between modules, errors, etc. It runs in Node, the browser and
+  the worker. Its only runtime dependency is `zod` from the catalog.
 - TypeScript types are inferred from the schemas with `z.infer` and are
   never declared separately.
 - The backend validates incoming data with NestJS 12 native Zod support
