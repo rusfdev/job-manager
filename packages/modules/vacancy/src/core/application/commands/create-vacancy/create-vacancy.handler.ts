@@ -1,5 +1,6 @@
 import { randomUUIDv7 } from "node:crypto";
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
+import { UniqueConstraintError } from "@repo/common/errors";
 import { err, ok } from "@repo/common/result";
 import { VacancyId } from "@repo/contracts/vacancy";
 import { VacancyAlreadyExistsError } from "../../../domain/errors/vacancy-already-exists.error.js";
@@ -14,11 +15,7 @@ export class CreateVacancyHandler implements ICommandHandler<CreateVacancyComman
 
   async execute(cmd: CreateVacancyCommand) {
     const url = VacancyUrl.create(cmd.url);
-    if (!url.isOk) return url;
-
-    if (await this.vacancyRepo.existsByUrl(cmd.ownerId, url.value)) {
-      return err(new VacancyAlreadyExistsError());
-    }
+    if (!url.isOk) return err(url.error);
 
     const vacancy = Vacancy.create({
       id: VacancyId.parse(randomUUIDv7()),
@@ -28,7 +25,14 @@ export class CreateVacancyHandler implements ICommandHandler<CreateVacancyComman
       description: cmd.description,
     });
 
-    await this.vacancyRepo.save(vacancy);
+    try {
+      await this.vacancyRepo.save(vacancy);
+    } catch (e) {
+      if (e instanceof UniqueConstraintError) {
+        return err(new VacancyAlreadyExistsError());
+      }
+      throw e;
+    }
 
     return ok(vacancy.id);
   }
