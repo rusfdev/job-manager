@@ -15,8 +15,8 @@ export class TransitionVacancyHandler implements ICommandHandler<TransitionVacan
       return err(new VacancyNotFoundError());
     }
 
-    const transitioned = vacancy.transition(cmd.transition);
-    if (!transitioned.isOk) return transitioned;
+    const transition = vacancy.transition(cmd.transition);
+    if (!transition.isOk) return err(transition.error);
 
     await this.vacancyRepo.save(vacancy);
 

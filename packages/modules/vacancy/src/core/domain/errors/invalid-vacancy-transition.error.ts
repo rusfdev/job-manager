@@ -6,6 +6,6 @@ export class InvalidVacancyTransitionError extends CustomError {
   readonly code = "INVALID_VACANCY_TRANSITION";
 
   constructor(transition: VacancyTransition, status: VacancyStatus, options?: CustomErrorOptions) {
-    super(`Cannot ${transition} a vacancy in status ${status}`, options);
+    super(`Cannot ${transition} a vacancy in status: ${status}`, options);
   }
 }
