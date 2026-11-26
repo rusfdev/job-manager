@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Email } from "../model/email.js";
+import { Email } from "../../common/model/email.js";
 
 export const SignInDto = z
   .object({
