@@ -23,11 +23,11 @@ export class DrizzleSessionStore implements SessionStore {
     const [row] = await this.db.select().from(sessions).where(eq(sessions.id, id));
     if (!row) return;
 
-    return { ...row, extra: { user: { id: row.userId as UserId } } };
+    return { ...row, extra: { user: { id: row.userId } } };
   }
 
   async createSession(record: SessionRecord): Promise<void> {
-    await this.db.insert(sessions).values(record);
+    await this.db.insert(sessions).values({ ...record, userId: record.userId as UserId });
     await this.db.delete(sessions).where(lt(sessions.expiresAt, record.createdAt));
   }
 

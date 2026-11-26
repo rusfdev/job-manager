@@ -1,7 +1,7 @@
 import { type IQueryHandler, QueryHandler } from "@nestjs/cqrs";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { desc, eq } from "drizzle-orm";
-import type { VacancyDto, VacancyId, VacancyStatus } from "@repo/contracts/vacancy";
+import type { VacancyDto } from "@repo/contracts/vacancy";
 import type { Database } from "@repo/database";
 import { vacancies } from "@repo/database/schema";
 import { ListVacancyQuery } from "./list-vacancy.query.js";
@@ -18,9 +18,9 @@ export class ListVacancyHandler implements IQueryHandler<ListVacancyQuery> {
       .orderBy(desc(vacancies.createdAt), desc(vacancies.id));
 
     return records.map((record) => ({
-      id: record.id as VacancyId,
+      id: record.id,
       url: record.url,
-      status: record.status as VacancyStatus,
+      status: record.status,
       position: record.position,
       description: record.description,
     }));
