@@ -1,7 +1,6 @@
-import type { DatabaseError } from "pg";
 import { isDatabaseError } from "./is-database-error.js";
+import { isDrizzleQueryError } from "./is-drizzle-query-error.js";
 
-export function isUniqueViolationError(e: unknown): e is DatabaseError {
-  if (!isDatabaseError(e)) return false;
-  return e.code === "23505";
+export function isUniqueViolationError(e: unknown): boolean {
+  return isDrizzleQueryError(e) && isDatabaseError(e.cause) && e.cause.code === "23505";
 }
