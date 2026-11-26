@@ -1,4 +1,5 @@
 import { index, snakeCase, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import type { UserId } from "@repo/contracts/auth";
 import { users } from "./users.js";
 
 export const sessions = snakeCase.table(
@@ -6,6 +7,7 @@ export const sessions = snakeCase.table(
   {
     id: text().primaryKey(),
     userId: uuid()
+      .$type<UserId>()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     createdAt: timestamp({ withTimezone: true }).notNull(),

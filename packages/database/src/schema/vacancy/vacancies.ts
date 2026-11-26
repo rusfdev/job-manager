@@ -1,17 +1,20 @@
 import { index, snakeCase, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import type { UserId } from "@repo/contracts/auth";
+import type { VacancyId, VacancyStatus } from "@repo/contracts/vacancy";
 import { users } from "../auth/users.js";
 
 export const vacancies = snakeCase.table(
   "vacancies",
   {
-    id: uuid().primaryKey(),
+    id: uuid().$type<VacancyId>().primaryKey(),
     ownerId: uuid()
+      .$type<UserId>()
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     url: text().notNull(),
     position: text().notNull(),
     description: text().notNull(),
-    status: text().notNull(),
+    status: text().$type<VacancyStatus>().notNull(),
     createdAt: timestamp({ withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp({ withTimezone: true })
       .notNull()

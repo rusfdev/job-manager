@@ -3,7 +3,6 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
 import { UniqueConstraintError } from "@repo/common/errors";
 import type { Email } from "@repo/contracts";
-import type { UserId } from "@repo/contracts/auth";
 import type { Database } from "@repo/database";
 import { users } from "@repo/database/schema";
 import { isUniqueViolation } from "@repo/database/utils";
@@ -25,8 +24,8 @@ export class DrizzleUserRepository implements UserRepository {
     if (!row) return null;
 
     return User.restore({
-      id: row.id as UserId,
-      email: row.email as Email,
+      id: row.id,
+      email: row.email,
       passwordHash: row.passwordHash,
     });
   }
