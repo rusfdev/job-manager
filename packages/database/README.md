@@ -14,8 +14,10 @@ Database schema, relations and SQL migrations for PostgreSQL with Drizzle.
   level.
 - Tables are exported from `src/schema/index.ts`; relations are built from
   them in `src/relations.ts`.
-- Driver-level helpers for consumers, such as `isUniqueViolation`, are
-  exported from `src/utils/index.ts` as `@repo/database/utils`.
+- The package has a single entry point `@repo/database`: `src/index.ts`
+  re-exports the client factory, the schema from `src/schema/index.ts` and
+  driver-level helpers such as `isUniqueViolationError` from
+  `src/utils/index.ts`.
 - Migrations in `drizzle/` are generated, committed and never edited by
   hand. A mistake is fixed with a new migration.
 - Every schema change stays backward compatible within one release.

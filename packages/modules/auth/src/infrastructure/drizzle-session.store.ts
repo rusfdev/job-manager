@@ -7,8 +7,7 @@ import {
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { and, eq, lt } from "drizzle-orm";
 import type { UserId } from "@repo/contracts/auth";
-import type { Database } from "@repo/database";
-import { sessions } from "@repo/database/schema";
+import { type Database, sessions } from "@repo/database";
 
 @Injectable()
 export class DrizzleSessionStore implements SessionStore {
