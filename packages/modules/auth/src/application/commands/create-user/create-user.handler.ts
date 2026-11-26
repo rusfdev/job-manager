@@ -17,10 +17,7 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
     private readonly logger: Logger,
   ) {}
 
-  async execute({
-    email,
-    password,
-  }: CreateUserCommand): Promise<Result<UserId, EmailAlreadyExistsError>> {
+  async execute({ email, password }: CreateUserCommand) {
     const passwordHash = await this.passwordHasher.hash(password);
 
     const user = User.create({

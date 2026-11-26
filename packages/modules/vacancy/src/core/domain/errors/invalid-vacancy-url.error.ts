@@ -1,6 +1,7 @@
-import { ValidationError, type CustomErrorOptions } from "@repo/common/errors";
+import { CustomError, type CustomErrorOptions, ErrorKind } from "@repo/common/errors";
 
-export class InvalidVacancyUrlError extends ValidationError {
+export class InvalidVacancyUrlError extends CustomError {
+  readonly kind = ErrorKind.VALIDATION;
   readonly code = "INVALID_VACANCY_URL";
 
   constructor(options?: CustomErrorOptions) {

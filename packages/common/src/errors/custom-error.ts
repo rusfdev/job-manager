@@ -1,4 +1,4 @@
-import { type ErrorKind } from "./error-kind.js";
+import type { ErrorKind } from "./error-kind.js";
 
 export interface CustomErrorOptions extends ErrorOptions {}
 
