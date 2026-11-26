@@ -1,5 +1,6 @@
 import { AggregateRoot } from "@nestjs/cqrs";
-import { type Email, type UserId } from "@repo/contracts/auth";
+import type { Email } from "@repo/contracts";
+import { type UserId } from "@repo/contracts/auth";
 
 export interface UserProps {
   id: UserId;

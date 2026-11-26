@@ -1,5 +1,5 @@
 import type { Result } from "@repo/common/result";
-import type { Email } from "@repo/contracts/auth";
+import type { Email } from "@repo/contracts";
 import type { EmailAlreadyExistsError } from "./errors/email-already-exists.error.js";
 import { type User } from "./user.aggregate.js";
 
