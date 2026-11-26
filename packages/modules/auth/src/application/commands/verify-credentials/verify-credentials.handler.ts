@@ -1,7 +1,6 @@
 import { PasswordHasher } from "@nestjs/authentication";
 import { CommandHandler, type ICommandHandler } from "@nestjs/cqrs";
-import { err, ok, type Result } from "@repo/common/result";
-import type { UserId } from "@repo/contracts/auth";
+import { err, ok } from "@repo/common/result";
 import { InvalidCredentialsError } from "../../../domain/errors/invalid-credentials.error.js";
 import { UserRepository } from "../../../domain/user.repository.js";
 import { VerifyCredentialsCommand } from "./verify-credentials.command.js";
@@ -13,10 +12,7 @@ export class VerifyCredentialsHandler implements ICommandHandler<VerifyCredentia
     private readonly passwordHasher: PasswordHasher,
   ) {}
 
-  async execute({
-    email,
-    password,
-  }: VerifyCredentialsCommand): Promise<Result<UserId, InvalidCredentialsError>> {
+  async execute({ email, password }: VerifyCredentialsCommand) {
     const user = await this.userRepo.findByEmail(email);
     const isValid = await this.passwordHasher.verify(password, user?.passwordHash);
 

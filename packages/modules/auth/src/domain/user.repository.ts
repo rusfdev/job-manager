@@ -1,10 +1,8 @@
-import type { Result } from "@repo/common/result";
 import type { Email } from "@repo/contracts";
-import type { EmailAlreadyExistsError } from "./errors/email-already-exists.error.js";
 import { type User } from "./user.aggregate.js";
 
 export abstract class UserRepository {
-  abstract add(user: User): Promise<Result<void, EmailAlreadyExistsError>>;
-  abstract findByEmail(email: Email): Promise<User | undefined>;
+  abstract existsByEmail(email: Email): Promise<boolean>;
+  abstract findByEmail(email: Email): Promise<User | null>;
   abstract save(user: User): Promise<void>;
 }

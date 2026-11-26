@@ -1,12 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
-import { err, ok, type Result } from "@repo/common/result";
+import { UniqueConstraintError } from "@repo/common/errors";
 import type { Email } from "@repo/contracts";
 import type { UserId } from "@repo/contracts/auth";
 import type { Database } from "@repo/database";
 import { users } from "@repo/database/schema";
-import { EmailAlreadyExistsError } from "../domain/errors/email-already-exists.error.js";
+import { isUniqueViolation } from "@repo/database/utils";
 import { User } from "../domain/user.aggregate.js";
 import { UserRepository } from "../domain/user.repository.js";
 
@@ -14,23 +14,15 @@ import { UserRepository } from "../domain/user.repository.js";
 export class DrizzleUserRepository implements UserRepository {
   constructor(@InjectDrizzle() private readonly db: Database) {}
 
-  async add({ id, email, passwordHash }: User): Promise<Result<void, EmailAlreadyExistsError>> {
-    const [row] = await this.db
-      .insert(users)
-      .values({ id, email, passwordHash })
-      .onConflictDoNothing({ target: users.email })
-      .returning({ id: users.id });
-
-    return row ? ok() : err(new EmailAlreadyExistsError());
+  async existsByEmail(email: Email): Promise<boolean> {
+    const [row] = await this.db.select({ id: users.id }).from(users).where(eq(users.email, email));
+    return row !== undefined;
   }
 
-  async findByEmail(email: Email): Promise<User | undefined> {
-    const [row] = await this.db
-      .select({ id: users.id, email: users.email, passwordHash: users.passwordHash })
-      .from(users)
-      .where(eq(users.email, email));
+  async findByEmail(email: Email): Promise<User | null> {
+    const [row] = await this.db.select().from(users).where(eq(users.email, email));
 
-    if (!row) return;
+    if (!row) return null;
 
     return User.restore({
       id: row.id as UserId,
@@ -40,6 +32,16 @@ export class DrizzleUserRepository implements UserRepository {
   }
 
   async save({ id, email, passwordHash }: User): Promise<void> {
-    await this.db.update(users).set({ email, passwordHash }).where(eq(users.id, id));
+    try {
+      await this.db
+        .insert(users)
+        .values({ id, email, passwordHash })
+        .onConflictDoUpdate({ target: users.id, set: { email, passwordHash } });
+    } catch (e) {
+      if (isUniqueViolation(e)) {
+        throw new UniqueConstraintError({ cause: e });
+      }
+      throw e;
+    }
   }
 }
