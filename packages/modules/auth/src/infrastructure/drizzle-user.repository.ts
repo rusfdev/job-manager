@@ -3,9 +3,7 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
 import { UniqueConstraintError } from "@repo/common/errors";
 import type { Email } from "@repo/contracts";
-import type { Database } from "@repo/database";
-import { users } from "@repo/database/schema";
-import { isUniqueViolation } from "@repo/database/utils";
+import { type Database, isUniqueViolationError, users } from "@repo/database";
 import { User } from "../domain/user.aggregate.js";
 import { UserRepository } from "../domain/user.repository.js";
 
@@ -37,7 +35,7 @@ export class DrizzleUserRepository implements UserRepository {
         .values({ id, email, passwordHash })
         .onConflictDoUpdate({ target: users.id, set: { email, passwordHash } });
     } catch (e) {
-      if (isUniqueViolation(e)) {
+      if (isUniqueViolationError(e)) {
         throw new UniqueConstraintError({ cause: e });
       }
       throw e;

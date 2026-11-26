@@ -3,9 +3,7 @@ import { InjectDrizzle } from "@nestjs/drizzle";
 import { eq } from "drizzle-orm";
 import { UniqueConstraintError } from "@repo/common/errors";
 import type { VacancyId } from "@repo/contracts/vacancy";
-import type { Database } from "@repo/database";
-import { vacancies } from "@repo/database/schema";
-import { isUniqueViolation } from "@repo/database/utils";
+import { type Database, isUniqueViolationError, vacancies } from "@repo/database";
 import type { Vacancy } from "../domain/vacancy.aggregate.js";
 import { VacancyRepository } from "../domain/vacancy.repository.js";
 import { VacancyMapper } from "./vacancy.mapper.js";
@@ -29,7 +27,7 @@ export class DrizzleVacancyRepository implements VacancyRepository {
         set: { url, position, description, status },
       });
     } catch (e) {
-      if (isUniqueViolation(e)) {
+      if (isUniqueViolationError(e)) {
         throw new UniqueConstraintError({ cause: e });
       }
       throw e;

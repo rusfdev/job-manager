@@ -1,5 +1,5 @@
 import { unwrapResult } from "@repo/common/result";
-import type { InsertVacancy, SelectVacancy } from "@repo/database/schema";
+import type { InsertVacancy, SelectVacancy } from "@repo/database";
 import { VacancyUrl } from "../domain/vacancy-url.js";
 import { Vacancy } from "../domain/vacancy.aggregate.js";
 

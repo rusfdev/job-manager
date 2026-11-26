@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "ignorePatterns": ["packages/database/drizzle/**"],
+  "ignorePatterns": ["packages/database/drizzle/**", ".claude/**"],
   "sortImports": {
     "newlinesBetween": false,
     "customGroups": [
@@ -30,7 +30,7 @@
       // @repo platform packages: database, logger
       {
         "groupName": "repo-database",
-        "elementNamePattern": ["@repo/database", "@repo/database/**"]
+        "elementNamePattern": ["@repo/database"]
       },
       {
         "groupName": "repo-logger",
